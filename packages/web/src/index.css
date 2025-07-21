@@ -1,6 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+.font-space-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+.font-share-tech-mono {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* === HERO SECTION UTILITY CLASSES === */
+.hero-title {
+  @apply text-2xl font-bold my-3 font-share-tech-mono;
+}
+
+.hero-desc {
+  @apply text-base text-gray-600 font-space-mono;
+}
+
+.hero-section {
+  @apply flex flex-col w-[900px];
+}
+
+.hero-hypo-section {
+  @apply flex flex-col mt-4 w-[540px];
+}
+
+.hero-list-title {
+  @apply text-base font-bold my-1 text-right text-cyan-700 font-share-tech-mono mb-4;
+}
+
+.hero-list-item {
+  @apply text-[12px] font-normal text-left text-cyan-700 my-1 font-space-mono hover:text-gray-500 cursor-pointer hover:font-bold;
+}
+
+.hero-list-bullet {
+  @apply text-[12px] font-normal text-left text-gray-500 my-1 font-space-mono mr-2 hover:text-cyan-700 cursor-pointer hover:font-bold;
+}
+
+.hero-grid {
+  @apply w-screen h-screen grid grid-cols-[0.5fr_800px_0.5fr_0.1fr_300px_0.1fr] grid-rows-[1fr_1fr_1fr];
+}
+
+/* === END HERO SECTION UTILITY CLASSES === */
+
 
 /* ZkCloud Fonts - TASA Orbiter Display */
 @font-face {
