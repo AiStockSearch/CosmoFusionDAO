@@ -1,46 +1,87 @@
-# Getting Started with Create React App
+# CosmoFusion DAO — Web Landing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Лендинг для гранта Cosmos x FIRE. Реализован на React с Tailwind CSS, поддерживает локализацию (RU/EN), адаптивность, плавные анимации, SEO и OpenGraph.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Структура проекта
 
-### `npm start`
+- `src/landing-content.json` — контент всех секций лендинга (локализация ru/en)
+- `src/types/landing.ts` — типы для секций
+- `src/LandingPage.tsx` — главный компонент лендинга
+- `src/components/` — компоненты (LandingSection, LanguageSwitcher, LandingNav, ScrollToTopButton)
+- `src/hooks/useFadeInOnScroll.ts` — анимация появления секций
+- `tailwind.config.js` — конфигурация Tailwind CSS с кастомными цветами и анимациями
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Технологии
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **React 19** — основной фреймворк
+- **TypeScript** — типизация
+- **Tailwind CSS** — стилизация (утилитарные классы)
+- **PostCSS** — обработка CSS
+- **Jest + RTL** — тестирование
 
-### `npm test`
+## Как обновлять контент
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Откройте `src/landing-content.json`.
+2. Измените или добавьте секцию (соблюдайте структуру и переводы ru/en).
+3. Сохраните файл — изменения появятся на лендинге автоматически.
 
-### `npm run build`
+## Стилизация компонентов
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Проект использует **Tailwind CSS** для стилизации:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```tsx
+// Пример использования Tailwind классов
+<div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-200">
+  <h2 className="text-3xl font-bold text-primary-600">
+    Заголовок
+  </h2>
+</div>
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Кастомные цвета:
+- `primary-600` — основной синий цвет
+- `secondary-600` — дополнительный фиолетовый цвет
 
-### `npm run eject`
+### Анимации:
+- `animate-fade-in` — плавное появление
+- `animate-slide-up` — появление снизу
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Запуск и тесты
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+npm start         # локальный запуск
+npm test          # юнит-тесты (Jest + RTL)
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Деплой на GitHub Pages
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Убедитесь, что поле `homepage` в package.json корректно (https://jsnanodegree.github.io/cosmofusion-dao/)
+2. Выполните:
 
-## Learn More
+```bash
+npm run deploy
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## SEO и OpenGraph
+- Title и description выставляются динамически
+- OpenGraph-теги прописаны в public/index.html
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Адаптивность и анимации
+- Лендинг адаптивен для мобильных и десктопов
+- Секции плавно появляются при прокрутке
+- Используются Tailwind responsive классы (md:, lg:)
+
+## Локализация
+- Переключатель RU/EN в правом верхнем углу
+- Все секции поддерживают оба языка
+
+---
+
+**Вопросы и доработки:**
+- Для расширения секций — просто добавьте их в JSON
+- Для новых языков — добавьте ключи в каждую секцию
+- Для стилизации — используйте Tailwind утилиты
+- Для кастомных стилей — добавьте в tailwind.config.js
