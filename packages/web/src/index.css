@@ -14,11 +14,11 @@
 
 /* === HERO SECTION UTILITY CLASSES === */
 .hero-title {
-  @apply text-2xl font-bold my-3 font-share-tech-mono;
+  @apply text-[1.2rem] font-bold my-3 font-share-tech-mono;
 }
 
 .hero-desc {
-  @apply text-base text-gray-600 font-space-mono;
+  @apply text-[0.9rem] text-gray-600 font-space-mono;
 }
 
 .hero-section {
@@ -30,15 +30,15 @@
 }
 
 .hero-list-title {
-  @apply text-base font-bold my-1 text-right text-cyan-700 font-share-tech-mono mb-4;
+  @apply text-[1.2rem] font-bold my-1 text-right text-cyan-700 font-share-tech-mono mb-4;
 }
 
 .hero-list-item {
-  @apply text-[12px] font-normal text-left text-cyan-700 my-1 font-space-mono hover:text-gray-500 cursor-pointer hover:font-bold;
+  @apply text-[0.9rem] font-normal text-left text-cyan-700 my-1 font-space-mono hover:text-gray-500 cursor-pointer hover:font-bold;
 }
 
 .hero-list-bullet {
-  @apply text-[12px] font-normal text-left text-gray-500 my-1 font-space-mono mr-2 hover:text-cyan-700 cursor-pointer hover:font-bold;
+  @apply text-[1.2rem] font-normal text-left text-gray-500 my-1 font-space-mono mr-2 hover:text-cyan-700 cursor-pointer hover:font-bold;
 }
 
 .hero-grid {
