@@ -1,7 +1,7 @@
 body {
-  background: #f7f9fb;
+  background: var(--color-bg-main);
   margin: 0;
-  color: #222;
+  color: var(--color-text-main);
 }
 
 .landing-root {
@@ -11,21 +11,21 @@ body {
 }
 
 .landing-section {
-  background: #fff;
+  background: var(--color-bg-white);
   border-radius: 18px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  box-shadow: var(--color-shadow-main);
   margin: 32px 0;
   padding: 32px 24px 24px 24px;
   transition: box-shadow 0.2s;
 }
 .landing-section:hover {
-  box-shadow: 0 4px 24px rgba(25,118,210,0.08);
+  box-shadow: var(--color-shadow-hover);
 }
 
 .landing-section h2 {
   margin-top: 0;
   font-size: 2rem;
-  color: #1976d2;
+  color: var(--color-text-accent);
 }
 .landing-section h3 {
   margin: 0 0 12px 0;

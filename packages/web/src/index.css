@@ -21,6 +21,27 @@
   @apply text-[0.9rem] text-gray-600 font-space-mono;
 }
 
+/* === HERO SECTION UTILITY CLASSES === */
+.jobs-title {
+  @apply text-[1rem] font-bold my-3 font-space-mono;
+}
+
+.jobs-header {
+  @apply text-[1.5rem] font-bold mt-3 font-share-tech-mono;
+}
+
+.jobs-header-desc {
+  @apply text-[1.2rem] font-space-mono;
+}
+
+.jobs-desc {
+  @apply text-[0.8rem] text-gray-600 font-space-mono font-normal;
+}
+
+.jobs-desc-bold {
+  @apply text-[0.9rem] text-gray-600 font-space-mono font-bold;
+}
+
 .hero-section {
   @apply flex flex-col w-[900px];
 }
@@ -122,6 +143,46 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* === ГЛОБАЛЬНАЯ ПАЛИТРА ЦВЕТОВ === */
+:root {
+  --color-bg-main: #f7f9fb;
+  --color-bg-white: #fff;
+  --color-bg-accent: #F5F8FE;
+  --color-bg-gray-100: #f3f4f6;
+  --color-bg-gray-200: #e5e7eb;
+  --color-bg-gray-300: #d1d5db;
+  --color-bg-cyan-700: #0e7490;
+  --color-bg-blue-600: #2563eb;
+  --color-bg-purple-600: #7c3aed;
+  --color-bg-cyan-900: #164e63;
+  --color-bg-gradient-blue: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
+
+  --color-text-main: #222;
+  --color-text-accent: #1976d2;
+  --color-text-gray-400: #9ca3af;
+  --color-text-gray-500: #6b7280;
+  --color-text-gray-600: #4b5563;
+  --color-text-gray-900: #111827;
+  --color-text-cyan-700: #0e7490;
+  --color-text-cyan-900: #164e63;
+  --color-text-blue-400: #60a5fa;
+  --color-text-white: #fff;
+  --color-text-purple-600: #7c3aed;
+
+  --color-border-cyan-700: #0e7490;
+  --color-border-blue-600: #2563eb;
+  --color-border-gray-200: #e5e7eb;
+  --color-border-accent: #1976d2;
+
+  --color-shadow-main: 0 2px 12px rgba(0,0,0,0.04);
+  --color-shadow-hover: 0 4px 24px rgba(25,118,210,0.08);
+  --color-shadow-xs: 0 1px 6px rgba(0,0,0,0.03);
+
+  --color-special-1: #61dafb;
+  --color-special-2: #282c34;
+}
+/* === END ГЛОБАЛЬНАЯ ПАЛИТРА ЦВЕТОВ === */
 
 @layer base {
   body {

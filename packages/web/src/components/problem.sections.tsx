@@ -36,21 +36,21 @@ const ProblemSection: React.FC<ProblemSectionProps> = ( { problemPageEn } ) =>
         </div>
         <div className="col-start-3 col-end-4 row-start-1 row-end-1">
           <div className="flex flex-col items-start mt-10 bg-white w-[550px] pl-12 gap-4">
-            <span className="text-[2.6rem] text-left mb-4 font-bold font-share-tech-mono">
+            <span className="problem-title text-[2.6rem] text-left mb-4 font-bold font-share-tech-mono" style={{ color: 'var(--color-text-gray-900)' }}>
               {problemPageEn.title}
             </span>
-            <p className="text-left text-[0.9rem] leading-relaxed font-space-mono text-gray-600">
+            <p className="problem-desc text-left text-[0.9rem] leading-relaxed font-space-mono" style={{ color: 'var(--color-text-gray-600)' }}>
               {problemPageEn.intro}
             </p>
            
             {problemPageEn.process && (
-              <div className="flex flex-col items-start justify-start border-2 border-cyan-700 rounded-md p-2 px-4">
-                <span className="hero-title text-[0.9rem] text-gray-900 mb-2">
+              <div className="flex flex-col items-start justify-start border-2 rounded-md p-2 px-4" style={{ borderColor: 'var(--color-border-cyan-700)' }}>
+                <span className="hero-title text-[0.9rem] mb-2" style={{ color: 'var(--color-text-gray-900)' }}>
                   {problemPageEn.process.title}
                 </span>
                 <ul className="list-disc list-inside">
                   {problemPageEn.process.steps.map( ( step, idx ) => (
-                    <li key={idx} className="text-[0.8rem] font-share-tech-mono text-cyan-700 leading-relaxed mb-2 hover:text-gray-500 cursor-pointer hover:font-bold">
+                    <li key={idx} className="text-[0.8rem] font-share-tech-mono leading-relaxed mb-2 hover:font-bold" style={{ color: 'var(--color-text-cyan-700)' }}>
                       {step}
                     </li>
                   ) )}
@@ -62,7 +62,7 @@ const ProblemSection: React.FC<ProblemSectionProps> = ( { problemPageEn } ) =>
         </div>
         <div className="col-start-2 col-end-4 row-start-2 row-end-2">
           <div className="my-4">
-            <span className="hero-title text-cyan-900 text-[1.2rem] leading-relaxed">
+            <span className="hero-title text-[1.2rem] leading-relaxed" style={{ color: 'var(--color-text-cyan-900)' }}>
               {problemPageEn.quote}
             </span>
           </div>
@@ -73,10 +73,10 @@ const ProblemSection: React.FC<ProblemSectionProps> = ( { problemPageEn } ) =>
                 className="flex flex-col items-start justify-start"
                 key={idx}
               >
-                <span className="hero-title text-[1.2rem] text-gray-900 mb-2">
+                <span className="hero-title text-[1.2rem] mb-2" style={{ color: 'var(--color-text-gray-900)' }}>
                   {x.title}
                 </span>
-                <span className="hero-desc text-[0.9rem] leading-relaxed mb-4">
+                <span className="hero-desc text-[0.9rem] leading-relaxed mb-4" style={{ color: 'var(--color-text-gray-600)' }}>
                   {x.description}
                 </span>
               </div>

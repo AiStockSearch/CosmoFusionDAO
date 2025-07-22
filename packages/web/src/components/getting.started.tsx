@@ -9,7 +9,7 @@ interface GettingStarterData {
 
 const UseCases:React.FC<{gettingStarterData:GettingStarterData}> = ({gettingStarterData}) => {
   return (
-    <section className="w-screen grid grid-cols-[0.4fr_1.1fr_0.4fr_0.1fr_300px_0.1fr]  grid-rows-[1fr_2.7fr_1fr] my-16">
+    <section className="w-screen grid grid-cols-[0.4fr_1.1fr_0.4fr_0.1fr_300px_0.1fr] grid-rows-[1fr_32rem_1fr] my-16">
       <div className="col-start-2 col-end-3 row-span-1">
         <div className="my-4 flex-col flex">
           <span className="text-[2.6rem] text-left mb-4 font-bold font-share-tech-mono">
@@ -20,7 +20,7 @@ const UseCases:React.FC<{gettingStarterData:GettingStarterData}> = ({gettingStar
           </span>
         </div>
       </div>
-      <div className="col-start-2 col-end-4 row-span-3 pb-10">
+      <div className="col-start-2 col-end-4 row-span-2">
         <CardBuilder />
       </div>
       <div className="col-start-2 col-end-3 row-span-3">
@@ -35,7 +35,7 @@ const UseCases:React.FC<{gettingStarterData:GettingStarterData}> = ({gettingStar
                 className="flex flex-row items-start justify-start"
               >
                 <span className="hero-desc leading-relaxed pr-2">*</span>
-                <span className="hero-desc leading-relaxed ">{x}</span>
+                <span className="hero-desc leading-relaxed">{x}</span>
               </div>
             );
           })}
