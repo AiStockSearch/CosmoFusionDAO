@@ -1,15 +1,14 @@
-import React from "react";
-import { SocialButton } from "../components/footer.socialButton";
-import { HeroBlock } from "../components/footer.heroBlock";
 import { FooterColumnLinks } from "../components/footer.columnLinks";
+import { HeroBlock } from "../components/footer.heroBlock";
+import { SocialButton } from "../components/footer.socialButton";
 import { SubscribeColumn } from "../components/footer.subscribeColumn";
 import footer from "../content/footer";
 
 const Footer = () =>
 {
   return (
-    <footer className="bg-white border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col xl:flex-row gap-4" >
+    <footer className="mr-[26rem] ml-[18rem] mt-20">
+      <div className="flex flex-col xl:flex-row gap-4" >
         <HeroBlock
           title={footer.title}
           description={footer.description}
@@ -24,7 +23,7 @@ const Footer = () =>
               links={footer.links}
               title={footer.linksTitle}
             />
-            <div className="flex flex-col gap-4 w-1/2">
+            <div className="flex flex-col gap-4 w-[20rem]">
               <FooterColumnLinks
                 links={footer.more}
                 title={footer.moreTitle}
@@ -35,7 +34,7 @@ const Footer = () =>
         </div>
 
       </div>
-      <div className="border-t border-gray-200 py-8">
+      <div className="my-20">
         <SocialButton
           links={footer.socialLinks}
         />
