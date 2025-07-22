@@ -22,6 +22,31 @@
 }
 
 /* === HERO SECTION UTILITY CLASSES === */
+.problem-title {
+  @apply text-[1.8rem] font-bold font-share-tech-mono leading-relaxed;
+}
+
+.problem-desc {
+  @apply text-[0.9rem] text-gray-600 font-space-mono leading-relaxed;
+}
+
+.problem-process-div {
+  @apply flex flex-col items-start justify-start border-2 rounded-md p-2 px-4 border-cyan-700;
+}
+
+.problem-process-title {
+  @apply text-[0.9rem]  text-gray-600 font-space-mono leading-relaxed;
+}
+
+.problem-process-item{
+  @apply text-[0.8rem] font-share-tech-mono leading-relaxed mb-2 hover:font-bold text-cyan-700;
+}
+
+.problem-quote{
+  @apply text-[1.2rem] text-cyan-900 font-share-tech-mono font-bold leading-relaxed;
+}
+
+/* === HERO SECTION UTILITY CLASSES === */
 .jobs-title {
   @apply text-[1rem] font-bold my-3 font-space-mono;
 }
@@ -63,7 +88,7 @@
 }
 
 .hero-grid {
-  @apply w-screen h-screen grid grid-cols-[0_auto_0_0_0_0] lg:grid-cols-[1fr_rem_0.5fr_0_0_1fr] xl:grid-cols-[14rem_64rem_0.5fr_0.1fr_300px_0.1fr] grid-rows-[32rem_1fr_1fr] md:grid-rows-[2fr_1fr_1fr];
+  @apply w-screen h-auto grid grid-cols-[0_auto_0_0_0_0] lg:grid-cols-[1fr_rem_0.5fr_0_0_1fr] xl:grid-cols-[14rem_64rem_0.5fr_0.1fr_300px_0.1fr] grid-rows-[0px_350px_56rem] md:grid-rows-[0.01fr_1fr_0.7fr];
 }
 
 /* === END HERO SECTION UTILITY CLASSES === */

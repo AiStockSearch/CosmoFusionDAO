@@ -39,21 +39,21 @@ const LandingPage: React.FC = () =>
       <HeroSection
         heroPageEn={heroPageEn}
       />
-      {/* <ProblemSection
+      <ProblemSection
         problemPageEn={problemPageEn}
       />
-      <Reflections
+      {/* <Reflections
         reflectionsPageEn={reflectionPageEn}
-      />
+      /> */}
       <ProblemSection
         problemPageEn={solutionsPageEn}
       />
-      <Reflections
+      {/* <Reflections
         reflectionsPageEn={governancePageEn}
-      />
+      /> */}
       <ProblemSection
         problemPageEn={evolutionPageEn}
-      /> */}
+      />
 
 
       {/* <div className="flex flex-col items-center justify-center h-1/4 bg-gray-200 py-14">

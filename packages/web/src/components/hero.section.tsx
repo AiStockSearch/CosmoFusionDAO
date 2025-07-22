@@ -31,16 +31,16 @@ const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
 {
   return (
     <>
-      <section className="hero-grid pb-16">
+      <section className="hero-grid">
         <div className="col-start-2 col-end-4 row-start-1 row-end-3 overflow-hidden mt-10 bg-gray-300 p-2 rounded-[34px] shadow-sm">
           <img
             src={astronautPng}
             alt="astronaut"
-            className="flex w-full h-full min-h-[25rem] object-cover rounded-[32px]"
+            className="flex w-full h-full min-h-[25rem] max-h-[38rem] object-cover rounded-[32px]"
           />
         </div>
         <div className="col-start-2 col-end-3 row-start-3 row-end-3 mt-4">
-          <div className="flex flex-col items-start px-6 bg-white xl:w-[52rem]">
+          <div className="flex flex-col items-start px-6 xl:w-[52rem]">
             <h2 className="hero-title text-4xl mb-4">
               {heroPageEn.idea.title}
             </h2>
