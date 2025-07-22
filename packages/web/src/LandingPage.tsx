@@ -39,7 +39,7 @@ const LandingPage: React.FC = () =>
       <HeroSection
         heroPageEn={heroPageEn}
       />
-      <ProblemSection
+      {/* <ProblemSection
         problemPageEn={problemPageEn}
       />
       <Reflections
@@ -53,18 +53,18 @@ const LandingPage: React.FC = () =>
       />
       <ProblemSection
         problemPageEn={evolutionPageEn}
-      />
+      /> */}
 
 
-      <div className="flex flex-col items-center justify-center h-1/4 bg-gray-200 py-14">
+      {/* <div className="flex flex-col items-center justify-center h-1/4 bg-gray-200 py-14">
         <span className="text-[1.2rem] text-gray-900 text-center w-[42rem] font-bold font-space-mono">
           Truth in Motion is not just a beautiful phrase. It's the principle by which our entire platform works. There are no final answers here, only constant search, collective evolution, endless approximation to truth.
         </span>
-      </div>
+      </div> */}
 
-      <UseCases />
+      {/* <UseCases />
       <GettingStarted gettingStarterData={gettingStarterData} />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };

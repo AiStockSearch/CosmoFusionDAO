@@ -36,26 +36,41 @@ const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
           <img
             src={astronautPng}
             alt="astronaut"
-            className="flex w-full h-full object-cover rounded-[32px]"
+            className="flex w-full h-full min-h-[25rem] object-cover rounded-[32px]"
           />
         </div>
         <div className="col-start-2 col-end-3 row-start-3 row-end-3 mt-4">
-          <div className="flex flex-col items-start px-6 bg-white">
+          <div className="flex flex-col items-start px-6 bg-white xl:w-[52rem]">
             <h2 className="hero-title text-4xl mb-4">
               {heroPageEn.idea.title}
             </h2>
-            <p className="hero-desc max-w-2xl leading-relaxed mb-10">
+            <p className="hero-desc  xs:w-[28rem] pr-[0rem] md:pr-[410px] xl:pr-[1rem]  xl:max-w-2xl leading-relaxed mb-10">
               {heroPageEn.idea.description}
             </p>
             <h3 className="hero-title text-gray-900 mb-2">
               {heroPageEn.hypotize.title}
             </h3>
-            <p className="hero-desc w-[20rem] font-bold text-cyan-900 leading-relaxed">
+            <p className="hero-desc  w-[22rem] xs:w-[28rem] font-bold text-cyan-900 leading-relaxed">
               {heroPageEn.hypotize.description}
             </p>
           </div>
+          <div className="px-6 pt-14 pb-12 md:hidden">
+            <span className="hero-list-title">{heroPageEn.arr.title}</span>
+            {heroPageEn.arr.list.map( ( x, idx ) =>
+            {
+              return (
+                <div
+                  className="flex flex-row items-start justify-start"
+                  key={idx}
+                >
+                  <span className="hero-list-bullet"> * </span>
+                  <span className="hero-list-item">{x}</span>
+                </div>
+              );
+            } )}
+          </div>
         </div>
-        <div className="absolute top-0 left-0 bottom-0">
+        <div className="hidden absolute top-0 left-0 bottom-0 xl:block ">
           <img
             src={cosmoFusion_dao}
             alt="CosmoFusion DAO background"
@@ -63,7 +78,7 @@ const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
           />
         </div>
       </section>
-      <div className="flex flex-col bg-gray-200 p-2 rounded-[34px] shadow-xl -mx-6 w-[360px] absolute bottom-14 right-20 shadow-xs">
+      <div className="flex flex-col bg-gray-200 p-2 rounded-[34px] shadow-xl -mx-6 w-[360px] absolute bottom-14 right-20 shadow-xs hidden md:block">
         <div className="bg-white rounded-[30px] px-4 py-4 ">
           <span className="hero-list-title">{heroPageEn.arr.title}</span>
           {heroPageEn.arr.list.map( ( x, idx ) =>

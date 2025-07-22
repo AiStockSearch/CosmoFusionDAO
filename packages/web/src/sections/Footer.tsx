@@ -7,7 +7,7 @@ import footer from "../content/footer";
 const Footer = () =>
 {
   return (
-    <footer className="mr-[26rem] ml-[18rem] mt-20">
+    <footer className="mr-[28rem] ml-[20rem] mt-20">
       <div className="flex flex-col xl:flex-row gap-4" >
         <HeroBlock
           title={footer.title}
@@ -30,7 +30,7 @@ const Footer = () =>
               />
             </div>
           </div>
-            <SubscribeColumn />
+          <SubscribeColumn />
         </div>
 
       </div>
