@@ -31,7 +31,7 @@ const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
 {
   return (
     <>
-      <section className="hero-grid">
+      <section className="hero-grid pb-16">
         <div className="col-start-2 col-end-4 row-start-1 row-end-3 overflow-hidden mt-10 bg-gray-300 p-2 rounded-[34px] shadow-sm">
           <img
             src={astronautPng}
@@ -40,13 +40,17 @@ const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
           />
         </div>
         <div className="col-start-2 col-end-3 row-start-3 row-end-3 mt-4">
-          <div className="flex flex-col items-start px-6 py-12 bg-white">
-            <h2 className="hero-title text-4xl mb-4">{heroPageEn.idea.title}</h2>
+          <div className="flex flex-col items-start px-6 bg-white">
+            <h2 className="hero-title text-4xl mb-4">
+              {heroPageEn.idea.title}
+            </h2>
             <p className="hero-desc max-w-2xl leading-relaxed mb-10">
               {heroPageEn.idea.description}
             </p>
-            <h3 className="hero-title text-2xl text-gray-900 mb-2">{heroPageEn.hypotize.title}</h3>
-            <p className="hero-desc max-w-xl font-bold text-cyan-900 leading-relaxed">
+            <h3 className="hero-title text-gray-900 mb-2">
+              {heroPageEn.hypotize.title}
+            </h3>
+            <p className="hero-desc w-[20rem] font-bold text-cyan-900 leading-relaxed">
               {heroPageEn.hypotize.description}
             </p>
           </div>
@@ -60,19 +64,20 @@ const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
         </div>
       </section>
       <div className="flex flex-col bg-gray-200 p-2 rounded-[34px] shadow-xl -mx-6 w-[360px] absolute bottom-14 right-20 shadow-xs">
-        <div className="bg-white rounded-[30px] px-4 py-4 " >
-        <span className="hero-list-title">
-          {heroPageEn.arr.title}
-        </span>
-        {heroPageEn.arr.list.map( ( x, idx ) =>
-        {
-          return (
-            <div className="flex flex-row items-start justify-start" key={idx}>
-              <span className="hero-list-bullet"> * </span>
-              <span className="hero-list-item">{x}</span>
-            </div>
-          );
-        } )}
+        <div className="bg-white rounded-[30px] px-4 py-4 ">
+          <span className="hero-list-title">{heroPageEn.arr.title}</span>
+          {heroPageEn.arr.list.map( ( x, idx ) =>
+          {
+            return (
+              <div
+                className="flex flex-row items-start justify-start"
+                key={idx}
+              >
+                <span className="hero-list-bullet"> * </span>
+                <span className="hero-list-item">{x}</span>
+              </div>
+            );
+          } )}
         </div>
       </div>
     </>
