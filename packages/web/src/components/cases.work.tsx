@@ -4,8 +4,8 @@ import React from "react";
 const UseCases = () =>
 {
   return (
-    <section className="w-screen grid grid-cols-[0.4fr_1.1fr_0.4fr_0.1fr_300px_0.1fr]  grid-rows-[1fr] my-16">
-      <div className="col-start-2 col-end-3 row-span-1">
+    <section className="relative my-8">
+      <div className="xl:max-w-[70rem] mr-[2rem] ml-[1rem] xl:mr-[20rem] xl:ml-[14rem]">
         <div className="my-4">
           <span className="text-[2.6rem] text-left mb-4 font-bold font-share-tech-mono">
             Use Cases
@@ -19,13 +19,19 @@ const UseCases = () =>
         ].map( ( x ) =>
         {
           return (
-            <div className="flex flex-col items-start justify-start">
-              <span className="hero-title text-cyan-900 leading-relaxed">
+            <div className="flex flex-row items-center justify-start pb-4 gap-4 hover:border-b-2 hover:border-t-2 pt-2 hover:border-cyan-700 hover:px-4 hover:border-1 hover:scale-105 transition-all duration-300 cursor-pointer">
+              <div className="flex items-center justify-start min-w-[8rem] sm:min-w-[12rem] md:min-w-[16rem]">
+                <span className="hero-title text-cyan-700 leading-relaxed ">
                 {x.title}
               </span>
-              <span className="hero-desc leading-relaxed">
-                {x.description}
-              </span>
+              </div>
+
+              <div className="flex">
+                <span className="hero-desc leading-relaxed">
+                  {x.description}
+                </span>
+
+              </div>
             </div>
           )
         } )}

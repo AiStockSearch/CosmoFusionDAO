@@ -1,5 +1,5 @@
 import React from "react";
-import { CardBuilder } from "./CardBuilder";
+import { CardBuilder } from "./comp.CardBuilder";
 
 interface GettingStarterData {
   title: string;

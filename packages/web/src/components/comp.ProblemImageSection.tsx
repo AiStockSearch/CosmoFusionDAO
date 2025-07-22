@@ -1,5 +1,6 @@
 import type React from "react";
 import type { ProblemSectionProps } from "./problem.sections";
+import type { ReflectionsProps } from "./reflection.sections";
 
 export const ProblemImageSection: React.FC<ProblemSectionProps> = ( { problemPageEn } ) =>
 {
@@ -7,6 +8,18 @@ export const ProblemImageSection: React.FC<ProblemSectionProps> = ( { problemPag
     <div className="relative h-[24rem] -ml-4 -mr-9 xs:-ml-16 xs:-mr-16 md:ml-0 md:mr-0 lg:h-[32rem] lg:min-w-[22rem] md:rounded-r-[34px] md:rounded-[34px] overflow-hidden xl:-ml-52">
       <img
         src={problemPageEn.image}
+        alt="astronaut alone"
+        className="flex w-screen h-[24rem] lg:h-[32rem] object-cover shadow-sm" />
+    </div>
+  );
+};
+
+export const ReflectionsImageSection: React.FC<ReflectionsProps> = ( { reflectionsPageEn } ) =>
+{
+  return (
+    <div className="relative h-[24rem] -ml-4 -mr-9 xs:-ml-16 xs:-mr-16 md:ml-0 md:mr-0 lg:h-[32rem] lg:min-w-[22rem] md:rounded-r-[34px] md:rounded-[34px] overflow-hidden xl:-mr-52">
+      <img
+        src={reflectionsPageEn.image}
         alt="astronaut alone"
         className="flex w-screen h-[24rem] lg:h-[32rem] object-cover shadow-sm" />
     </div>

@@ -1,8 +1,8 @@
 import React from "react";
-import { ProblemAddonSection } from "./ProblemAddonSection";
-import { ProblemHelperSection } from "./ProblemHelperSection";
-import { ProblemImageSection } from "./ProblemImageSection";
-import { ProblemMainSection } from "./ProblemMainSection";
+import { ProblemAddonSection } from "./comp.ProblemAddonSection";
+import { ProblemHelperSection } from "./comp.ProblemHelperSection";
+import { ProblemImageSection } from "./comp.ProblemImageSection";
+import { ProblemMainSection } from "./comp.ProblemMainSection";
 
 export interface ProblemSectionProps
 {
@@ -29,7 +29,7 @@ export interface ProblemSectionProps
 const ProblemSection: React.FC<ProblemSectionProps> = ( { problemPageEn } ) =>
 {
   return (
-    <section className="relative my-8">
+    <section className="relative my-32">
       <div className="xl:max-w-[70rem] mr-[2rem] ml-[1rem] xl:mr-[20rem] xl:ml-[14rem]">
         <div className="flex flex-col items-start justify-start">
           <div className="flex flex-col lg:flex-row items-start justify-start  flex-col-reverse">
