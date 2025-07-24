@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CosmoFusion",
+  "name": "CosmoFusion DAO",
+  "description": "Платформа коллективного интеллекта и инноваций Cosmos.",
   "icons": [
     {
       "src": "favicon.ico",
