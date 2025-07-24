@@ -7,6 +7,7 @@ import GettingStarted from './components/getting.started';
 import { useSectionContent } from './hooks/useSectionContent';
 import { SectionAnchorProvider, useSectionAnchor } from './components/SectionAnchorContext';
 import { Helmet } from 'react-helmet-async';
+import sectionSeo from './content/sectionSeo.json';
 
 const defaultLang: 'ru' | 'en' = 'en';
 
@@ -39,82 +40,6 @@ const SectionWithAnchor: React.FC<{ id: string; children: React.ReactNode }> = (
 };
 
 type SectionKey = 'hero' | 'problem' | 'reflection' | 'solution' | 'evolution' | 'governance' | 'gettingStarted';
-
-const sectionSeo: Record<SectionKey, {
-  en: { title: string; description: string };
-  ru: { title: string; description: string };
-}> = {
-  hero: {
-    en: {
-      title: 'CosmoFusion DAO — Decentralized Community & Platform',
-      description: 'CosmoFusion DAO is a next-generation decentralized community and platform for collective intelligence, open innovation, and transparent governance.'
-    },
-    ru: {
-      title: 'CosmoFusion DAO — Децентрализованное сообщество и платформа',
-      description: 'CosmoFusion DAO — это сообщество нового поколения для коллективного интеллекта, открытых инноваций и прозрачного управления.'
-    }
-  },
-  problem: {
-    en: {
-      title: 'Problems — CosmoFusion DAO',
-      description: 'Explore the key challenges and problems addressed by CosmoFusion DAO.'
-    },
-    ru: {
-      title: 'Проблемы — CosmoFusion DAO',
-      description: 'Узнайте о ключевых вызовах и проблемах, которые решает CosmoFusion DAO.'
-    }
-  },
-  reflection: {
-    en: {
-      title: 'Reflections — CosmoFusion DAO',
-      description: 'Insights and reflections from the CosmoFusion DAO community.'
-    },
-    ru: {
-      title: 'Рефлексии — CosmoFusion DAO',
-      description: 'Мнения и размышления участников сообщества CosmoFusion DAO.'
-    }
-  },
-  solution: {
-    en: {
-      title: 'Solutions — CosmoFusion DAO',
-      description: 'Discover innovative solutions developed by CosmoFusion DAO.'
-    },
-    ru: {
-      title: 'Решения — CosmoFusion DAO',
-      description: 'Ознакомьтесь с инновационными решениями, созданными CosmoFusion DAO.'
-    }
-  },
-  evolution: {
-    en: {
-      title: 'Evolution — CosmoFusion DAO',
-      description: 'The evolution process and growth of CosmoFusion DAO.'
-    },
-    ru: {
-      title: 'Эволюция — CosmoFusion DAO',
-      description: 'Процесс эволюции и развития CosmoFusion DAO.'
-    }
-  },
-  governance: {
-    en: {
-      title: 'Governance — CosmoFusion DAO',
-      description: 'Governance structure and decision-making in CosmoFusion DAO.'
-    },
-    ru: {
-      title: 'Управление — CosmoFusion DAO',
-      description: 'Структура управления и принятие решений в CosmoFusion DAO.'
-    }
-  },
-  gettingStarted: {
-    en: {
-      title: 'Getting Started — CosmoFusion DAO',
-      description: 'How to get started with CosmoFusion DAO.'
-    },
-    ru: {
-      title: 'Начало работы — CosmoFusion DAO',
-      description: 'Как начать работу с CosmoFusion DAO.'
-    }
-  }
-};
 
 function getSectionFromHash( hash: string ): SectionKey
 {
@@ -165,7 +90,7 @@ const LandingPage: React.FC = () =>
     window.addEventListener( 'hashchange', onHashChange );
     return () => window.removeEventListener( 'hashchange', onHashChange );
   }, [] );
-  const seoData = sectionSeo[ currentSection ][ lang ];
+  const seoData = ( sectionSeo as any )[ currentSection ]?.[ lang ] || ( sectionSeo as any ).hero[ lang ];
 
   return (
     <SectionAnchorProvider>
@@ -190,6 +115,18 @@ const LandingPage: React.FC = () =>
         <meta name="twitter:creator" content="@cosmofusiondao" />
       </Helmet>
       <div className="min-h-screen bg-white">
+        {/*
+          [en] Hero section:
+          - Purpose: To immediately immerse the user in the core idea of CosmoFusion DAO.
+          - Explains the project's mission, the value of collective intelligence, and why the DAO format is chosen.
+          - Sets the emotional and conceptual tone for the entire product, forming the first impression and user expectations.
+          - Business value: Increases engagement, reduces bounce rate, and motivates to read further.
+          [ru] Секция Hero:
+          - Назначение: Мгновенно погружает пользователя в основную идею CosmoFusion DAO.
+          - Объясняет миссию проекта, ценность коллективного разума и выбор формата DAO.
+          - Формирует эмоциональный и концептуальный тон всего продукта, задает первое впечатление и ожидания пользователя.
+          - Бизнес-смысл: Повышает вовлечённость, снижает bounce rate, мотивирует читать дальше.
+        */}
         <SectionWithAnchor id={sectionAnchors[ 0 ]}>
           <HeroSection heroPageEn={heroSection} />
           <div className="flex flex-col items-center justify-center px-4 min-h-1/4 bg-gray-200 py-14 mt-16">
@@ -198,12 +135,68 @@ const LandingPage: React.FC = () =>
             </span>
           </div>
         </SectionWithAnchor>
+        {/*
+          [en] Problem section:
+          - Purpose: To clearly articulate the pain points and limitations of existing solutions/platforms.
+          - Shows the real-world problems that CosmoFusion DAO is designed to solve, making the value proposition explicit.
+          - Helps the user identify with the described issues, increasing relevance and trust.
+          - Business value: Justifies the need for the product, prepares the user for the solution narrative.
+          [ru] Секция Problem:
+          - Назначение: Четко формулирует болевые точки и ограничения существующих решений/платформ.
+          - Показывает реальные проблемы, которые решает CosmoFusion DAO, делая ценностное предложение явным.
+          - Помогает пользователю идентифицировать себя с описанными проблемами, повышая релевантность и доверие.
+          - Бизнес-смысл: Обосновывает необходимость продукта, подготавливает к рассказу о решении.
+        */}
         <SectionWithAnchor id={sectionAnchors[ 1 ]}><ProblemSection problemPageEn={problemSection} /></SectionWithAnchor>
+        {/*
+          [en] Reflection section:
+          - Purpose: To highlight psychological and cognitive barriers (biases, echo chambers) that hinder effective decision-making.
+          - Explains why even the best tools/platforms can fail without collective reflection and self-critique.
+          - Business value: Educates the user, builds authority, and sets up the need for transparency and feedback in the DAO.
+          [ru] Секция Reflection:
+          - Назначение: Подчеркивает психологические и когнитивные барьеры (предвзятость, эхо-камеры), мешающие эффективным решениям.
+          - Объясняет, почему даже лучшие инструменты могут не работать без коллективной рефлексии и самокритики.
+          - Бизнес-смысл: Просвещает пользователя, формирует авторитет, подводит к необходимости прозрачности и обратной связи в DAO.
+        */}
         <SectionWithAnchor id={sectionAnchors[ 2 ]}><Reflections reflectionsPageEn={reflectionSection} /></SectionWithAnchor>
+        {/*
+          [en] Solution section:
+          - Purpose: To present the unique mechanisms and features of CosmoFusion DAO that address the previously described problems.
+          - Details how collective intelligence, transparency, and evolutionary processes are implemented in the product.
+          - Business value: Demonstrates innovation, builds trust, and motivates to join or try the platform.
+          [ru] Секция Solution:
+          - Назначение: Показывает уникальные механизмы и фичи CosmoFusion DAO, решающие ранее описанные проблемы.
+          - Детализирует, как реализованы коллективный разум, прозрачность и эволюционные процессы.
+          - Бизнес-смысл: Демонстрирует инновационность, формирует доверие, мотивирует присоединиться или попробовать платформу.
+        */}
         <SectionWithAnchor id={sectionAnchors[ 3 ]}><ProblemSection problemPageEn={solutionSection} /></SectionWithAnchor>
+        {/*
+          [en] Governance section:
+          - Purpose: To explain the democratic structure, voting, and decision-making processes in CosmoFusion DAO.
+          - Shows how the community is empowered, how rules evolve, and how responsibility is distributed.
+          - Business value: Reduces fears of centralization, increases trust, and encourages active participation.
+          [ru] Секция Governance:
+          - Назначение: Объясняет демократическую структуру, процессы голосования и принятия решений в CosmoFusion DAO.
+          - Показывает, как сообщество наделяется полномочиями, как эволюционируют правила и распределяется ответственность.
+          - Бизнес-смысл: Снижает опасения централизации, повышает доверие, стимулирует активное участие.
+        */}
         <SectionWithAnchor id={sectionAnchors[ 4 ]}><Reflections reflectionsPageEn={governanceSection} /></SectionWithAnchor>
+        {/*
+          [en] Evolution section:
+          - Purpose: To illustrate the adaptability and learning capacity of CosmoFusion DAO.
+          - Explains how the system and community grow, learn from mistakes, and improve over time.
+          - Business value: Shows long-term vision, reassures users that the platform is not static, and encourages ongoing engagement.
+          [ru] Секция Evolution:
+          - Назначение: Иллюстрирует адаптивность и обучаемость CosmoFusion DAO.
+          - Объясняет, как система и сообщество растут, учатся на ошибках и совершенствуются со временем.
+          - Бизнес-смысл: Показывает долгосрочное видение, убеждает, что платформа не статична, мотивирует к постоянному участию.
+        */}
         {/* Evolution Process (index 5) — без id */}
         <SectionWithAnchor id={sectionAnchors[ 5 ]}><ProblemSection problemPageEn={evolutionSection} /></SectionWithAnchor>
+        {/*
+          [en] Motion Phrase section: Motivational or transitional block, highlights the dynamic nature of truth and the importance of continuous improvement.
+          [ru] Секция Motion Phrase: Мотивационный или переходный блок, подчеркивает динамичность истины и важность постоянного совершенствования.
+        */}
         <SectionWithAnchor id={sectionAnchors[ 6 ]}>
           <div className="flex flex-col items-center justify-center px-4 min-h-1/4 bg-gray-200 py-14">
             <span className="text-[1.2rem] text-gray-900 text-center  md:w-[42rem] font-bold font-share-tech-mono">
@@ -211,6 +204,16 @@ const LandingPage: React.FC = () =>
             </span>
           </div>
         </SectionWithAnchor>
+        {/*
+          [en] Getting Started section:
+          - Purpose: To provide actionable steps and clear onboarding for new users.
+          - Removes barriers to entry, answers “what next?”, and increases conversion to active participation.
+          - Business value: Maximizes user activation, reduces churn, and supports community growth.
+          [ru] Секция Getting Started:
+          - Назначение: Дает конкретные шаги и понятный онбординг для новых пользователей.
+          - Снимает барьеры входа, отвечает на вопрос «что дальше?» и увеличивает конверсию в активное участие.
+          - Бизнес-смысл: Максимизирует активацию пользователей, снижает отток, поддерживает рост сообщества.
+        */}
         <SectionWithAnchor id={sectionAnchors[ 7 ]}><GettingStarted gettingStarterData={gettingStartedSection} /></SectionWithAnchor>
         <Footer />
       </div>

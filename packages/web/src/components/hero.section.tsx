@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import astronautPng from "../assets/images/astronaut-optimized.jpg";
 import cosmoFusion_dao from "../assets/images/cosmoFusion_dao.jpg";
 import { useSectionAnchor } from "./SectionAnchorContext";
+import { useLocale } from '../hooks/useLocale';
 
 interface HeroSectionProps
 {
@@ -43,6 +44,7 @@ const EXCLUDE_ANCHOR_INDEXES = [ 5 ];
 
 const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
 {
+  const { t } = useLocale();
   const { scrollToSection } = useSectionAnchor();
 
   return (
@@ -51,7 +53,7 @@ const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
         <div className="col-start-2 col-end-4 row-start-1 row-end-3 overflow-hidden mt-4 bg-gray-300 p-2 rounded-[34px] shadow-sm">
           <img
             src={astronautPng}
-            alt="astronaut"
+            alt={t( 'hero.alt' )}
             className="flex w-full h-full min-h-[25rem] max-h-[38rem] object-cover rounded-[32px]"
           />
         </div>

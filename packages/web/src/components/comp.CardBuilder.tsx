@@ -2,11 +2,13 @@ import React from "react";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import "./CardBuilder.css";
 import { listArrayBuilder } from "../content/jobBuilder";
+import { useLocale } from '../hooks/useLocale';
 
 export const CardBuilder = () =>
 {
   const [ state, setState ] = React.useState( 5 );
   const nodeRefs = React.useRef<( HTMLDivElement | null )[]>( [] );
+  const { t } = useLocale();
 
   return (
     <div className="flex flex-col gap-2 md:flex-col-reverse">
@@ -54,7 +56,7 @@ export const CardBuilder = () =>
             <div className="flex w-full md:w-[32rem] ">
               <img
                 src={listArrayBuilder[ state ].img}
-                alt="getting-started"
+                alt={t('gettingStarted.alt')}
                 className="object-cover bg-white h-[34rem] w-full xs:rounded-br-[30px]"
               />
             </div>

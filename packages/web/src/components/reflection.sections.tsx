@@ -3,6 +3,7 @@ import { ReflectionsAddonSection } from "./comp.ProblemAddonSection";
 import { ReflectionsHelperSection } from "./comp.ProblemHelperSection";
 import { ReflectionsImageSection } from "./comp.ProblemImageSection";
 import { ReflectionsMainSection } from "./comp.ProblemMainSection";
+import { useLocale } from '../hooks/useLocale';
 
 export interface ReflectionsProps
 {
@@ -50,3 +51,16 @@ const Reflections: React.FC<ReflectionsProps> = ( { reflectionsPageEn } ) =>
 };
 
 export default Reflections;
+
+export const LocalReflectionsImageSection: React.FC<ReflectionsProps> = ( { reflectionsPageEn } ) =>
+{
+  const { t } = useLocale();
+  return (
+    <div className="relative h-[24rem] -ml-4 -mr-9 xs:-ml-16 xs:-mr-16 md:ml-0 md:mr-0 lg:h-[32rem] lg:min-w-[22rem] md:rounded-r-[34px] md:rounded-[34px] overflow-hidden xl:-mr-52">
+      <img
+        src={reflectionsPageEn.image}
+        alt={t( 'reflection.alt' )}
+        className="flex w-screen h-[24rem] lg:h-[32rem] object-cover shadow-sm" />
+    </div>
+  );
+};

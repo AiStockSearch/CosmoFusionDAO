@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "en": {
+      "title": "CosmoFusion DAO — Decentralized Community & Platform",
+      "description": "CosmoFusion DAO is a next-generation decentralized community and platform for collective intelligence, open innovation, and transparent governance."
+    },
+    "ru": {
+      "title": "CosmoFusion DAO — Децентрализованное сообщество и платформа",
+      "description": "CosmoFusion DAO — это сообщество нового поколения для коллективного интеллекта, открытых инноваций и прозрачного управления."
+    }
+  },
+  "problem": {
+    "en": {
+      "title": "Problems — CosmoFusion DAO",
+      "description": "Explore the key challenges and problems addressed by CosmoFusion DAO."
+    },
+    "ru": {
+      "title": "Проблемы — CosmoFusion DAO",
+      "description": "Узнайте о ключевых вызовах и проблемах, которые решает CosmoFusion DAO."
+    }
+  },
+  "reflection": {
+    "en": {
+      "title": "Reflections — CosmoFusion DAO",
+      "description": "Insights and reflections from the CosmoFusion DAO community."
+    },
+    "ru": {
+      "title": "Рефлексии — CosmoFusion DAO",
+      "description": "Мнения и размышления участников сообщества CosmoFusion DAO."
+    }
+  },
+  "solution": {
+    "en": {
+      "title": "Solutions — CosmoFusion DAO",
+      "description": "Discover innovative solutions developed by CosmoFusion DAO."
+    },
+    "ru": {
+      "title": "Решения — CosmoFusion DAO",
+      "description": "Ознакомьтесь с инновационными решениями, созданными CosmoFusion DAO."
+    }
+  },
+  "evolution": {
+    "en": {
+      "title": "Evolution — CosmoFusion DAO",
+      "description": "The evolution process and growth of CosmoFusion DAO."
+    },
+    "ru": {
+      "title": "Эволюция — CosmoFusion DAO",
+      "description": "Процесс эволюции и развития CosmoFusion DAO."
+    }
+  },
+  "governance": {
+    "en": {
+      "title": "Governance — CosmoFusion DAO",
+      "description": "Governance structure and decision-making in CosmoFusion DAO."
+    },
+    "ru": {
+      "title": "Управление — CosmoFusion DAO",
+      "description": "Структура управления и принятие решений в CosmoFusion DAO."
+    }
+  },
+  "gettingStarted": {
+    "en": {
+      "title": "Getting Started — CosmoFusion DAO",
+      "description": "How to get started with CosmoFusion DAO."
+    },
+    "ru": {
+      "title": "Начало работы — CosmoFusion DAO",
+      "description": "Как начать работу с CosmoFusion DAO."
+    }
+  }
+} 

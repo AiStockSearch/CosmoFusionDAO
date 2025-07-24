@@ -7,7 +7,7 @@
     "visual": {
       "type": "image",
       "description": "",
-      "alt": "",
+      "alt": "Одинокий астронавт созерцает величественную галактику",
       "position": "center",
       "animation": "fade-in-up"
     },
@@ -28,36 +28,39 @@
     "title": "",
     "intro": "",
     "problems": [
-      {"title": "", "description": ""},
-      {"title": "", "description": ""},
-      {"title": "", "description": ""},
-      {"title": "", "description": ""}
+      { "title": "", "description": "" },
+      { "title": "", "description": "" },
+      { "title": "", "description": "" },
+      { "title": "", "description": "" }
     ],
-    "arr": {"title": "", "list": ["", "", "", "", "", ""]},
-    "process": {"title": "", "steps": ["", "", "", ""]},
+    "alt": "Путь астронавта от одиночки к коллективному разуму",
+    "arr": { "title": "", "list": ["", "", "", "", "", ""] },
+    "process": { "title": "", "steps": ["", "", "", ""] },
     "quote": ""
   },
   "solution": {
     "title": "",
     "intro": "",
     "problems": [
-      {"title": "", "description": ""},
-      {"title": "", "description": ""},
-      {"title": "", "description": ""},
-      {"title": "", "description": ""}
+      { "title": "", "description": "" },
+      { "title": "", "description": "" },
+      { "title": "", "description": "" },
+      { "title": "", "description": "" }
     ],
+    "alt": "Астронавты вместе наблюдают за галактикой",
     "quote": ""
   },
   "governance": {
     "title": "",
     "intro": "",
     "biases": [
-      {"title": "", "description": ""},
-      {"title": "", "description": ""},
-      {"title": "", "description": ""},
-      {"title": "", "description": ""}
+      { "title": "", "description": "" },
+      { "title": "", "description": "" },
+      { "title": "", "description": "" },
+      { "title": "", "description": "" }
     ],
-    "process": {"title": "", "steps": ["", "", "", "", ""]},
+    "alt": "Астронавты голосуют на космической станции",
+    "process": { "title": "", "steps": ["", "", "", "", ""] },
     "quote": ""
   },
   "footer": {
@@ -69,27 +72,27 @@
     "buttonLink2": "https://t.me/zkcloud_io",
     "linksTitle": "",
     "links": [
-      {"text": "", "link": "https://t.me/zkcloud_io"},
-      {"text": "", "link": "https://x.com/zkcloud_io"},
-      {"text": "", "link": "https://discord.gg/zkcloud"},
-      {"text": "", "link": "https://galxe.com/zkcloud"},
-      {"text": "", "link": "https://galxe.com/"}
+      { "text": "", "link": "https://t.me/zkcloud_io" },
+      { "text": "", "link": "https://x.com/zkcloud_io" },
+      { "text": "", "link": "https://discord.gg/zkcloud" },
+      { "text": "", "link": "https://galxe.com/zkcloud" },
+      { "text": "", "link": "https://galxe.com/" }
     ],
     "moreTitle": "",
     "more": [
-      {"text": "", "link": "https://t.me/zkcloud_io"},
-      {"text": "", "link": "https://x.com/zkcloud_io"},
-      {"text": "", "link": "https://discord.gg/zkcloud"},
-      {"text": "", "link": "https://galxe.com/zkcloud"},
-      {"text": "", "link": "https://galxe.com/zkcloud"},
-      {"text": "", "link": "https://galxe.com/zkcloud"},
-      {"text": "", "link": "https://galxe.com/zkcloud"}
+      { "text": "", "link": "https://t.me/zkcloud_io" },
+      { "text": "", "link": "https://x.com/zkcloud_io" },
+      { "text": "", "link": "https://discord.gg/zkcloud" },
+      { "text": "", "link": "https://galxe.com/zkcloud" },
+      { "text": "", "link": "https://galxe.com/zkcloud" },
+      { "text": "", "link": "https://galxe.com/zkcloud" },
+      { "text": "", "link": "https://galxe.com/zkcloud" }
     ],
     "socialLinks": [
-      {"text": "", "link": "https://t.me/zkcloud_io"},
-      {"text": "", "link": "https://x.com/zkcloud_io"},
-      {"text": "", "link": "https://discord.gg/zkcloud"},
-      {"text": "", "link": "https://galxe.com/zkcloud"}
+      { "text": "", "link": "https://t.me/zkcloud_io" },
+      { "text": "", "link": "https://x.com/zkcloud_io" },
+      { "text": "", "link": "https://discord.gg/zkcloud" },
+      { "text": "", "link": "https://galxe.com/zkcloud" }
     ],
     "subscribeText": "",
     "subscribePlaceholder": "",
