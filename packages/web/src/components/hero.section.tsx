@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import astronautPng from "../assets/images/astronaut-optimized.jpg";
 import astronautWebp from "../assets/images/astronaut-optimized.webp";
 import cosmoFusion_dao from "../assets/images/cosmoFusion_dao.jpg";

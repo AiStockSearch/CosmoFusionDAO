@@ -29,9 +29,9 @@ export const SubscribeColumn = () =>
       </p>
         <p className="font-share-tech-mono text-sm mb-0 leading-[0.8] text-gray-500">
         Read our{" "}
-          <a href="#" className="underline text-cyan-700">
+          <button type="button" className="underline text-cyan-700">
           privacy policy
-        </a>
+          </button>
         .
       </p>
     </div>

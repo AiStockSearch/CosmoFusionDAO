@@ -97,19 +97,19 @@ const LandingPage: React.FC = () =>
       <Helmet>
         <title>{seoData.title}</title>
         <meta name="description" content={seoData.description} />
-        <link rel="canonical" href="https://cosmofusion.io/" />
+        <link rel="canonical" href="https://cosmofusion.app/" />
         {/* Open Graph */}
         <meta property="og:title" content={seoData.title} />
         <meta property="og:description" content={seoData.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://cosmofusion.io/" />
-        <meta property="og:image" content="https://cosmofusion.io/images/astronaut-optimized.png" />
+        <meta property="og:url" content="https://cosmofusion.app/" />
+        <meta property="og:image" content="https://cosmofusion.app/logo192.png" />
         <meta property="og:image:alt" content="CosmoFusion DAO Astronaut" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoData.title} />
         <meta name="twitter:description" content={seoData.description} />
-        <meta name="twitter:image" content="https://cosmofusion.io/images/astronaut-optimized.png" />
+        <meta name="twitter:image" content="https://cosmofusion.app/logo192.png" />
         <meta name="twitter:image:alt" content="CosmoFusion DAO Astronaut" />
         <meta name="twitter:site" content="@cosmofusiondao" />
         <meta name="twitter:creator" content="@cosmofusiondao" />
