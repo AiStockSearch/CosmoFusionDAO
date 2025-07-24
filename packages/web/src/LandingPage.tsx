@@ -63,9 +63,8 @@ const LandingPage: React.FC = () =>
       </div>
 
       <UseCases />
-      {/* 
       <GettingStarted gettingStarterData={gettingStarterData} />
-      <Footer /> */}
+      <Footer /> 
     </div>
   );
 };

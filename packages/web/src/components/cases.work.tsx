@@ -4,9 +4,9 @@ import React from "react";
 const UseCases = () =>
 {
   return (
-    <section className="relative my-8">
+    <section className="relative my-16 mt-28">
       <div className="xl:max-w-[70rem] mr-[2rem] ml-[1rem] xl:mr-[20rem] xl:ml-[14rem]">
-        <div className="my-4">
+        <div className="my-4 mb-8">
           <span className="text-[2.6rem] text-left mb-4 font-bold font-share-tech-mono">
             Use Cases
           </span>

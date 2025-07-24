@@ -7,7 +7,8 @@ import footer from "../content/footer";
 const Footer = () =>
 {
   return (
-    <footer className="mr-[28rem] ml-[20rem] mt-20">
+    <footer className="xl:max-w-[70rem] ml-4 mr-4 xl:mr-[20rem] xl:ml-[14rem] mt-32">
+
       <div className="flex flex-col xl:flex-row gap-4" >
         <HeroBlock
           title={footer.title}
@@ -18,7 +19,7 @@ const Footer = () =>
           buttonLink2={footer.buttonLink2}
         />
         <div className="flex flex-col-reverse md:flex-row gap-4">
-          <div className="flex flex-row gap-8">
+          <div className="flex flex-row gap-4">
             <FooterColumnLinks
               links={footer.links}
               title={footer.linksTitle}

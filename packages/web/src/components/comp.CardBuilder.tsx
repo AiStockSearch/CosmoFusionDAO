@@ -20,14 +20,25 @@ export const CardBuilder = () => {
             ref={(el) => {
               nodeRefs.current[state] = el;
             }}
-            className="bg-[#F5F8FE] h-[34rem] rounded-[34px] grid grid-cols-[22rem_auto] gap-2 shadow-lg overflow-hidden border-4 border-cyan-700"
+            className="
+            bg-[#F5F8FE] -mx-4 shadow-lg overflow-hidden border-l-0 border-r-0
+            flex-col
+            border-4 border-cyan-700
+            md:border-l-4
+            md:border-r-4
+            md:rounded-[34px] md:mx-0
+            lg:flex-row
+            flex
+            "
           >
+            <div className="flex w-full md:w-[32rem] ">
             <img
               src={listArrayBuilder[state].img}
               alt="getting-started"
-              className="w-[20.5rem] h-[36rem] object-cover bg-white"
-            />
-            <div className="flex flex-col items-start justify-start">
+                className="object-cover bg-white h-[34rem] w-full xs:rounded-br-[30px]"
+              />
+            </div>
+            <div className="flex flex-col mx-4 py-4 pb-10">
               <span className="jobs-header leading-relaxed text-black">
                 {listArrayBuilder[state].title.en}
               </span>

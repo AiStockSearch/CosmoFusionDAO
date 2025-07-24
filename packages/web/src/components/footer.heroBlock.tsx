@@ -29,7 +29,7 @@ export const HeroBlock: React.FC<{
         <div className="flex gap-4 my-4">
           <button
             onClick={() => window.open( buttonLink, "_blank" )}
-            className="font-space-mono font-medium px-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-2 py-2 transition-all duration-200"
+            className="font-space-mono font-medium px-4 rounded-xl bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-500 hover:to-purple-500  text-white hover:text-black px-2 py-2 transition-all duration-200"
           >
             {buttonText}
           </button>
