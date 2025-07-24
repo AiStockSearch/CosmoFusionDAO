@@ -19,11 +19,11 @@ export const HeroBlock: React.FC<{
     return (
       <div className="lg:col-span-1 flex flex-col 3xl:w-1/3 mb-4">
         <div className="flex items-center space-x-3 mb-4">
-          <span className="font-space-mono font-bold text-cyan-700 text-2xl">
+          <span className="font-space-mono font-bold text-cyan-700 text-[1.9rem]">
             {title}
           </span>
         </div>
-        <p className="font-share-tech-mono font-normal text-gray-600 text-md">
+        <p className="font-share-tech-mono text-[0.9rem] text-gray-600 text-md">
           {description}
         </p>
         <div className="flex gap-4 my-4">

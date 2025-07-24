@@ -23,11 +23,11 @@ setMeta(
   'Открытая платформа для коллективного принятия решений, AI, DAO и инноваций. Грант Cosmos x FIRE.'
 );
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js');
-  });
-}
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', () => {
+//     navigator.serviceWorker.register('/service-worker.js');
+//   });
+// }
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

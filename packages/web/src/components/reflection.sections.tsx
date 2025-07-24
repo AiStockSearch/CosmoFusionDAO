@@ -15,7 +15,7 @@ export interface ReflectionsProps
       description: string;
     }[];
     quote: string;
-    image: string;
+    image: string | { jpg: string; webp?: string };
     process?: {
       title: string;
       steps: string[];
@@ -55,12 +55,17 @@ export default Reflections;
 export const LocalReflectionsImageSection: React.FC<ReflectionsProps> = ( { reflectionsPageEn } ) =>
 {
   const { t } = useLocale();
+  const img = reflectionsPageEn.image;
+  const jpg = typeof img === 'string' ? img : img?.jpg;
   return (
     <div className="relative h-[24rem] -ml-4 -mr-9 xs:-ml-16 xs:-mr-16 md:ml-0 md:mr-0 lg:h-[32rem] lg:min-w-[22rem] md:rounded-r-[34px] md:rounded-[34px] overflow-hidden xl:-mr-52">
-      <img
-        src={reflectionsPageEn.image}
-        alt={t( 'reflection.alt' )}
-        className="flex w-screen h-[24rem] lg:h-[32rem] object-cover shadow-sm" />
+      {jpg && (
+        <img
+          src={jpg}
+          alt={t( 'reflection.alt' )}
+          className="flex w-screen h-[24rem] lg:h-[32rem] object-cover shadow-sm"
+        />
+      )}
     </div>
   );
 };

@@ -1,14 +1,20 @@
-import creator from "../assets/images/creator.jpg";
-import observer from "../assets/images/baby.jpg";
-import manager from "../assets/images/manager.jpg";
-import explorer from "../assets/images/explorer.jpg";
-import critics from "../assets/images/critik.jpg";
-import ambassodor from "../assets/images/ambasodor.jpg";
+import creatorJpg from "../assets/images/creator.jpg";
+import creatorWebp from "../assets/images/creator.webp";
+import observerJpg from "../assets/images/baby.jpg";
+import observerWebp from "../assets/images/baby.webp";
+import managerJpg from "../assets/images/manager.jpg";
+import managerWebp from "../assets/images/manager.webp";
+import explorerJpg from "../assets/images/explorer.jpg";
+import explorerWebp from "../assets/images/explorer.webp";
+import criticsJpg from "../assets/images/critik.jpg";
+import criticsWebp from "../assets/images/critik.webp";
+import ambassadorJpg from "../assets/images/ambasodor.jpg";
+import ambassadorWebp from "../assets/images/ambasodor.webp";
 export const listArrayBuilder = [
   {
     select: { ru: "Исследователь", en: "Explorer" },
     title: { ru: "Исследователь: Голосует за новые идеи!", en: "Explorer: Votes for new ideas!" },
-    img: explorer,
+    img: { jpg: explorerJpg, webp: explorerWebp },
     description: { ru: "Моя гипотеза заслуживает шанса!", en: "My hypothesis deserves a chance!" },
     arrTitle: { ru: "Обязанности:", en: "Responsibilities:" },
     arr: [
@@ -32,7 +38,7 @@ export const listArrayBuilder = [
   {
     select: { ru: "Критик", en: "Critic" },
     title: { ru: "Критик: Голосует за проверенные идеи!", en: "Critic: Votes for proven ideas!" },
-    img: critics,
+    img: { jpg: criticsJpg, webp: criticsWebp },
     description: { ru: "Только сильные гипотезы пройдут!", en: "Only strong hypotheses will pass!" },
     arrTitle: { ru: "Обязанности:", en: "Responsibilities:" },
     arr: [
@@ -55,7 +61,7 @@ export const listArrayBuilder = [
   {
     select: { ru: "Создатель", en: "Creator" },
     title: { ru: "Создатель: Разрабатывает новые идеи!", en: "Creator: Develops new ideas!" },
-    img: observer,
+    img: { jpg: creatorJpg, webp: creatorWebp },
     description: { ru: "Мои инструменты усилят DAO!", en: "My tools will strengthen the DAO!" },
     arrTitle: { ru: "Обязанности:", en: "Responsibilities:" },
     arr: [
@@ -77,7 +83,7 @@ export const listArrayBuilder = [
   },
   {
     select: { ru: "Наблюдатель", en: "Observer" },
-    img: creator,
+    img: { jpg: observerJpg, webp: observerWebp },
     title: { ru: "Наблюдатель: Следит за процессом! Голосует за уроки!", en: "Observer: Monitors the process! Votes for lessons!" },
     description: { ru: "Паттерны укажут путь!", en: "Patterns will show the way!" },
     arrTitle: { ru: "Обязанности:", en: "Responsibilities:" },
@@ -101,7 +107,7 @@ export const listArrayBuilder = [
   {
     select: { ru: "Менеджер", en: "Manager" },
     title: { ru: "Менеджер: Голосует за порядок в DAO!", en: "Manager: Votes for order in the DAO!" },
-    img: manager,
+    img: { jpg: managerJpg, webp: managerWebp },
     description: { ru: "Мой голос — за справедливость!", en: "My vote is for justice!" },
     arrTitle: { ru: "Обязанности:", en: "Responsibilities:" },
     arr: [
@@ -125,7 +131,7 @@ export const listArrayBuilder = [
   {
     select: { ru: "Амбассадор", en: "Ambassador" },
     title: { ru: "Амбассадор: Голосует за рост DAO!", en: "Ambassador: Votes for DAO growth!" },
-    img: ambassodor,
+    img: { jpg: ambassadorJpg, webp: ambassadorWebp },
     description: { ru: "Расскажу о DAO всей галактике!", en: "I will tell the whole galaxy about the DAO!" },
     arrTitle: { ru: "Обязанности:", en: "Responsibilities:" },
     arr: [

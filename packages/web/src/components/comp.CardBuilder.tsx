@@ -53,20 +53,31 @@ export const CardBuilder = () =>
             flex
             "
           >
-            <div className="flex w-full md:w-[32rem] ">
-              <picture>
-                <source srcSet={listArrayBuilder[ state ].img.replace( /\.jpg$/, '.webp' ).replace( /\.jpeg$/, '.webp' )} type="image/webp" />
-                <source srcSet={listArrayBuilder[ state ].img} type="image/jpeg" />
-                <img
-                  src={listArrayBuilder[ state ].img}
-                  alt={t( 'gettingStarted.alt' )}
-                  className="object-cover bg-white h-[34rem] w-full xs:rounded-br-[30px]"
-                  loading="lazy"
-                />
-              </picture>
+            <div className="flex w-full md:w-[32rem]">
+              {( () =>
+              {
+                const img = listArrayBuilder[ state ].img;
+                const jpg = typeof img === 'string' ? img : img?.jpg;
+                const webp = typeof img === 'object' && img?.webp;
+                return jpg ? (
+                  <picture className="w-full md:w-[32rem] h-[38rem] block">
+                    {webp && <source srcSet={webp} type="image/webp" />}
+                    <source srcSet={jpg} type="image/jpeg" />
+                    <img
+                      src={jpg}
+                      alt={t( 'gettingStarted.alt' )}
+                      className="w-full h-full object-cover bg-white block"
+                      loading="lazy"
+                    />
+                  </picture>
+                ) : null;
+              } )()}
             </div>
             <div className="flex flex-col mx-4 py-4 pb-10">
-              <span className="jobs-header leading-relaxed text-black">
+              <span
+                className="jobs-header leading-relaxed text-black"
+                data-testid="cardbuilder-tab-title"
+              >
                 {listArrayBuilder[ state ].title.en}
               </span>
               <span className="jobs-header-desc mb-4 text-cyan-700">
