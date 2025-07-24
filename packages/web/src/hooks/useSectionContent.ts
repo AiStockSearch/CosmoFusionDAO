@@ -27,9 +27,15 @@ async function deeplTranslate(textObj: any, from: string, to: string): Promise<a
   // Здесь должен быть реальный запрос к DeepL API
   // Например, fetch('https://api.deepl.com/v2/translate', ...)
   // Для примера просто возвращаем английский текст с пометкой
-  const translated = typeof textObj === 'string'
-    ? `[auto-${to}] ${textObj}`
-    : Object.fromEntries(Object.entries(textObj).map(([k, v]) => [k, typeof v === 'string' ? `[auto-${to}] ${v}` : v]));
+  const translated =
+    typeof textObj === 'string'
+      ? `[auto-${to}] ${textObj}`
+      : Object.fromEntries(
+          Object.entries(textObj).map(([k, v]) => [
+            k,
+            typeof v === 'string' ? `[auto-${to}] ${v}` : v,
+          ]),
+        );
   localStorage.setItem(cacheKey, JSON.stringify(translated));
   return translated;
 }
@@ -80,16 +86,18 @@ export function useSectionContent(section: keyof typeof sectionMap) {
   useEffect(() => {
     let cancelled = false;
     if (!manual && lang !== 'en' && map.en) {
-      deeplTranslate(map.en, 'en', lang).then(result => {
+      deeplTranslate(map.en, 'en', lang).then((result) => {
         if (!cancelled) setAutoTranslated(result);
       });
     } else {
       setAutoTranslated(null);
     }
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [manual, lang, map]);
 
   if (manual) return manual;
   if (autoTranslated) return autoTranslated;
   return map.en;
-} 
+}

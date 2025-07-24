@@ -12,4 +12,4 @@ export type LandingSections = Record<string, SectionContent>;
 
 export interface LandingContent {
   landingSections: LandingSections;
-} 
+}

@@ -38,7 +38,7 @@ export function useLocale() {
       }
       return value;
     },
-    [translations]
+    [translations],
   );
 
   return {
@@ -47,4 +47,4 @@ export function useLocale() {
     t,
     translations,
   };
-} 
+}

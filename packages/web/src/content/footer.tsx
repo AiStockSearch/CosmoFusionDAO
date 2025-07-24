@@ -1,4 +1,4 @@
-import yaml from "yaml";
+import yaml from 'yaml';
 import links from './links.json';
 
 const exploreLinks = [
@@ -6,7 +6,7 @@ const exploreLinks = [
   { text: 'Partners', link: links.partners },
   { text: 'About us', link: links.aboutUs },
   { text: 'Media and Events', link: links.mediaAndEvents },
-  { text: 'Docs', link: links.docs }
+  { text: 'Docs', link: links.docs },
 ];
 
 const moreLinks = [
@@ -16,14 +16,14 @@ const moreLinks = [
   { text: 'Github', link: links.github },
   { text: 'Node Rental & Node Operator Token Grant Terms', link: links.nodeRental },
   { text: 'Whitepaper', link: links.whitepaper },
-  { text: 'Disclaimer & updates', link: links.disclaimer }
+  { text: 'Disclaimer & updates', link: links.disclaimer },
 ];
 
 const purchaseLinks = [
   { text: 'OpenSea', link: links.opensea },
   { text: 'NFT (Stargaze)', link: links.nft },
   { text: 'Bridge ETH↔ATOM', link: links.bridge },
-  { text: 'Tangem', link: links.tangemOrder }
+  { text: 'Tangem', link: links.tangemOrder },
 ];
 const purchaseTitle = 'Purchase & Get';
 
@@ -32,7 +32,7 @@ const exploreLinksRu = [
   { text: 'Партнёры', link: links.partners },
   { text: 'О нас', link: links.aboutUs },
   { text: 'Медиа и события', link: links.mediaAndEvents },
-  { text: 'Документация', link: links.docs }
+  { text: 'Документация', link: links.docs },
 ];
 
 const moreLinksRu = [
@@ -42,14 +42,14 @@ const moreLinksRu = [
   { text: 'Github', link: links.github },
   { text: 'Node Rental & Node Operator Token Grant Terms', link: links.nodeRental },
   { text: 'Whitepaper', link: links.whitepaper },
-  { text: 'Disclaimer & updates', link: links.disclaimer }
+  { text: 'Disclaimer & updates', link: links.disclaimer },
 ];
 
 const purchaseLinksRu = [
   { text: 'OpenSea', link: links.opensea },
   { text: 'NFT (Stargaze)', link: links.nft },
   { text: 'Bridge ETH↔ATOM', link: links.bridge },
-  { text: 'Tangem', link: links.tangemOrder }
+  { text: 'Tangem', link: links.tangemOrder },
 ];
 const purchaseTitleRu = 'Покупка и получение';
 
@@ -81,11 +81,11 @@ privacyPolicy: Privacy Policy
 backToTop: Back to the top
 backToTopLink: https://galxe.com/zkcloud
 backToTopLinkText: ↑
-`
+`;
 
-const parsed = yaml.parse( footerContent );
+const parsed = yaml.parse(footerContent);
 
-const lang = typeof window !== 'undefined' ? (localStorage.getItem('landing_lang') || 'en') : 'en';
+const lang = typeof window !== 'undefined' ? localStorage.getItem('landing_lang') || 'en' : 'en';
 
 if (lang === 'ru') {
   parsed.links = exploreLinksRu;

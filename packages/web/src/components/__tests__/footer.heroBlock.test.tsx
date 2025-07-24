@@ -9,7 +9,7 @@ describe('HeroBlock', () => {
     buttonText: 'Work with us',
     buttonText2: 'Contact us',
     buttonLink: 'https://t.me/',
-    buttonLink2: 'https://t.me/'
+    buttonLink2: 'https://t.me/',
   };
   it('рендерит заголовок, описание и кнопки', () => {
     render(<HeroBlock {...props} />);
@@ -24,4 +24,4 @@ describe('HeroBlock', () => {
     fireEvent.click(screen.getByLabelText(props.buttonText));
     expect(window.open).toHaveBeenCalledWith(props.buttonLink, '_blank');
   });
-}); 
+});

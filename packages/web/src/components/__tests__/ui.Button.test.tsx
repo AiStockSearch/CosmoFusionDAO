@@ -15,8 +15,12 @@ describe('Button', () => {
   });
   it('disabled не вызывает onClick', () => {
     const onClick = jest.fn();
-    render(<Button onClick={onClick} disabled>Disabled</Button>);
+    render(
+      <Button onClick={onClick} disabled>
+        Disabled
+      </Button>,
+    );
     fireEvent.click(screen.getByText('Disabled'));
     expect(onClick).not.toHaveBeenCalled();
   });
-}); 
+});

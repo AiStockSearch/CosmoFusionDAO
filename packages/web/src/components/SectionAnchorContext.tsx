@@ -55,4 +55,4 @@ export const SectionAnchorProvider: React.FC<{ children: React.ReactNode }> = ({
       {children}
     </SectionAnchorContext.Provider>
   );
-}; 
+};

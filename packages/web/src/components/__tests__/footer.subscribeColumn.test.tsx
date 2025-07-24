@@ -10,8 +10,8 @@ describe('SubscribeColumn', () => {
   });
   it('можно ввести email', () => {
     render(<SubscribeColumn />);
-    const input = screen.getByLabelText('Email address');
+    const input = screen.getByRole('textbox') as HTMLInputElement;
     fireEvent.change(input, { target: { value: 'test@example.com' } });
     expect(input.value).toBe('test@example.com');
   });
-}); 
+});

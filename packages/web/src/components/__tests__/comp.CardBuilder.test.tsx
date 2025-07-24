@@ -14,4 +14,4 @@ describe('CardBuilder', () => {
     const title = screen.getByTestId('cardbuilder-tab-title');
     expect(title.textContent).toMatch(/Explorer:/i);
   });
-}); 
+});

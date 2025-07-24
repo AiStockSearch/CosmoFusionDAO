@@ -12,13 +12,13 @@ describe('HeroSection', () => {
     visual: { type: 'image' },
     idea: { title: 'Idea', description: 'Idea desc' },
     hypotize: { title: 'Hypothesis', description: 'Hypothesis desc' },
-    arr: { title: 'List', list: ['A', 'B'] }
+    arr: { title: 'List', list: ['A', 'B'] },
   };
   it('рендерит заголовок, описание, список', () => {
     render(
       <SectionAnchorProvider>
         <HeroSection heroPageEn={heroPageEn} />
-      </SectionAnchorProvider>
+      </SectionAnchorProvider>,
     );
     expect(screen.getByText(heroPageEn.idea.title)).toBeInTheDocument();
     expect(screen.getByText(heroPageEn.idea.description)).toBeInTheDocument();
@@ -27,4 +27,4 @@ describe('HeroSection', () => {
     expect(screen.getAllByText('A').length).toBeGreaterThan(0);
     expect(screen.getAllByText('B').length).toBeGreaterThan(0);
   });
-}); 
+});

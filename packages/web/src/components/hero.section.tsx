@@ -1,13 +1,12 @@
-import React from "react";
-import astronautPng from "../assets/images/astronaut-optimized.jpg";
-import astronautWebp from "../assets/images/astronaut-optimized.webp";
-import cosmoFusion_dao from "../assets/images/cosmoFusion_dao.jpg";
-import cosmoFusionWebp from "../assets/images/cosmoFusion_dao.webp";
-import { useSectionAnchor } from "./SectionAnchorContext";
+import React from 'react';
+import astronautPng from '../assets/images/astronaut-optimized.jpg';
+import astronautWebp from '../assets/images/astronaut-optimized.webp';
+import cosmoFusion_dao from '../assets/images/cosmoFusion_dao.jpg';
+import cosmoFusionWebp from '../assets/images/cosmoFusion_dao.webp';
+import { useSectionAnchor } from './SectionAnchorContext';
 import { useLocale } from '../hooks/useLocale';
 
-interface HeroSectionProps
-{
+interface HeroSectionProps {
   heroPageEn: {
     title: string;
     subtitle: string;
@@ -32,59 +31,52 @@ interface HeroSectionProps
 }
 
 const sectionAnchors = [
-  "lonely-astronauts",
-  "visor-reflection",
-  "thousands-look-galaxy",
-  "democracy-explorers",
-  "lone-to-collective-mind",
+  'lonely-astronauts',
+  'visor-reflection',
+  'thousands-look-galaxy',
+  'democracy-explorers',
+  'lone-to-collective-mind',
   // Evolution Process (index 5) — без id
-  "become-collective-mind",
-  "dao-logbook",
-  "glossalarium",
+  'become-collective-mind',
+  'dao-logbook',
+  'glossalarium',
 ];
-const EXCLUDE_ANCHOR_INDEXES = [ 5 ];
+const EXCLUDE_ANCHOR_INDEXES = [5];
 
-const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
-{
+const HeroSection: React.FC<HeroSectionProps> = ({ heroPageEn }) => {
   const { t } = useLocale();
   const { scrollToSection } = useSectionAnchor();
 
   return (
     <>
       <section className="hero-grid">
-        <div className="col-start-2 col-end-4 row-start-1 row-end-3 overflow-hidden mt-4 bg-gray-300 p-2 rounded-[34px] shadow-sm">
+        <div className="col-start-2 col-end-4 row-start-1 row-end-3 mt-4 overflow-hidden rounded-[34px] bg-gray-300 p-2 shadow-sm">
           <picture>
             <source srcSet={astronautWebp} type="image/webp" />
             <source srcSet={astronautPng} type="image/jpeg" />
             <img
               src={astronautPng}
-              alt={t( 'hero.alt' )}
-              className="flex w-full h-full min-h-[25rem] max-h-[38rem] object-cover rounded-[32px]"
+              alt={t('hero.alt')}
+              className="flex size-full max-h-[38rem] min-h-[25rem] rounded-[32px] object-cover"
               loading="lazy"
             />
           </picture>
         </div>
         <div className="col-start-2 col-end-3 row-start-3 row-end-3 mt-4">
           <div className="flex flex-col items-start px-6 xl:w-[52rem]">
-            <h2 className="hero-title text-4xl mb-4">
-              {heroPageEn.idea.title}
-            </h2>
-            <p className="hero-desc  xs:w-[28rem] pr-[0rem] md:pr-[410px] xl:pr-[1rem]  xl:max-w-2xl leading-relaxed mb-10">
+            <h2 className="hero-title mb-4 text-4xl">{heroPageEn.idea.title}</h2>
+            <p className="hero-desc  xs:w-[28rem] mb-10 pr-0 leading-relaxed  md:pr-[410px] xl:max-w-2xl xl:pr-4">
               {heroPageEn.idea.description}
             </p>
-            <h3 className="hero-title text-gray-900 mb-2">
-              {heroPageEn.hypotize.title}
-            </h3>
-            <p className="hero-desc  w-[22rem] xs:w-[28rem] font-bold text-cyan-900 leading-relaxed">
+            <h3 className="hero-title mb-2 text-gray-900">{heroPageEn.hypotize.title}</h3>
+            <p className="hero-desc  xs:w-[28rem] w-[22rem] font-bold leading-relaxed text-cyan-900">
               {heroPageEn.hypotize.description}
             </p>
           </div>
-          <div className="px-6 pt-14 pb-12 md:hidden" style={{ scrollBehavior: 'smooth' }}>
+          <div className="px-6 pb-12 pt-14 md:hidden" style={{ scrollBehavior: 'smooth' }}>
             <span className="hero-list-title">{heroPageEn.arr.title}</span>
-            {heroPageEn.arr.list.map( ( x, idx ) =>
-            {
-              if ( EXCLUDE_ANCHOR_INDEXES.includes( idx ) )
-              {
+            {heroPageEn.arr.list.map((x, idx) => {
+              if (EXCLUDE_ANCHOR_INDEXES.includes(idx)) {
                 return (
                   <div className="flex flex-row items-start justify-start" key={idx}>
                     <span className="hero-list-bullet"> * </span>
@@ -96,36 +88,34 @@ const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
                 <div className="flex flex-row items-start justify-start" key={idx}>
                   <span className="hero-list-bullet"> * </span>
                   <span
-                    className="hero-list-item text-blue-600 hover:underline cursor-pointer"
-                    onClick={() => scrollToSection( sectionAnchors[ idx ] )}
+                    className="hero-list-item cursor-pointer text-blue-600 hover:underline"
+                    onClick={() => scrollToSection(sectionAnchors[idx])}
                   >
                     {x}
                   </span>
                 </div>
               );
-            } )}
+            })}
           </div>
         </div>
-        <div className="hidden absolute top-0 left-0 bottom-0 xl:block ">
+        <div className="absolute inset-y-0 left-0 hidden xl:block ">
           <picture>
             <source srcSet={cosmoFusionWebp} type="image/webp" />
             <source srcSet={cosmoFusion_dao} type="image/jpeg" />
             <img
               src={cosmoFusion_dao}
               alt="CosmoFusion DAO background"
-              className="w-full h-full object-cover px-20 py-10"
+              className="size-full object-cover px-20 py-10"
               loading="lazy"
             />
           </picture>
         </div>
       </section>
-      <div className="flex flex-col bg-gray-200 p-2 rounded-[34px] shadow-xl -mx-6 w-[360px] absolute bottom-14 right-20 shadow-xs hidden md:block">
-        <div className="bg-white rounded-[30px] px-4 py-4 ">
+      <div className="shadow-xs absolute bottom-14 right-20 -mx-6 flex hidden w-[360px] flex-col rounded-[34px] bg-gray-200 p-2 shadow-xl md:block">
+        <div className="rounded-[30px] bg-white p-4 ">
           <span className="hero-list-title">{heroPageEn.arr.title}</span>
-          {heroPageEn.arr.list.map( ( x, idx ) =>
-          {
-            if ( EXCLUDE_ANCHOR_INDEXES.includes( idx ) )
-            {
+          {heroPageEn.arr.list.map((x, idx) => {
+            if (EXCLUDE_ANCHOR_INDEXES.includes(idx)) {
               return (
                 <div className="flex flex-row items-start justify-start" key={idx}>
                   <span className="hero-list-bullet"> * </span>
@@ -137,14 +127,14 @@ const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
               <div className="flex flex-row items-start justify-start" key={idx}>
                 <span className="hero-list-bullet"> * </span>
                 <span
-                  className="hero-list-item text-blue-600 hover:underline cursor-pointer"
-                  onClick={() => scrollToSection( sectionAnchors[ idx ] )}
+                  className="hero-list-item cursor-pointer text-blue-600 hover:underline"
+                  onClick={() => scrollToSection(sectionAnchors[idx])}
                 >
                   {x}
                 </span>
               </div>
             );
-          } )}
+          })}
         </div>
       </div>
     </>

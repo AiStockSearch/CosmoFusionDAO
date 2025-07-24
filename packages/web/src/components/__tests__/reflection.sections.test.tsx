@@ -8,10 +8,10 @@ describe('Reflections', () => {
     intro: 'Reflection desc',
     biases: [
       { title: 'Bias1', description: 'Desc1' },
-      { title: 'Bias2', description: 'Desc2' }
+      { title: 'Bias2', description: 'Desc2' },
     ],
     quote: 'Quote',
-    image: 'test.jpg'
+    image: 'test.jpg',
   };
   it('рендерит заголовок, описание, список', () => {
     render(<Reflections reflectionsPageEn={reflectionsPageEn} />);
@@ -21,4 +21,4 @@ describe('Reflections', () => {
     expect(screen.getByText('Bias2')).toBeInTheDocument();
     expect(screen.getByText('Quote')).toBeInTheDocument();
   });
-}); 
+});

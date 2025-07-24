@@ -5,22 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // SEO: динамический title и description
-const setMeta = ( title: string, description: string ) =>
-{
+const setMeta = (title: string, description: string) => {
   document.title = title;
-  let desc = document.querySelector( "meta[name='description']" );
-  if ( !desc )
-  {
-    desc = document.createElement( 'meta' );
-    desc.setAttribute( 'name', 'description' );
-    document.head.appendChild( desc );
+  let desc = document.querySelector("meta[name='description']");
+  if (!desc) {
+    desc = document.createElement('meta');
+    desc.setAttribute('name', 'description');
+    document.head.appendChild(desc);
   }
-  desc.setAttribute( 'content', description );
+  desc.setAttribute('content', description);
 };
 
 setMeta(
   'CosmoFusion DAO — платформа коллективного интеллекта',
-  'Открытая платформа для коллективного принятия решений, AI, DAO и инноваций. Грант Cosmos x FIRE.'
+  'Открытая платформа для коллективного принятия решений, AI, DAO и инноваций. Грант Cosmos x FIRE.',
 );
 
 // if ('serviceWorker' in navigator) {
@@ -29,13 +27,11 @@ setMeta(
 //   });
 // }
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 reportWebVitals();

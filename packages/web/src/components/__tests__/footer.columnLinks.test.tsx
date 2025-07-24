@@ -9,7 +9,7 @@ describe('FooterColumnLinks', () => {
   ];
   it('рендерит все ссылки и aria-label', () => {
     render(<FooterColumnLinks links={links} title="Purchase & Get" />);
-    links.forEach(l => {
+    links.forEach((l) => {
       expect(screen.getByText(l.text)).toBeInTheDocument();
       expect(screen.getByLabelText(l.text)).toBeInTheDocument();
     });
@@ -18,4 +18,4 @@ describe('FooterColumnLinks', () => {
     const { asFragment } = render(<FooterColumnLinks links={links} title="Purchase & Get" />);
     expect(asFragment()).toMatchSnapshot();
   });
-}); 
+});

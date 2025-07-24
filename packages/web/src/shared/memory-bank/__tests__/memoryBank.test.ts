@@ -29,4 +29,4 @@ describe('memoryBank', () => {
     memoryBank.set('y', 20);
     expect(memoryBank.getAll()).toEqual({ x: 10, y: 20 });
   });
-}); 
+});

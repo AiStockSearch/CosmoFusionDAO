@@ -9,7 +9,7 @@ describe('SocialButton', () => {
   ];
   it('рендерит все кнопки и aria-label', () => {
     render(<SocialButton links={links} />);
-    links.forEach(l => {
+    links.forEach((l) => {
       expect(screen.getByLabelText(l.text)).toBeInTheDocument();
     });
   });
@@ -19,4 +19,4 @@ describe('SocialButton', () => {
     fireEvent.click(screen.getByLabelText('Telegram'));
     expect(window.open).toHaveBeenCalledWith('https://t.me/', '_blank');
   });
-}); 
+});

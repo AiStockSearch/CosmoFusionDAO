@@ -28,4 +28,4 @@ class MemoryBank {
   }
 }
 
-export const memoryBank = new MemoryBank(); 
+export const memoryBank = new MemoryBank();

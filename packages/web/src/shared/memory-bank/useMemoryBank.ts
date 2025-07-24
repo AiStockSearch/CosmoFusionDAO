@@ -24,4 +24,4 @@ export function useMemoryBank() {
   }, []);
 
   return { get, set, remove, clear, getAll };
-} 
+}

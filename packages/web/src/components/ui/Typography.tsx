@@ -7,10 +7,10 @@ interface TasaHeadingProps {
   className?: string;
 }
 
-export const TasaHeading: React.FC<TasaHeadingProps> = ({ 
-  variant = 'regular', 
-  children, 
-  className = '' 
+export const TasaHeading: React.FC<TasaHeadingProps> = ({
+  variant = 'regular',
+  children,
+  className = '',
 }) => {
   const baseClasses = 'font-tasa';
   const variantClasses = {
@@ -19,14 +19,10 @@ export const TasaHeading: React.FC<TasaHeadingProps> = ({
     medium: 'font-medium',
     semibold: 'font-semibold',
     bold: 'font-bold',
-    regular: 'font-normal'
+    regular: 'font-normal',
   };
 
-  return (
-    <h1 className={`${baseClasses} ${variantClasses[variant]} ${className}`}>
-      {children}
-    </h1>
-  );
+  return <h1 className={`${baseClasses} ${variantClasses[variant]} ${className}`}>{children}</h1>;
 };
 
 // Aspekta компоненты
@@ -36,10 +32,10 @@ interface AspektaTextProps {
   className?: string;
 }
 
-export const AspektaText: React.FC<AspektaTextProps> = ({ 
-  variant = 'body', 
-  children, 
-  className = '' 
+export const AspektaText: React.FC<AspektaTextProps> = ({
+  variant = 'body',
+  children,
+  className = '',
 }) => {
   const baseClasses = 'font-aspekta';
   const variantClasses = {
@@ -49,14 +45,10 @@ export const AspektaText: React.FC<AspektaTextProps> = ({
     '450': 'font-[450]',
     '500': 'font-[500]',
     '550': 'font-[550]',
-    '600': 'font-[600]'
+    '600': 'font-[600]',
   };
 
-  return (
-    <p className={`${baseClasses} ${variantClasses[variant]} ${className}`}>
-      {children}
-    </p>
-  );
+  return <p className={`${baseClasses} ${variantClasses[variant]} ${className}`}>{children}</p>;
 };
 
 // Trap компоненты
@@ -66,30 +58,28 @@ interface TrapTextProps {
   className?: string;
 }
 
-export const TrapText: React.FC<TrapTextProps> = ({ 
-  variant = 'accent', 
-  children, 
-  className = '' 
+export const TrapText: React.FC<TrapTextProps> = ({
+  variant = 'accent',
+  children,
+  className = '',
 }) => {
   const baseClasses = 'font-trap';
   const variantClasses = {
     accent: 'text-trap-accent',
-    large: 'text-lg font-bold'
+    large: 'text-lg font-bold',
   };
 
   return (
-    <span className={`${baseClasses} ${variantClasses[variant]} ${className}`}>
-      {children}
-    </span>
+    <span className={`${baseClasses} ${variantClasses[variant]} ${className}`}>{children}</span>
   );
 };
 
 // Showcase компонент
 export const TypographyShowcase: React.FC = () => {
   return (
-    <div className="p-8 space-y-8">
+    <div className="space-y-8 p-8">
       <div>
-        <h2 className="text-2xl font-bold mb-4">TASA Orbiter Display</h2>
+        <h2 className="mb-4 text-2xl font-bold">TASA Orbiter Display</h2>
         <div className="space-y-4">
           <TasaHeading variant="hero">Hero Heading - 64px/1.1 (600 weight)</TasaHeading>
           <TasaHeading variant="large">Large Heading - 44px/1 (500 weight)</TasaHeading>
@@ -101,7 +91,7 @@ export const TypographyShowcase: React.FC = () => {
       </div>
 
       <div>
-        <h2 className="text-2xl font-bold mb-4">Aspekta</h2>
+        <h2 className="mb-4 text-2xl font-bold">Aspekta</h2>
         <div className="space-y-4">
           <AspektaText variant="heading">Heading - 24px/1.3 (550 weight)</AspektaText>
           <AspektaText variant="subheading">Subheading - 20px/1.4 (500 weight)</AspektaText>
@@ -114,7 +104,7 @@ export const TypographyShowcase: React.FC = () => {
       </div>
 
       <div>
-        <h2 className="text-2xl font-bold mb-4">Trap</h2>
+        <h2 className="mb-4 text-2xl font-bold">Trap</h2>
         <div className="space-y-4">
           <TrapText variant="accent">Accent text - 18px/1.2 (700 weight)</TrapText>
           <TrapText variant="large">Large accent text - 700 weight</TrapText>
@@ -122,4 +112,4 @@ export const TypographyShowcase: React.FC = () => {
       </div>
     </div>
   );
-}; 
+};
