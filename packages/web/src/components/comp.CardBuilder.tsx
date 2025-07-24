@@ -3,22 +3,42 @@ import { SwitchTransition, CSSTransition } from "react-transition-group";
 import "./CardBuilder.css";
 import { listArrayBuilder } from "../content/jobBuilder";
 
-export const CardBuilder = () => {
-  const [state, setState] = React.useState(5);
-  const nodeRefs = React.useRef<(HTMLDivElement | null)[]>([]);
+export const CardBuilder = () =>
+{
+  const [ state, setState ] = React.useState( 5 );
+  const nodeRefs = React.useRef<( HTMLDivElement | null )[]>( [] );
 
   return (
-    <>
+    <div className="flex flex-col gap-2 md:flex-col-reverse">
+      <div className="flex flex-row items-start justify-start mt-3 flex-wrap">
+        {listArrayBuilder.map( ( x, index ) => (
+          <div
+            onClick={() => setState( index )}
+            key={index}
+            className="flex flex-row items-start justify-start "
+          >
+            <span
+              className={[
+                "jobs-header-desc leading-relaxed mb-0 mr-4 hover:scale-105 transition-all duration-300 cursor-pointer hover:text-cyan-700",
+                state === index ? "text-cyan-900 font-bold" : "text-gray-400",
+              ].join( " " )}
+            >
+              {x.select.en}
+            </span>
+          </div>
+        ) )}
+      </div>
       <SwitchTransition mode="out-in">
         <CSSTransition
           key={state}
           timeout={250}
           classNames="fade"
-          nodeRef={{ current: nodeRefs.current[state] }}
+          nodeRef={{ current: nodeRefs.current[ state ] }}
         >
           <div
-            ref={(el) => {
-              nodeRefs.current[state] = el;
+            ref={( el ) =>
+            {
+              nodeRefs.current[ state ] = el;
             }}
             className="
             bg-[#F5F8FE] -mx-4 shadow-lg overflow-hidden border-l-0 border-r-0
@@ -32,26 +52,26 @@ export const CardBuilder = () => {
             "
           >
             <div className="flex w-full md:w-[32rem] ">
-            <img
-              src={listArrayBuilder[state].img}
-              alt="getting-started"
+              <img
+                src={listArrayBuilder[ state ].img}
+                alt="getting-started"
                 className="object-cover bg-white h-[34rem] w-full xs:rounded-br-[30px]"
               />
             </div>
             <div className="flex flex-col mx-4 py-4 pb-10">
               <span className="jobs-header leading-relaxed text-black">
-                {listArrayBuilder[state].title.en}
+                {listArrayBuilder[ state ].title.en}
               </span>
               <span className="jobs-header-desc mb-4 text-cyan-700">
-                {listArrayBuilder[state].description.en}
+                {listArrayBuilder[ state ].description.en}
               </span>
               <span
                 className="jobs-title leading-relaxed"
                 style={{ color: "var(--color-text-gray-600)" }}
               >
-                {listArrayBuilder[state].arrTitle.en}
+                {listArrayBuilder[ state ].arrTitle.en}
               </span>
-              {listArrayBuilder[state]?.arr?.map((x) => (
+              {listArrayBuilder[ state ]?.arr?.map( ( x ) => (
                 <div
                   key={x.en}
                   className="flex flex-row items-start justify-start"
@@ -63,11 +83,11 @@ export const CardBuilder = () => {
                     {x.en}
                   </span>
                 </div>
-              ))}
+              ) )}
               <span className="jobs-title leading-relaxed text-gray-600">
-                {listArrayBuilder[state].rewardTitle.en}
+                {listArrayBuilder[ state ].rewardTitle.en}
               </span>
-              {listArrayBuilder[state]?.reward?.map((x) => (
+              {listArrayBuilder[ state ]?.reward?.map( ( x ) => (
                 <div
                   key={x.en}
                   className="flex flex-row items-start justify-start"
@@ -79,14 +99,14 @@ export const CardBuilder = () => {
                     {x.en}
                   </span>
                 </div>
-              ))}
-              {listArrayBuilder?.[state]?.addonTitle && (
+              ) )}
+              {listArrayBuilder?.[ state ]?.addonTitle && (
                 <>
                   <span className="jobs-title leading-relaxed text-gray-600">
-                    {listArrayBuilder[state].addonTitle.en}
+                    {listArrayBuilder[ state ].addonTitle.en}
                   </span>
-                  {listArrayBuilder[state]?.addon &&
-                    listArrayBuilder?.[state]?.addon?.map((x) => (
+                  {listArrayBuilder[ state ]?.addon &&
+                    listArrayBuilder?.[ state ]?.addon?.map( ( x ) => (
                       <div
                         key={x.en}
                         className="flex flex-row items-start justify-start"
@@ -98,31 +118,14 @@ export const CardBuilder = () => {
                           {x.en}
                         </span>
                       </div>
-                    ))}
+                    ) )}
                 </>
               )}
             </div>
           </div>
         </CSSTransition>
       </SwitchTransition>
-      <div className="flex flex-row items-start justify-start mt-3">
-        {listArrayBuilder.map((x, index) => (
-          <div
-            onClick={() => setState(index)}
-            key={index}
-            className="flex flex-row items-start justify-start "
-          >
-            <span
-              className={[
-                "jobs-header-desc leading-relaxed mb-0 mr-4 hover:scale-105 transition-all duration-300 cursor-pointer hover:text-cyan-700",
-                state === index ? "text-cyan-900 font-bold" : "text-gray-400",
-              ].join(" ")}
-            >
-              {x.select.en}
-            </span>
-          </div>
-        ))}
-      </div>
-    </>
+
+    </div>
   );
 };

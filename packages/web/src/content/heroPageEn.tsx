@@ -1,7 +1,7 @@
 export const heroPageEn = {
   title: "When one astronaut looks at the galaxy, he sees only part of the truth",
-  subtitle: "CosmoFusion DAO is a platform where ideas travel from hypothesis to truth through collective thinking",
-  description: "Imagine an astronaut looking at a galaxy from a distant planet. He sees the beauty, but does he truly understand the nature of what he observes? The same goes for us—each of us looks at the world through our own lens, making decisions based on a limited perspective. But what if thousands of astronauts looked at the same galaxy from different planets at the same time? What if their visions merged into a single picture of truth?",
+  subtitle: "CosmoFusion DAO is a next-generation decentralized platform where every member becomes part of a collective mind. Here, ideas are born, discussed, and evolve from hypothesis to truth through collaborative thinking, open dialogue, and transparent decision-making.",
+  description: "CosmoFusion DAO brings together people with diverse backgrounds and perspectives to find the best solutions, preserve knowledge, and build a community where every contribution matters. We believe that truth is not a final destination, but a continuous journey forward—where every voice counts and the experience of the past shapes the future. Join us to be part of the evolution of ideas, contribute to a common cause, and help create a space for open innovation and collective growth.",
   cta: "Join the search for truth",
   visual: {
     type: "image",
@@ -38,9 +38,8 @@ export const heroPageEn = {
       "Democracy of space explorers",
       "From a lone astronaut to a collective mind",
       "Truth in motion is not just a beautiful phrase",
-      "Become part of the collective mind",
+      "Getting started",
       "CosmoFusion DAO logbook",
-      "Glossalarium",
     ],
     title: "Table of Contents",
   },

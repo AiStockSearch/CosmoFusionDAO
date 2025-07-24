@@ -1,0 +1,105 @@
+{
+  "hero": {
+    "title": "",
+    "subtitle": "",
+    "description": "",
+    "cta": "",
+    "visual": {
+      "type": "image",
+      "description": "",
+      "alt": "",
+      "position": "center",
+      "animation": "fade-in-up"
+    },
+    "idea": {
+      "title": "",
+      "description": ""
+    },
+    "hypotize": {
+      "title": "",
+      "description": ""
+    },
+    "arr": {
+      "list": ["", "", "", "", "", "", "", "", ""],
+      "title": ""
+    }
+  },
+  "evolution": {
+    "title": "",
+    "intro": "",
+    "problems": [
+      {"title": "", "description": ""},
+      {"title": "", "description": ""},
+      {"title": "", "description": ""},
+      {"title": "", "description": ""}
+    ],
+    "arr": {"title": "", "list": ["", "", "", "", "", ""]},
+    "process": {"title": "", "steps": ["", "", "", ""]},
+    "quote": ""
+  },
+  "solution": {
+    "title": "",
+    "intro": "",
+    "problems": [
+      {"title": "", "description": ""},
+      {"title": "", "description": ""},
+      {"title": "", "description": ""},
+      {"title": "", "description": ""}
+    ],
+    "quote": ""
+  },
+  "governance": {
+    "title": "",
+    "intro": "",
+    "biases": [
+      {"title": "", "description": ""},
+      {"title": "", "description": ""},
+      {"title": "", "description": ""},
+      {"title": "", "description": ""}
+    ],
+    "process": {"title": "", "steps": ["", "", "", "", ""]},
+    "quote": ""
+  },
+  "footer": {
+    "title": "",
+    "description": "",
+    "buttonText": "",
+    "buttonLink": "https://t.me/zkcloud_io",
+    "buttonText2": "",
+    "buttonLink2": "https://t.me/zkcloud_io",
+    "linksTitle": "",
+    "links": [
+      {"text": "", "link": "https://t.me/zkcloud_io"},
+      {"text": "", "link": "https://x.com/zkcloud_io"},
+      {"text": "", "link": "https://discord.gg/zkcloud"},
+      {"text": "", "link": "https://galxe.com/zkcloud"},
+      {"text": "", "link": "https://galxe.com/"}
+    ],
+    "moreTitle": "",
+    "more": [
+      {"text": "", "link": "https://t.me/zkcloud_io"},
+      {"text": "", "link": "https://x.com/zkcloud_io"},
+      {"text": "", "link": "https://discord.gg/zkcloud"},
+      {"text": "", "link": "https://galxe.com/zkcloud"},
+      {"text": "", "link": "https://galxe.com/zkcloud"},
+      {"text": "", "link": "https://galxe.com/zkcloud"},
+      {"text": "", "link": "https://galxe.com/zkcloud"}
+    ],
+    "socialLinks": [
+      {"text": "", "link": "https://t.me/zkcloud_io"},
+      {"text": "", "link": "https://x.com/zkcloud_io"},
+      {"text": "", "link": "https://discord.gg/zkcloud"},
+      {"text": "", "link": "https://galxe.com/zkcloud"}
+    ],
+    "subscribeText": "",
+    "subscribePlaceholder": "",
+    "subscribeButton": "",
+    "subscribePrivacyPolicy": "",
+    "subscribePrivacyPolicyLink": "https://galxe.com/zkcloud",
+    "copyright": "",
+    "privacyPolicy": "",
+    "backToTop": "",
+    "backToTopLink": "https://galxe.com/zkcloud",
+    "backToTopLinkText": ""
+  }
+} 

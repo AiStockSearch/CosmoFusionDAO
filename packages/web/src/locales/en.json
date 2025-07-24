@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "title": "When one astronaut looks at the galaxy, he sees only part of the truth",
+    "subtitle": "A next-generation decentralized platform where every member becomes part of a collective mind. Here, ideas are born, discussed, and evolve from hypothesis to truth through collaborative thinking, open dialogue, and transparent decision-making.",
+    "description": "CosmoFusion DAO brings together people with diverse backgrounds and perspectives to find the best solutions, preserve knowledge, and build a community where every contribution matters. We believe that truth is not a final destination, but a continuous journey forward—where every voice counts and the experience of the past shapes the future. Join us to be part of the evolution of ideas, contribute to a common cause, and help create a space for open innovation and collective growth.",
+    "cta": "Join the search for truth",
+    "visual": {
+      "type": "image",
+      "description": "An astronaut on a planet looking at the galaxy",
+      "alt": "A lone astronaut contemplates a majestic galaxy",
+      "position": "center",
+      "animation": "fade-in-up"
+    },
+    "idea": {
+      "title": "Idea",
+      "description": "Imagine an astronaut looking at a galaxy from a distant planet. He sees the beauty, but does he truly understand the nature of what he observes? The same goes for us—each of us looks at the world through our own lens, making decisions based on a limited perspective. But what if thousands of astronauts looked at the same galaxy from different planets at the same time? What if their visions merged into a single picture of truth?"
+    },
+    "hypotize": {
+      "title": "Hypothesis",
+      "description": "CosmoFusion DAO is a platform where ideas travel from hypothesis to truth through collective thinking"
+    },
+    "arr": {
+      "list": [
+        "We are all lonely astronauts in the cosmos of decisions",
+        "The astronaut's visor reflects only what he wants to see",
+        "When thousands of astronauts look at one galaxy",
+        "Democracy of space explorers",
+        "From a lone astronaut to a collective mind",
+        "Truth in motion is not just a beautiful phrase",
+        "Become part of the collective mind",
+        "CosmoFusion DAO logbook",
+        "Glossalarium"
+      ],
+      "title": "Table of Contents"
+    }
+  },
+  "evolution": {
+    "title": "From a single astronaut to a collective mind",
+    "intro": "Imagine an astronaut floating in endless space. They see stars, nebulae, distant galaxies — but their vision is limited to a single observation point. This is how today's investment platforms work.",
+    "problems": [
+      {"title": "Stage 1: Solo Astronaut", "description": "Traditional platforms are lone explorers making decisions in isolation. They may be brilliant, but their vision is limited to a single point of observation."},
+      {"title": "Stage 2: Group of Explorers", "description": "A DAO community is a group of astronauts working together. They share observations, discuss hypotheses, and vote for the best solutions."},
+      {"title": "Stage 3: AI Beacons", "description": "Artificial intelligence becomes cosmic beacons illuminating the path to truth. AI agents analyze data, identify patterns, and propose hypotheses."},
+      {"title": "Stage 4: Collective Intelligence", "description": "AI + DAO + Blockchain = Collective Intelligence. The system learns from every decision, preserves experience, and evolves together with the community."}
+    ],
+    "arr": {"title": "Idea Evolution Process:", "list": ["Hypothesis", "Discussion", "Voting", "Implementation", "Result", "Learning"]},
+    "process": {"title": "Uniqueness of Approach:", "steps": ["Not static solutions, but dynamic evolution", "Not one expert, but collective intelligence", "Not closed analytics, but transparent history", "Not repeating mistakes, but studying patterns"]},
+    "quote": "We are not just creating a platform — we are creating an ecosystem of collective truth-seeking, where every participant becomes part of something greater."
+  },
+  "solution": {
+    "title": "When thousands of astronauts look at the same galaxy",
+    "intro": "Imagine: thousands of astronauts on different planets, looking at the same galaxy simultaneously. Each sees it from their own angle, from their own perspective. Together they see the complete picture.",
+    "problems": [
+      {"title": "Mill's Trident Principle", "description": "In any argument there are only three possibilities: you are right (need criticism to strengthen), partially right (need opposing views), wrong (need free speech to correct)."},
+      {"title": "Collective Intelligence", "description": "When many minds work together, they can solve problems inaccessible to individuals. Different perspectives complement each other."},
+      {"title": "Process Transparency", "description": "Every decision, every argument, every vote is recorded in an immutable journal. History becomes a teacher."},
+      {"title": "Idea Evolution", "description": "Truth is not static — it evolves through collective interaction, criticism, verification, constant refinement."}
+    ],
+    "quote": "Truth is born not in the solitude of genius, but in collective search, where every contribution matters, every criticism is constructive, every result teaches."
+  },
+  "governance": {
+    "title": "Democracy of astronauts",
+    "intro": "Imagine a space station where every astronaut has the right to vote on expedition course decisions. Not hierarchy, but collective wisdom determines the path to truth.",
+    "biases": [
+      {"title": "One astronaut — one vote", "description": "Every DAO participant has equal voting rights, regardless of status or resources. It's not power that matters, but collective wisdom."},
+      {"title": "Transparency of all decisions", "description": "Every vote, every argument, every result is recorded on blockchain. No secret meetings, no hidden motives."},
+      {"title": "Collective responsibility", "description": "Decisions are made by the community, and the community is responsible for their consequences. Success and failure are shared."},
+      {"title": "Evolution of rules", "description": "Governance rules are not static — they evolve with the community. New challenges require new approaches."}
+    ],
+    "process": {"title": "Decision-making process:", "steps": ["Proposal of idea by any participant", "Collective discussion and criticism", "Voting with transparent results", "Implementation and monitoring", "Result analysis and lesson extraction"]},
+    "quote": "There's no room for dictatorship in space. Only collective wisdom can lead an expedition to success."
+  },
+  "footer": {
+    "title": "CosmoFusion DAO",
+    "description": "CosmoFusion DAO — is a community where everyone can propose an idea, discuss it with like-minded people and together turn ideas into real solutions. We combine experience, preserve best practices and build an open platform for honest and transparent governance.",
+    "buttonText": "Work with us",
+    "buttonLink": "https://t.me/zkcloud_io",
+    "buttonText2": "Contact us",
+    "buttonLink2": "https://t.me/zkcloud_io",
+    "linksTitle": "Explore",
+    "links": [
+      {"text": "Get Started", "link": "https://t.me/zkcloud_io"},
+      {"text": "Partners", "link": "https://x.com/zkcloud_io"},
+      {"text": "About us", "link": "https://discord.gg/zkcloud"},
+      {"text": "Media and Events", "link": "https://galxe.com/zkcloud"},
+      {"text": "Docs", "link": "https://galxe.com/"}
+    ],
+    "moreTitle": "More",
+    "more": [
+      {"text": "Gevulot Labs", "link": "https://t.me/zkcloud_io"},
+      {"text": "Explorer", "link": "https://x.com/zkcloud_io"},
+      {"text": "Blog", "link": "https://discord.gg/zkcloud"},
+      {"text": "Github", "link": "https://galxe.com/zkcloud"},
+      {"text": "Node Rental & Node Operator Token Grant Terms", "link": "https://galxe.com/zkcloud"},
+      {"text": "Whitepaper", "link": "https://galxe.com/zkcloud"},
+      {"text": "Desclaimer & updates", "link": "https://galxe.com/zkcloud"}
+    ],
+    "socialLinks": [
+      {"text": "Telegram", "link": "https://t.me/zkcloud_io"},
+      {"text": "X", "link": "https://x.com/zkcloud_io"},
+      {"text": "Discord", "link": "https://discord.gg/zkcloud"},
+      {"text": "Galxe", "link": "https://galxe.com/zkcloud"}
+    ],
+    "subscribeText": "Subscribe to our newsletter",
+    "subscribePlaceholder": "Enter your email",
+    "subscribeButton": "→",
+    "subscribePrivacyPolicy": "We care about your data. Read our privacy policy.",
+    "subscribePrivacyPolicyLink": "https://galxe.com/zkcloud",
+    "copyright": "©2025 ZkCloud. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "backToTop": "Back to the top",
+    "backToTopLink": "https://galxe.com/zkcloud",
+    "backToTopLinkText": "↑"
+  }
+} 

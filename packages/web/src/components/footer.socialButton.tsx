@@ -8,10 +8,10 @@ export const SocialButton: React.FC<{
       {links.map((link, index) => (
         <button
           key={index}
-          className="bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-xl h-12 lg:h-20 transition-colors duration-200 flex items-center justify-center"
+          className="bg-gray-100 hover:bg-gray-200 hover:text-cyan-700 hover:font-bold hover:border-cyan-700 hover:border-4 text-gray-900 rounded-xl h-12 lg:h-20 transition-colors duration-200 flex items-center justify-center"
           onClick={() => window.open(link.link, "_blank")}
         >
-          <span className="font-tasa text-sm font-semibold">{link.text}</span>
+          <span className="font-space-mono text-sm font-semibold">{link.text}</span>
         </button>
       ))}
     </div>

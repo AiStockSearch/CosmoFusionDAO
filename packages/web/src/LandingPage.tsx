@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import HeroSection from './components/hero.section';
 import ProblemSection from './components/problem.sections';
 import Footer from './sections/Footer';
-import { heroPageEn } from './content/heroPageEn';
-import { problemPageEn } from './content/problemPageEn';
-import { reflectionPageEn } from './content/reflectionPageEn';
-import { solutionsPageEn } from './content/solutionPageEn';
-import { evolutionPageEn } from './content/evolutionPageEn';
-import { gettingStarterData } from './content/gettingStarterData';
 import Reflections from './components/reflection.sections';
 import GettingStarted from './components/getting.started';
-
-import { governancePageEn } from './content/governancePageEn';
-import UseCases from './components/cases.work';
+import { useSectionContent } from './hooks/useSectionContent';
+import { SectionAnchorProvider, useSectionAnchor } from './components/SectionAnchorContext';
 
 const defaultLang: 'ru' | 'en' = 'en';
 
@@ -23,49 +16,82 @@ const getInitialLang = (): 'ru' | 'en' =>
   return defaultLang;
 };
 
+// Маппинг Table of Contents на id секций (тот же, что в hero.section.tsx)
+const sectionAnchors = [
+  "hero", // новая нулевая секция
+  "lonely-astronauts",
+  "visor-reflection",
+  "thousands-look-galaxy",
+  "democracy-explorers",
+  "lone-to-collective-mind",
+  "become-collective-mind",
+  "dao-logbook",
+  "glossalarium",
+];
 
+const SectionWithAnchor: React.FC<{ id: string; children: React.ReactNode }> = ( { id, children } ) =>
+{
+  const ref = useRef<HTMLElement | null>( null );
+  const { registerSection } = useSectionAnchor();
+  useEffect( () => { registerSection( id, ref ); }, [ id, registerSection ] );
+  return <section id={id} ref={ref}>{children}</section>;
+};
 
 const LandingPage: React.FC = () =>
 {
   const [ lang ] = useState<'ru' | 'en'>( getInitialLang() );
+  const heroSection = useSectionContent( 'hero' );
+  const problemSection = useSectionContent( 'problem' );
+  const reflectionSection = useSectionContent( 'reflection' );
+  const solutionSection = useSectionContent( 'solution' );
+  const evolutionSection = useSectionContent( 'evolution' );
+  const governanceSection = useSectionContent( 'governance' );
+  const motionPhrase = useSectionContent( 'motionPhrase' );
+  const gettingStartedSection = useSectionContent( 'gettingStarted' );
 
   useEffect( () =>
   {
     localStorage.setItem( 'landing_lang', lang );
   }, [ lang ] );
 
+  // Сброс scroll и hash при первом монтировании
+  useEffect( () =>
+  {
+    if ( window.location.hash )
+    {
+      window.scrollTo( 0, 0 );
+      window.history.replaceState( null, '', window.location.pathname );
+    }
+  }, [] );
+
   return (
-    <div className="min-h-screen bg-white">
-      <HeroSection
-        heroPageEn={heroPageEn}
-      />
-      <ProblemSection
-        problemPageEn={problemPageEn}
-      />
-      <Reflections
-        reflectionsPageEn={reflectionPageEn}
-      />
-      <ProblemSection
-        problemPageEn={solutionsPageEn}
-      />
-      <Reflections
-        reflectionsPageEn={governancePageEn}
-      />
-      <ProblemSection
-        problemPageEn={evolutionPageEn}
-      />
-
-
-      <div className="flex flex-col items-center justify-center px-4 min-h-1/4 bg-gray-200 py-14">
-        <span className="text-[1.2rem] text-gray-900 text-center  md:w-[42rem] font-bold font-space-mono">
-          Truth in Motion is not just a beautiful phrase. It's the principle by which our entire platform works. There are no final answers here, only constant search, collective evolution, endless approximation to truth.
-        </span>
+    <SectionAnchorProvider>
+      <div className="min-h-screen bg-white">
+        <SectionWithAnchor id={sectionAnchors[ 0 ]}>
+          <HeroSection heroPageEn={heroSection} />
+          <div className="flex flex-col items-center justify-center px-4 min-h-1/4 bg-gray-200 py-14 mt-16">
+            <span className="text-[1.1rem] text-gray-900 text-center  md:w-[42rem] font-bold font-share-tech-mono">
+              {heroSection.subtitle}
+            </span>
+          </div>
+        </SectionWithAnchor>
+        <SectionWithAnchor id={sectionAnchors[ 1 ]}><ProblemSection problemPageEn={problemSection} /></SectionWithAnchor>
+        <SectionWithAnchor id={sectionAnchors[ 2 ]}><Reflections reflectionsPageEn={reflectionSection} /></SectionWithAnchor>
+        <SectionWithAnchor id={sectionAnchors[ 3 ]}><ProblemSection problemPageEn={solutionSection} /></SectionWithAnchor>
+        <SectionWithAnchor id={sectionAnchors[ 4 ]}><Reflections reflectionsPageEn={governanceSection} /></SectionWithAnchor>
+        {/* Evolution Process (index 5) — без id */}
+        <SectionWithAnchor id={sectionAnchors[ 5 ]}><ProblemSection problemPageEn={evolutionSection} /></SectionWithAnchor>
+        <SectionWithAnchor id={sectionAnchors[ 6 ]}>
+          <div className="flex flex-col items-center justify-center px-4 min-h-1/4 bg-gray-200 py-14">
+            <span className="text-[1.2rem] text-gray-900 text-center  md:w-[42rem] font-bold font-share-tech-mono">
+              {motionPhrase.text}
+            </span>
+          </div>
+        </SectionWithAnchor>
+        <SectionWithAnchor id={sectionAnchors[ 7 ]}><GettingStarted gettingStarterData={gettingStartedSection} /></SectionWithAnchor>
+        <Footer />
       </div>
-
-      <UseCases />
-      <GettingStarted gettingStarterData={gettingStarterData} />
-      <Footer /> 
-    </div>
+    </SectionAnchorProvider>
   );
 };
 
