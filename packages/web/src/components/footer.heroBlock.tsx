@@ -30,12 +30,14 @@ export const HeroBlock: React.FC<{
           <button
             onClick={() => window.open( buttonLink, "_blank" )}
             className="font-share-tech-mono font-medium  hover:font-bold px-4 rounded-xl bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-500 hover:to-purple-500  text-white hover:text-black px-2 py-2 transition-all duration-200"
+            aria-label={buttonText}
           >
             {buttonText}
           </button>
           <button
             onClick={() => window.open( buttonLink2, "_blank" )}
             className="font-share-tech-mono font-medium  hover:font-bold px-4 rounded-xl shadow-md text-gray-700  px-2 py-2 hover:bg-gray-50 transition-colors duration-200"
+            aria-label={buttonText2}
           >
             {buttonText2}
           </button>

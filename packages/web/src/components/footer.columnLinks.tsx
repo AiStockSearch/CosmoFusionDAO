@@ -18,6 +18,7 @@ export const FooterColumnLinks: React.FC<{
               href={link.link}
               className="font-share-tech-mono text-gray-600 border-transparent border-b-2 hover:border-cyan-600 hover:text-cyan-600 hover:font-bold transition-colors duration-200"
               {...( !link.link.startsWith( '#' ) ? { target: '_blank', rel: 'noopener noreferrer' } : {} )}
+              aria-label={link.text}
             >
               {link.text}
             </a>

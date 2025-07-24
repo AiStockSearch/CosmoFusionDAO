@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import astronautPng from "../assets/images/astronaut-optimized.jpg";
+import astronautWebp from "../assets/images/astronaut-optimized.webp";
 import cosmoFusion_dao from "../assets/images/cosmoFusion_dao.jpg";
+import cosmoFusionWebp from "../assets/images/cosmoFusion_dao.webp";
 import { useSectionAnchor } from "./SectionAnchorContext";
 import { useLocale } from '../hooks/useLocale';
 
@@ -51,11 +53,16 @@ const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
     <>
       <section className="hero-grid">
         <div className="col-start-2 col-end-4 row-start-1 row-end-3 overflow-hidden mt-4 bg-gray-300 p-2 rounded-[34px] shadow-sm">
-          <img
-            src={astronautPng}
-            alt={t( 'hero.alt' )}
-            className="flex w-full h-full min-h-[25rem] max-h-[38rem] object-cover rounded-[32px]"
-          />
+          <picture>
+            <source srcSet={astronautWebp} type="image/webp" />
+            <source srcSet={astronautPng} type="image/jpeg" />
+            <img
+              src={astronautPng}
+              alt={t( 'hero.alt' )}
+              className="flex w-full h-full min-h-[25rem] max-h-[38rem] object-cover rounded-[32px]"
+              loading="lazy"
+            />
+          </picture>
         </div>
         <div className="col-start-2 col-end-3 row-start-3 row-end-3 mt-4">
           <div className="flex flex-col items-start px-6 xl:w-[52rem]">
@@ -100,11 +107,16 @@ const HeroSection: React.FC<HeroSectionProps> = ( { heroPageEn } ) =>
           </div>
         </div>
         <div className="hidden absolute top-0 left-0 bottom-0 xl:block ">
-          <img
-            src={cosmoFusion_dao}
-            alt="CosmoFusion DAO background"
-            className="w-full h-full object-cover px-20 py-10"
-          />
+          <picture>
+            <source srcSet={cosmoFusionWebp} type="image/webp" />
+            <source srcSet={cosmoFusion_dao} type="image/jpeg" />
+            <img
+              src={cosmoFusion_dao}
+              alt="CosmoFusion DAO background"
+              className="w-full h-full object-cover px-20 py-10"
+              loading="lazy"
+            />
+          </picture>
         </div>
       </section>
       <div className="flex flex-col bg-gray-200 p-2 rounded-[34px] shadow-xl -mx-6 w-[360px] absolute bottom-14 right-20 shadow-xs hidden md:block">

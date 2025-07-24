@@ -11,8 +11,15 @@ export const SubscribeColumn = () =>
         <input
           type="email"
           placeholder="Enter your email"
-          className="flex-1 px-4 py-3 rounded-xl focus:outline-none focus:border-transparent font-share-tech-mono" style={{ background: 'var(--color-bg-gray-100)' }} />
-        <button className="right-1 top-1 bottom-1 w-10 h-10 absolute rounded-xl transition-all duration-200" style={{ background: 'linear-gradient(90deg, var(--color-bg-blue-600), var(--color-bg-purple-600))', color: 'var(--color-text-white)' }}>
+          className="flex-1 px-4 py-3 rounded-xl focus:outline-none focus:border-transparent font-share-tech-mono"
+          style={{ background: 'var(--color-bg-gray-100)' }}
+          aria-label="Email address"
+        />
+        <button
+          className="right-1 top-1 bottom-1 w-10 h-10 absolute rounded-xl transition-all duration-200"
+          style={{ background: 'linear-gradient(90deg, var(--color-bg-blue-600), var(--color-bg-purple-600))', color: 'var(--color-text-white)' }}
+          aria-label="Subscribe"
+        >
           →
         </button>
       </div>

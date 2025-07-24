@@ -54,11 +54,16 @@ export const CardBuilder = () =>
             "
           >
             <div className="flex w-full md:w-[32rem] ">
-              <img
-                src={listArrayBuilder[ state ].img}
-                alt={t('gettingStarted.alt')}
-                className="object-cover bg-white h-[34rem] w-full xs:rounded-br-[30px]"
-              />
+              <picture>
+                <source srcSet={listArrayBuilder[ state ].img.replace( /\.jpg$/, '.webp' ).replace( /\.jpeg$/, '.webp' )} type="image/webp" />
+                <source srcSet={listArrayBuilder[ state ].img} type="image/jpeg" />
+                <img
+                  src={listArrayBuilder[ state ].img}
+                  alt={t( 'gettingStarted.alt' )}
+                  className="object-cover bg-white h-[34rem] w-full xs:rounded-br-[30px]"
+                  loading="lazy"
+                />
+              </picture>
             </div>
             <div className="flex flex-col mx-4 py-4 pb-10">
               <span className="jobs-header leading-relaxed text-black">
