@@ -1,38 +1,48 @@
+import links from './links.json';
+
 export const footerEn = {
   title: 'CosmoFusion DAO',
-  description: `
-CosmoFusion DAO is a next-generation decentralized community and platform for collective intelligence, open innovation, and transparent governance. Here, every member can propose ideas, discuss them with like-minded people, and together turn concepts into real solutions that benefit the whole ecosystem.
-
-We unite people from diverse backgrounds—engineers, visionaries, creators, critics, ambassadors, and explorers—who believe that truth is not a static point, but a continuous journey. In CosmoFusion DAO, ideas evolve through open dialogue, constructive criticism, and collective decision-making.
-
-Our mission is to preserve knowledge, share best practices, and build a resilient, adaptive organization where every voice matters. All key processes—proposals, discussions, voting, and results—are recorded on-chain, ensuring full transparency and trust.
-
-By joining CosmoFusion DAO, you become part of a global movement to shape the future of decentralized collaboration, support breakthrough projects, and create a space where innovation, fairness, and collective wisdom drive progress. Together, we are building an open platform for honest governance, sustainable growth, and the evolution of ideas.
-`,
-  buttonText: 'Join DAO',
-  buttonLink: '/join',
-  buttonText2: 'Learn More',
-  buttonLink2: '/about',
+  description:
+    'CosmoFusion DAO - is a next-generation decentralized community and platform for collective intelligence, open innovation, and transparent governance. Here, every member can propose ideas, discuss them with like-minded people, and together turn concepts into real solutions that benefit the whole ecosystem. We unite people from diverse backgrounds—engineers, visionaries, creators, critics, ambassadors, and explorers—who believe that truth is not a static point, but a continuous journey. In CosmoFusion DAO, ideas evolve through open dialogue, constructive criticism, and collective decision-making. Our mission is to preserve knowledge, share best practices, and build a resilient, adaptive organization where every voice matters. All key processes—proposals, discussions, voting, and results—are recorded on-chain, ensuring full transparency and trust. By joining CosmoFusion DAO, you become part of a global movement to shape the future of decentralized collaboration, support breakthrough projects, and create a space where innovation, fairness, and collective wisdom drive progress. Together, we are building an open platform for honest governance, sustainable growth, and the evolution of ideas.',
+  buttonText: 'Work with us',
+  buttonLink: links.workWithUs,
+  buttonText2: 'Contact us',
+  buttonLink2: links.contactUs,
   links: [
-    { text: 'Home', link: '/' },
-    { text: 'About', link: '/about' },
-    { text: 'Docs', link: '/docs' },
-    { text: 'Contact', link: '/contact' },
+    { text: 'Get Started', link: links.getStarted },
+    { text: 'Partners', link: links.partners },
+    { text: 'About us', link: links.aboutUs },
+    { text: 'Media and Events', link: links.mediaAndEvents },
+    { text: 'Docs', link: links.docs },
   ],
-  linksTitle: 'Links',
+  linksTitle: 'Explore',
   purchase: [
-    { text: 'Buy Token', link: '/buy' },
-    { text: 'Marketplace', link: '/market' },
+    { text: 'OpenSea', link: links.opensea },
+    { text: 'NFT (Stargaze)', link: links.nft },
+    { text: 'Bridge ETH↔ATOM', link: links.bridge },
+    { text: 'Tangem', link: links.tangemOrder },
   ],
-  purchaseTitle: 'Purchase & Rewards',
+  purchaseTitle: 'Purchase and rewards',
   more: [
-    { text: 'FAQ', link: '/faq' },
-    { text: 'Blog', link: '/blog' },
+    { text: 'CosmoFusion Labs', link: links.gevulotLabs },
+    { text: 'Explorer', link: links.explorer },
+    { text: 'Blog', link: links.blog },
+    { text: 'Github', link: links.github },
+    { text: 'Node Rental & Node Operator Token Grant Terms', link: links.nodeRental },
+    { text: 'Whitepaper', link: links.whitepaper },
+    { text: 'Disclaimer & updates', link: links.disclaimer },
   ],
   moreTitle: 'More',
   socialLinks: [
-    { text: 'Twitter', link: 'https://twitter.com/cosmofusiondao' },
-    { text: 'Discord', link: 'https://discord.com/invite/cosmofusion' },
-    { text: 'GitHub', link: 'https://github.com/cosmofusion' },
+    { text: 'Telegram', link: links.telegram },
+    { text: 'X', link: links.x },
+    { text: 'Discord', link: links.discord },
+    { text: 'Galxe', link: links.galxe },
   ],
+  subscribeText: 'Subscribe to our newsletter',
+  subscribePlaceholder: 'Enter your email',
+  subscribeButton: '→',
+  subscribePrivacyPolicy: 'We care about your data. More in the privacy policy.',
+  subscribePrivacyPolicyLink: links.privacyPolicy,
+  privacyPolicy: 'Privacy policy',
 };

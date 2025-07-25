@@ -59,7 +59,14 @@
     ],
     "arr": {
       "title": "Idea Evolution Process:",
-      "list": ["Hypothesis", "Discussion", "Voting", "Implementation", "Result", "Learning"]
+      "list": [
+        "Hypothesis",
+        "Discussion",
+        "Voting",
+        "Implementation",
+        "Result",
+        "Learning"
+      ]
     },
     "process": {
       "title": "Uniqueness of Approach:",
@@ -266,5 +273,11 @@
     "backToTop": "Back to the top",
     "backToTopLink": "https://galxe.com/zkcloud",
     "backToTopLinkText": "↑"
+  },
+  "journal": {
+    "heading": "Immutable Journal",
+    "subtitle": "DAO history and key events",
+    "about": "All important decisions and events are recorded here.",
+    "read": "Read more"
   }
 }

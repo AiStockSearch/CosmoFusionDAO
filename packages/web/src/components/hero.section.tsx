@@ -43,8 +43,8 @@ const sectionAnchors = [
 ];
 const EXCLUDE_ANCHOR_INDEXES = [5];
 
-const HeroSection: React.FC<HeroSectionProps> = ({ heroPageEn }) => {
-  const { t } = useLocale();
+const HeroSection: React.FC = () => {
+  const { heroSection } = useLocale();
   const { scrollToSection } = useSectionAnchor();
 
   return (
@@ -56,7 +56,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroPageEn }) => {
             <source srcSet={astronautPng} type="image/jpeg" />
             <img
               src={astronautPng}
-              alt={t('hero.alt')}
+              alt={heroSection.alt}
               className="flex size-full max-h-full min-h-[25rem] rounded-[32px] object-cover"
               loading="lazy"
             />
@@ -64,18 +64,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroPageEn }) => {
         </div>
         <div className="col-start-2 col-end-3 row-start-3 row-end-3 mt-4">
           <div className="flex flex-col items-start px-6 xl:w-[52rem]">
-            <h2 className="hero-title mb-4 text-4xl">{heroPageEn.idea.title}</h2>
+            <h2 className="hero-title mb-4 text-4xl">{heroSection.idea.title}</h2>
             <p className="hero-desc  xs:w-[28rem] mb-10 pr-0 leading-relaxed  md:pr-[410px] xl:max-w-2xl xl:pr-4">
-              {heroPageEn.idea.description}
+              {heroSection.idea.description}
             </p>
-            <h3 className="hero-title mb-2 text-gray-900">{heroPageEn.hypotize.title}</h3>
+            <h3 className="hero-title mb-2 text-gray-900">{heroSection.hypotize.title}</h3>
             <p className="hero-desc  xs:w-[28rem] w-[22rem] font-bold leading-relaxed text-cyan-900">
-              {heroPageEn.hypotize.description}
+              {heroSection.hypotize.description}
             </p>
           </div>
           <div className="px-6 pb-12 pt-14 md:hidden" style={{ scrollBehavior: 'smooth' }}>
-            <span className="hero-list-title">{heroPageEn.arr.title}</span>
-            {heroPageEn.arr.list.map((x, idx) => {
+            <span className="hero-list-title">{heroSection.arr.title}</span>
+            {heroSection.arr.list.map((x: string, idx: number) => {
               if (EXCLUDE_ANCHOR_INDEXES.includes(idx)) {
                 return (
                   <div className="flex flex-row items-start justify-start" key={idx}>
@@ -113,8 +113,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroPageEn }) => {
       </section>
       <div className="shadow-xs absolute bottom-14 right-20 -mx-6 hidden w-[360px] flex-col rounded-[34px] bg-gray-200 p-2 shadow-xl md:flex">
         <div className="rounded-[30px] bg-white p-4 ">
-          <span className="hero-list-title">{heroPageEn.arr.title}</span>
-          {heroPageEn.arr.list.map((x, idx) => {
+          <span className="hero-list-title">{heroSection.arr.title}</span>
+          {heroSection.arr.list.map((x: string, idx: number) => {
             if (EXCLUDE_ANCHOR_INDEXES.includes(idx)) {
               return (
                 <div className="flex flex-row items-start justify-start" key={idx}>

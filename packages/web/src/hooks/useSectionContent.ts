@@ -15,7 +15,7 @@ import { motionPhraseEn } from '../content/motionPhraseEn';
 import { motionPhraseRu } from '../content/motionPhraseRu';
 import { gettingStarterDataEn } from '../content/gettingStarterDataEn';
 import { gettingStarterDataRu } from '../content/gettingStarterDataRu';
-import footer from '../content/footer';
+import { footerEn as footer } from '../content/footerEn';
 import { footerRu } from '../content/footerRu';
 
 // Заглушка для DeepL API (реализуйте реальный запрос при наличии ключа)

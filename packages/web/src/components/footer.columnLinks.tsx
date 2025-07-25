@@ -5,7 +5,7 @@ export const FooterColumnLinks: React.FC<{
   title: string;
 }> = ({ links, title }) => {
   return (
-    <div className="mx-2 flex flex-col gap-2 pt-2">
+    <div className="mx-2 flex flex-col gap-2 pt-2 sm:w-[11rem]">
       <span className="font-space-mono mb-4 text-lg font-bold text-cyan-700">{title}</span>
       <ul className="space-y-3 ">
         {links.map((link, index) => (

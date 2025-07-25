@@ -22,7 +22,7 @@ const UseCases: React.FC<{ gettingStarterData: GettingStarterData }> = ({ gettin
         </div>
       </div>
       <div className="mt-10">
-        <CardBuilder locale={locale} />
+        <CardBuilder />
       </div>
       <div className="mt-10 flex">
         <div className="my-4 flex flex-col">

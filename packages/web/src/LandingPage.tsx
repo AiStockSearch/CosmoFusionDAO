@@ -13,14 +13,9 @@ import { SectionAnchorProvider, useSectionAnchor } from './components/SectionAnc
 import { Helmet } from 'react-helmet-async';
 import sectionSeo from './content/sectionSeo.json';
 import { useLocale } from './hooks/useLocale';
+import { ImmutableJournalSection } from './components';
 
 const defaultLang: 'ru' | 'en' = 'en';
-
-const getInitialLang = (): 'ru' | 'en' => {
-  const stored = localStorage.getItem('landing_lang');
-  if (stored === 'ru' || stored === 'en') return stored;
-  return defaultLang;
-};
 
 // Маппинг Table of Contents на id секций (тот же, что в hero.section.tsx)
 const sectionAnchors = [
@@ -76,7 +71,6 @@ function getSectionFromHash(hash: string): SectionKey {
 
 const LandingPage: React.FC = (): React.JSX.Element => {
   const { locale, setLocale } = useLocale();
-  const [lang] = useState<'ru' | 'en'>(getInitialLang());
   const heroSection = useSectionContent('hero') as HeroSectionProps['heroPageEn'];
   const problemSection = useSectionContent('problem') as ProblemSectionProps['problemPageEn'];
   const reflectionSection = useSectionContent(
@@ -89,10 +83,6 @@ const LandingPage: React.FC = (): React.JSX.Element => {
   ) as ReflectionsProps['reflectionsPageEn'];
   const motionPhrase = useSectionContent('motionPhrase') as { text: string };
   const gettingStartedSection = useSectionContent('gettingStarted') as GettingStarterData;
-
-  useEffect(() => {
-    localStorage.setItem('landing_lang', lang);
-  }, [lang]);
 
   // Сброс scroll и hash при первом монтировании
   useEffect(() => {
@@ -110,7 +100,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
-  const seoData = (sectionSeo as any)[currentSection]?.[lang] || (sectionSeo as any).hero[lang];
+  const seoData = (sectionSeo as any)[currentSection]?.[locale] || (sectionSeo as any).hero[locale];
 
   return (
     <SectionAnchorProvider>
@@ -135,7 +125,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
         <meta name="twitter:creator" content="@cosmofusiondao" />
       </Helmet>
       {/* Language Switcher */}
-      <div style={{ position: 'fixed', top: 16, right: 24, zIndex: 1000 }}>
+      <div className='absolute top-4 right-4 z-50'>
         <button
           onClick={() => setLocale('ru')}
           style={{
@@ -186,7 +176,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
             мотивирует читать дальше.
         */}
         <SectionWithAnchor id={sectionAnchors[0]}>
-          <HeroSection heroPageEn={heroSection} />
+          <HeroSection />
         </SectionWithAnchor>
         <div className="min-h-1/4 mt-16 flex flex-col items-center justify-center bg-gray-200 px-4 py-14">
           <span className="font-share-tech-mono text-center text-[1.1rem]  font-bold text-gray-900 md:w-[42rem]">
@@ -214,7 +204,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
             рассказу о решении.
         */}
         <SectionWithAnchor id={sectionAnchors[1]}>
-          <ProblemSection problemPageEn={problemSection} />
+          <ProblemSection />
         </SectionWithAnchor>
         {/*
           [en] Reflection section:
@@ -233,7 +223,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
             подводит к необходимости прозрачности и обратной связи в DAO.
         */}
         <SectionWithAnchor id={sectionAnchors[2]}>
-          <Reflections reflectionsPageEn={reflectionSection} />
+          <Reflections />
         </SectionWithAnchor>
         {/*
           [en] Solution section:
@@ -252,7 +242,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
             мотивирует присоединиться или попробовать платформу.
         */}
         <SectionWithAnchor id={sectionAnchors[3]}>
-          <ProblemSection problemPageEn={solutionSection} />
+          <ProblemSection />
         </SectionWithAnchor>
         {/*
           [en] Governance section:
@@ -265,7 +255,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
           - Бизнес-смысл: Снижает опасения централизации, повышает доверие, стимулирует активное участие.
         */}
         <SectionWithAnchor id={sectionAnchors[4]}>
-          <Reflections reflectionsPageEn={governanceSection} />
+          <Reflections />
         </SectionWithAnchor>
         {/*
           [en] Evolution section:
@@ -279,7 +269,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
         */}
         {/* Evolution Process (index 5) — без id */}
         <SectionWithAnchor id={sectionAnchors[5]}>
-          <ProblemSection problemPageEn={evolutionSection} />
+          <ProblemSection />
         </SectionWithAnchor>
         {/*
           [en] Motion Phrase section: Motivational or transitional block, highlights the dynamic nature of truth and the importance of continuous improvement.
@@ -304,6 +294,9 @@ const LandingPage: React.FC = (): React.JSX.Element => {
         */}
         <SectionWithAnchor id={sectionAnchors[7]}>
           <GettingStarted gettingStarterData={gettingStartedSection} />
+        </SectionWithAnchor>
+        <SectionWithAnchor id={sectionAnchors[8]}>
+          <ImmutableJournalSection />
         </SectionWithAnchor>
         <Footer />
       </div>

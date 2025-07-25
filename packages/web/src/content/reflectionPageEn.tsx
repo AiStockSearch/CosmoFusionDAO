@@ -1,5 +1,6 @@
 import visionJpg from '../assets/images/vision.jpg';
 import visionWebp from '../assets/images/vision.webp';
+
 export const reflectionPageEn = {
   title: "In the astronaut's visor, only what he wants to see is reflected",
   image: { jpg: visionJpg, webp: visionWebp },

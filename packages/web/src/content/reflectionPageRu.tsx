@@ -1,4 +1,5 @@
 import reflectionImage from '../assets/images/vision.jpg';
+
 export const reflectionPageRu = {
   title: 'В забрале астронавта отражается только то, что он хочет видеть',
   image: reflectionImage,

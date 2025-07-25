@@ -1,19 +1,29 @@
 import React from 'react';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import './CardBuilder.css';
-import { listArrayBuilder } from '../content/jobBuilder';
 import { useLocale } from '../hooks/useLocale';
 
-export const CardBuilder: React.FC<{ locale?: 'ru' | 'en' }> = ({ locale }) => {
-  const [state, setState] = React.useState(5);
+export const CardBuilder = () =>
+{
+  const { cardBuilder, locale } = useLocale();
+  // Инициализация state: 0, чтобы не было выхода за пределы массива
+  const [ state, setState ] = React.useState( 0 );
   const nodeRefs = React.useRef<(HTMLDivElement | null)[]>([]);
-  const { t, locale: hookLocale } = useLocale();
-  const currentLocale = locale || hookLocale;
+  const currentLocale = locale || cardBuilder.locale;
+
+  // cardBuilder — это массив, а не объект с полем listArrayBuilder
+  const safeState =
+    typeof state === 'number' &&
+      cardBuilder &&
+      state >= 0 &&
+      state < cardBuilder.length
+      ? state
+      : 0;
 
   return (
     <div className="flex flex-col gap-2 md:flex-col-reverse">
       <div className="mt-3 flex flex-row flex-wrap items-start justify-start">
-        {listArrayBuilder.map((x, index) => (
+        {cardBuilder?.map( ( x: any, index: number ) => (
           <div
             onClick={() => setState(index)}
             key={index}
@@ -32,14 +42,14 @@ export const CardBuilder: React.FC<{ locale?: 'ru' | 'en' }> = ({ locale }) => {
       </div>
       <SwitchTransition mode="out-in">
         <CSSTransition
-          key={state}
+          key={safeState}
           timeout={250}
           classNames="fade"
-          nodeRef={{ current: nodeRefs.current[state] }}
+          nodeRef={{ current: nodeRefs.current[ safeState ] }}
         >
           <div
             ref={(el) => {
-              nodeRefs.current[state] = el;
+              nodeRefs.current[ safeState ] = el;
             }}
             className="
             -mx-4 flex flex-col overflow-hidden border-4 border-x-0
@@ -52,7 +62,8 @@ export const CardBuilder: React.FC<{ locale?: 'ru' | 'en' }> = ({ locale }) => {
           >
             <div className="flex w-full md:w-[32rem]">
               {(() => {
-                const img = listArrayBuilder[state].img;
+                // Безопасно обращаемся к элементу массива
+                const img = cardBuilder[ safeState ]?.img;
                 const jpg = typeof img === 'string' ? img : img?.jpg;
                 const webp = typeof img === 'object' && img?.webp;
                 return jpg ? (
@@ -61,7 +72,7 @@ export const CardBuilder: React.FC<{ locale?: 'ru' | 'en' }> = ({ locale }) => {
                     <source srcSet={jpg} type="image/jpeg" />
                     <img
                       src={jpg}
-                      alt={t('gettingStarted.alt')}
+                      alt={cardBuilder.t ? cardBuilder.t( 'gettingStarted.alt' ) : ''}
                       className="block size-full bg-white object-cover"
                       loading="lazy"
                     />
@@ -74,53 +85,64 @@ export const CardBuilder: React.FC<{ locale?: 'ru' | 'en' }> = ({ locale }) => {
                 className="jobs-header leading-relaxed text-black"
                 data-testid="cardbuilder-tab-title"
               >
-                {listArrayBuilder[state].title[currentLocale]}
+                {cardBuilder[ safeState ]?.title?.[ currentLocale ]}
               </span>
               <span className="jobs-header-desc mb-4 text-cyan-700">
-                {listArrayBuilder[state].description[currentLocale]}
+                {cardBuilder[ safeState ]?.description?.[ currentLocale ]}
               </span>
               <span
                 className="jobs-title leading-relaxed"
                 style={{ color: 'var(--color-text-gray-600)' }}
               >
-                {listArrayBuilder[state].arrTitle[currentLocale]}
+                {cardBuilder[ safeState ]?.arrTitle?.[ currentLocale ]}
               </span>
-              {listArrayBuilder[state]?.arr?.map((x) => (
-                <div key={x[currentLocale]} className="flex flex-row items-start justify-start">
-                  <span className="jobs-desc pr-2 leading-relaxed text-gray-500">*</span>
-                  <span className="jobs-desc leading-relaxed text-gray-500">
-                    {x[currentLocale]}
-                  </span>
-                </div>
-              ))}
+              {/* arr */}
+              {Array.isArray( cardBuilder[ safeState ]?.arr ) &&
+                cardBuilder[ safeState ].arr.map( ( x: any, idx: number ) =>
+                  x && x[ currentLocale ] ? (
+                    <div key={x[ currentLocale ]} className="flex flex-row items-start justify-start">
+                      <span className="jobs-desc pr-2 leading-relaxed text-gray-500">*</span>
+                      <span className="jobs-desc leading-relaxed text-gray-500">
+                        {x[ currentLocale ]}
+                      </span>
+                    </div>
+                  ) : null
+                )}
+              {/* reward */}
               <span className="jobs-title leading-relaxed text-gray-600">
-                {listArrayBuilder[state].rewardTitle[currentLocale]}
+                {cardBuilder[ safeState ]?.rewardTitle?.[ currentLocale ]}
               </span>
-              {listArrayBuilder[state]?.reward?.map((x) => (
-                <div key={x[currentLocale]} className="flex flex-row items-start justify-start">
-                  <span className="jobs-desc pr-2 leading-relaxed text-gray-500">*</span>
-                  <span className="jobs-desc leading-relaxed text-gray-500">
-                    {x[currentLocale]}
-                  </span>
-                </div>
-              ))}
-              {listArrayBuilder?.[state]?.addonTitle && (
+              {Array.isArray( cardBuilder[ safeState ]?.reward ) &&
+                cardBuilder[ safeState ].reward.map( ( x: { [ key: string ]: string }, idx: number ) =>
+                  x && x[ currentLocale ] ? (
+                    <div key={x[ currentLocale ]} className="flex flex-row items-start justify-start">
+                      <span className="jobs-desc pr-2 leading-relaxed text-gray-500">*</span>
+                      <span className="jobs-desc leading-relaxed text-gray-500">
+                        {x[ currentLocale ]}
+                      </span>
+                    </div>
+                  ) : null
+                )}
+              {/* addon */}
+              {cardBuilder[ safeState ]?.addonTitle && (
                 <>
                   <span className="jobs-title leading-relaxed text-gray-600">
-                    {listArrayBuilder[state].addonTitle[currentLocale]}
+                    {cardBuilder[ safeState ]?.addonTitle?.[ currentLocale ]}
                   </span>
-                  {listArrayBuilder[state]?.addon &&
-                    listArrayBuilder?.[state]?.addon?.map((x) => (
-                      <div
-                        key={x[currentLocale]}
-                        className="flex flex-row items-start justify-start"
-                      >
-                        <span className="jobs-desc pr-2 leading-relaxed text-gray-500">*</span>
-                        <span className="jobs-desc leading-relaxed text-gray-500">
-                          {x[currentLocale]}
-                        </span>
-                      </div>
-                    ))}
+                  {Array.isArray( cardBuilder[ safeState ]?.addon ) &&
+                    cardBuilder[ safeState ].addon.map( ( x: { [ key: string ]: string }, idx: number ) =>
+                      x && x[ currentLocale ] ? (
+                        <div
+                          key={x[ currentLocale ]}
+                          className="flex flex-row items-start justify-start"
+                        >
+                          <span className="jobs-desc pr-2 leading-relaxed text-gray-500">*</span>
+                          <span className="jobs-desc leading-relaxed text-gray-500">
+                            {x[ currentLocale ]}
+                          </span>
+                        </div>
+                      ) : null
+                    )}
                 </>
               )}
             </div>

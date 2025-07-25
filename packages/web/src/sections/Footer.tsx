@@ -23,7 +23,7 @@ interface FooterSectionType {
 const Footer = (): React.JSX.Element => {
   const footerSection = useSectionContent('footer') as FooterSectionType | undefined;
   return (
-    <footer className="mx-4 mt-32 xl:ml-56 xl:mr-80 xl:max-w-[70rem]">
+    <footer className="mx-4 max-w-screen mt-32 xl:ml-56 xl:mr-80 xl:max-w-[70rem]">
       <div className="3xl:flex-row flex flex-col gap-4">
         <HeroBlock
           title={footerSection?.title || ''}
@@ -39,7 +39,7 @@ const Footer = (): React.JSX.Element => {
               links={footerSection?.purchase || []}
               title={footerSection?.purchaseTitle || ''}
             />
-            <div className="flex w-80 flex-col gap-4">
+            <div className="flex flex-col gap-4">
               <FooterColumnLinks
                 links={footerSection?.more || []}
                 title={footerSection?.moreTitle || ''}

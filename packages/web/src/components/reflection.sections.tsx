@@ -26,28 +26,29 @@ export interface ReflectionsProps {
   };
 }
 
-const Reflections: React.FC<ReflectionsProps> = ({ reflectionsPageEn }) => {
+const ReflectionSection: React.FC = () => {
+  const { reflectionSection } = useLocale();
   return (
     <>
       <section className="relative my-32">
         <div className="ml-4 mr-8 xl:ml-56 xl:mr-80 xl:max-w-[70rem]">
           <div className="flex flex-col items-start justify-start">
             <div className="flex flex-col items-start justify-start lg:flex-row">
-              <ReflectionsMainSection reflectionsPageEn={reflectionsPageEn as any} />
-              <ReflectionsImageSection reflectionsPageEn={reflectionsPageEn as any} />
+              <ReflectionsMainSection reflectionsPageEn={reflectionSection as any} />
+              <ReflectionsImageSection reflectionsPageEn={reflectionSection as any} />
             </div>
-            <ReflectionsAddonSection reflectionsPageEn={reflectionsPageEn as any} />
+            <ReflectionsAddonSection reflectionsPageEn={reflectionSection as any} />
           </div>
         </div>
         <div className="hidden xl:absolute xl:bottom-20 xl:right-16 xl:block">
-          <ReflectionsHelperSection reflectionsPageEn={reflectionsPageEn as any} />
+          <ReflectionsHelperSection reflectionsPageEn={reflectionSection as any} />
         </div>
       </section>
     </>
   );
 };
 
-export default Reflections;
+export default ReflectionSection;
 
 export const LocalReflectionsImageSection: React.FC<ReflectionsProps> = ({ reflectionsPageEn }) => {
   const { t } = useLocale();
