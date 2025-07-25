@@ -1,4 +1,4 @@
-import links from './links.json';
+import links from './links';
 
 export const footerRu = {
   title: 'CosmoFusion DAO',

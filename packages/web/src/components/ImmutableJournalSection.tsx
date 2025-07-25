@@ -4,9 +4,6 @@ import { useLocale } from '../hooks/useLocale';
 export const ImmutableJournalSection: React.FC = () => {
   const { locale, journalEntries, t } = useLocale();
   const heading = t('journal.heading');
-  const subtitle = t('journal.subtitle');
-  const about = t('journal.about');
-  const read = t('journal.read');
 
   const render = React.useCallback(
     (
@@ -58,7 +55,7 @@ export const ImmutableJournalSection: React.FC = () => {
         </div>
       </div>
     ),
-    [journalEntries, locale],
+    [],
   );
 
   return (

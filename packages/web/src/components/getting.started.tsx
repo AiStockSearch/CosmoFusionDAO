@@ -10,7 +10,6 @@ export interface GettingStarterData {
 }
 
 const UseCases: React.FC<{ gettingStarterData: GettingStarterData }> = ({ gettingStarterData }) => {
-  const { locale } = useLocale();
   return (
     <section className="mx-4 xl:ml-56 xl:mr-80 xl:max-w-[70rem]">
       <div className="mt-32">

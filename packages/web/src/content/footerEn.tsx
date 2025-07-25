@@ -1,4 +1,4 @@
-import links from './links.json';
+import links from './links';
 
 export const footerEn = {
   title: 'CosmoFusion DAO',
@@ -14,6 +14,8 @@ export const footerEn = {
     { text: 'About us', link: links.aboutUs },
     { text: 'Media and Events', link: links.mediaAndEvents },
     { text: 'Docs', link: links.docs },
+    { text: 'Email', link: 'mailto:' + links.workEmail },
+    { text: 'Google Hangout', link: links.workEmail },
   ],
   linksTitle: 'Explore',
   purchase: [

@@ -19,9 +19,9 @@ import sectionSeo from "./content/sectionSeo.json";
 import { useLocale } from "./hooks/useLocale";
 import { ImmutableJournalSection } from "./components";
 import UseCases from "./components/cases.work";
+import PrivacyPolicy from './components/privacy.policy';
 
-const defaultLang: "ru" | "en" = "en";
-
+// Удалены неиспользуемые переменные defaultLang, problemSection, reflectionSection, solutionSection, evolutionSection, governanceSection
 // Маппинг Table of Contents на id секций (тот же, что в hero.section.tsx)
 const sectionAnchors = [
   "hero", // новая нулевая секция
@@ -80,21 +80,6 @@ const LandingPage: React.FC = (): React.JSX.Element => {
   const heroSection = useSectionContent(
     "hero"
   ) as HeroSectionProps[ "heroPageEn" ];
-  const problemSection = useSectionContent(
-    "problem"
-  ) as ProblemSectionProps[ "problemPageEn" ];
-  const reflectionSection = useSectionContent(
-    "reflection"
-  ) as ReflectionsProps[ "reflectionsPageEn" ];
-  const solutionSection = useSectionContent(
-    "solution"
-  ) as ProblemSectionProps[ "problemPageEn" ];
-  const evolutionSection = useSectionContent(
-    "evolution"
-  ) as ProblemSectionProps[ "problemPageEn" ];
-  const governanceSection = useSectionContent(
-    "governance"
-  ) as ReflectionsProps[ "reflectionsPageEn" ];
   const motionPhrase = useSectionContent( "motionPhrase" ) as { text: string };
   const gettingStartedSection = useSectionContent(
     "gettingStarted"
@@ -117,6 +102,12 @@ const LandingPage: React.FC = (): React.JSX.Element => {
     window.addEventListener( "hashchange", onHashChange );
     return () => window.removeEventListener( "hashchange", onHashChange );
   }, []);
+
+  // Показываем PrivacyPolicy, если hash #privacy-policy
+  if (window.location.hash === '#privacy-policy') {
+    return <PrivacyPolicy />;
+  }
+
   const seoData =
     ( sectionSeo as any )[ currentSection ]?.[ locale ] ||
     ( sectionSeo as any ).hero[ locale ];
