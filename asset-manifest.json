@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/AiStockSearch/CosmosAI.git/static/css/main.226682b3.css",
+    "main.js": "/AiStockSearch/CosmosAI.git/static/js/main.f3427a9b.js",
+    "static/js/279.5d3125ca.chunk.js": "/AiStockSearch/CosmosAI.git/static/js/279.5d3125ca.chunk.js",
+    "static/js/981.904aa437.chunk.js": "/AiStockSearch/CosmosAI.git/static/js/981.904aa437.chunk.js",
+    "static/js/453.b753e6cc.chunk.js": "/AiStockSearch/CosmosAI.git/static/js/453.b753e6cc.chunk.js",
+    "static/media/vision.jpg": "/AiStockSearch/CosmosAI.git/static/media/vision.f250a6b0f2b3cfd064c2.jpg",
+    "static/media/peakpx (8).jpg": "/AiStockSearch/CosmosAI.git/static/media/peakpx (8).9c9a8eaf77fc2a9fb7da.jpg",
+    "static/media/alone.jpg": "/AiStockSearch/CosmosAI.git/static/media/alone.669bb83a619e36655fa8.jpg",
+    "static/media/astronaut-optimized.jpg": "/AiStockSearch/CosmosAI.git/static/media/astronaut-optimized.5580639cf5582d65ff38.jpg",
+    "static/media/astronaut-optimized.webp": "/AiStockSearch/CosmosAI.git/static/media/astronaut-optimized.b02917e16cd39bf555c2.webp",
+    "static/media/vision.webp": "/AiStockSearch/CosmosAI.git/static/media/vision.b91a7db8892c035d6d57.webp",
+    "static/media/alone.webp": "/AiStockSearch/CosmosAI.git/static/media/alone.40d458e512e20ef36b97.webp",
+    "static/media/ambasodor.jpg": "/AiStockSearch/CosmosAI.git/static/media/ambasodor.946d939f71e8591084ec.jpg",
+    "static/media/explorer.jpg": "/AiStockSearch/CosmosAI.git/static/media/explorer.5be7a6c83dc51c24bb72.jpg",
+    "static/media/explorer.webp": "/AiStockSearch/CosmosAI.git/static/media/explorer.feb46f8256adefd4a437.webp",
+    "static/media/baby.jpg": "/AiStockSearch/CosmosAI.git/static/media/baby.b974257370b3a375459b.jpg",
+    "static/media/critik.jpg": "/AiStockSearch/CosmosAI.git/static/media/critik.f2c9da6d27fc87a503d4.jpg",
+    "static/media/creator.jpg": "/AiStockSearch/CosmosAI.git/static/media/creator.0a8540c83e3b895e546e.jpg",
+    "static/media/ambasodor.webp": "/AiStockSearch/CosmosAI.git/static/media/ambasodor.63d4d473de36c7367d9d.webp",
+    "static/media/critik.webp": "/AiStockSearch/CosmosAI.git/static/media/critik.b021182bc1e079b45475.webp",
+    "static/media/vision_astronaught.jpg": "/AiStockSearch/CosmosAI.git/static/media/vision_astronaught.b1333dd81285625e2128.jpg",
+    "static/media/baby.webp": "/AiStockSearch/CosmosAI.git/static/media/baby.51d72455ae2f66b97b72.webp",
+    "static/media/democracy.jpg": "/AiStockSearch/CosmosAI.git/static/media/democracy.237c3b411bb31afd35b9.jpg",
+    "static/media/creator.webp": "/AiStockSearch/CosmosAI.git/static/media/creator.b5a28f28976f05705f1b.webp",
+    "static/media/manager.jpg": "/AiStockSearch/CosmosAI.git/static/media/manager.43480d7d31bd7515f7ca.jpg",
+    "static/media/cosmoFusion_dao.jpg": "/AiStockSearch/CosmosAI.git/static/media/cosmoFusion_dao.78de0a484ceab94ff8b4.jpg",
+    "static/media/manager.webp": "/AiStockSearch/CosmosAI.git/static/media/manager.a3ddd35fccbe43c97873.webp",
+    "static/media/SpaceMono-Regular.woff2": "/AiStockSearch/CosmosAI.git/static/media/SpaceMono-Regular.cf0de771ae438d1d570f.woff2",
+    "static/media/cosmoFusion_dao.webp": "/AiStockSearch/CosmosAI.git/static/media/cosmoFusion_dao.7a278a43f54d3e93e85a.webp",
+    "static/media/ShareTechMono-Regular.woff2": "/AiStockSearch/CosmosAI.git/static/media/ShareTechMono-Regular.2c8b022c61847a476160.woff2",
+    "index.html": "/AiStockSearch/CosmosAI.git/index.html",
+    "main.226682b3.css.map": "/AiStockSearch/CosmosAI.git/static/css/main.226682b3.css.map",
+    "main.f3427a9b.js.map": "/AiStockSearch/CosmosAI.git/static/js/main.f3427a9b.js.map",
+    "453.b753e6cc.chunk.js.map": "/AiStockSearch/CosmosAI.git/static/js/453.b753e6cc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.226682b3.css",
+    "static/js/main.f3427a9b.js"
+  ]
+}
