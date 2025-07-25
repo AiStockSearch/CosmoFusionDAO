@@ -120,9 +120,9 @@ export const SubscribeColumn = ({
         </p>
       </div>
 
-      <div onClick={() => window.open( linksAddons?.workEmail, "_blank" )} className="flex flex-col gap-1 mb-2 border-t border-gray-200 pt-2 mt-4">
-        <span className="text-[0.6rem] font-space-mono font-bold text-gray-500">Email:</span>
-        <span className="text-[0.9rem] font-space-mono text-cyan-700 underline -mt-2">{linksAddons?.workEmail}</span>
+      <div onClick={() => window.open( linksAddons?.telegram, "_blank" )} className="flex flex-col gap-1 mb-2 border-t border-gray-200 pt-2 mt-4">
+        <span className="text-[0.6rem] font-space-mono font-bold text-gray-500">Telegram:</span>
+        <span className="text-[0.9rem] font-space-mono text-cyan-700 underline -mt-2">{linksAddons?.telegram.split( "/" )[ 3 ]}</span>
       </div>
       <div onClick={() => window.open( linksAddons?.substack, "_blank" )} className="flex flex-col gap-1">
         <span className="text-[0.6rem] font-space-mono  font-bold text-gray-500">Subtract:</span>
