@@ -10,6 +10,12 @@ import { problemPageEn } from '../content/problemPageEn';
 import { problemPageRu } from '../content/problemPageRu';
 import { reflectionPageEn } from '../content/reflectionPageEn';
 import { reflectionPageRu } from '../content/reflectionPageRu';
+import { solutionsPageEn } from '../content/solutionPageEn';
+import { solutionsPageRu } from '../content/solutionsPageRu';
+import { evolutionPageEn } from '../content/evolutionPageEn';
+import { evolutionPageRu } from '../content/evolutionPageRu';
+import { governancePageEn } from '../content/governancePageEn';
+import { governancePageRu } from '../content/governancePageRu';
 import en from '../locales/en.json';
 import ru from '../locales/ru.json';
 
@@ -42,6 +48,9 @@ interface LocaleContextType {
   heroSection: any;
   problemSection: any;
   reflectionSection: any;
+  solutionSection: any;
+  evolutionSection: any;
+  governanceSection: any;
   cardBuilder: any;
 }
 
@@ -59,6 +68,9 @@ export const LocaleProvider = ( { children }: { children: React.ReactNode } ) =>
   const [ heroSection, setHeroSection ] = React.useState<any>( locale === 'ru' ? heroPageRu : heroPageEn );
   const [ problemSection, setProblemSection ] = React.useState<any>( locale === 'ru' ? problemPageRu : problemPageEn );
   const [ reflectionSection, setReflectionSection ] = React.useState<any>( locale === 'ru' ? reflectionPageRu : reflectionPageEn );
+  const [ solutionSection, setSolutionSection ] = React.useState<any>( locale === 'ru' ? solutionsPageRu : solutionsPageEn );
+  const [ evolutionSection, setEvolutionSection ] = React.useState<any>( locale === 'ru' ? evolutionPageRu : evolutionPageEn );
+  const [ governanceSection, setGovernanceSection ] = React.useState<any>( locale === 'ru' ? governancePageRu : governancePageEn );
   const [ cardBuilder, setCardBuilder ] = React.useState<any>( cardBuilderEn );
   const [ translations, setTranslations ] = React.useState<Translations>( LOCALES[ locale ] );
 
@@ -69,6 +81,9 @@ export const LocaleProvider = ( { children }: { children: React.ReactNode } ) =>
     setHeroSection( locale === 'ru' ? heroPageRu : heroPageEn );
     setProblemSection( locale === 'ru' ? problemPageRu : problemPageEn );
     setReflectionSection( locale === 'ru' ? reflectionPageRu : reflectionPageEn );
+    setSolutionSection( locale === 'ru' ? solutionsPageRu : solutionsPageEn );
+    setEvolutionSection( locale === 'ru' ? evolutionPageRu : evolutionPageEn );
+    setGovernanceSection( locale === 'ru' ? governancePageRu : governancePageEn );
     setCardBuilder( cardBuilderEn );
     if (typeof window !== 'undefined') {
       localStorage.setItem(LOCALE_KEY, locale);
@@ -132,6 +147,9 @@ export const LocaleProvider = ( { children }: { children: React.ReactNode } ) =>
         heroSection,
         problemSection,
         reflectionSection,
+        solutionSection,
+        evolutionSection,
+        governanceSection,
         cardBuilder
       }}
     >

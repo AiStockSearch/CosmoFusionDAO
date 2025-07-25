@@ -5,7 +5,8 @@ import { ProblemImageSection } from './comp.ProblemImageSection';
 import { ProblemMainSection } from './comp.ProblemMainSection';
 import { useLocale } from '../hooks/useLocale';
 
-export interface ProblemSectionProps {
+export interface ProblemSectionProps
+{
   problemPageEn: {
     title: string;
     intro: string;
@@ -26,8 +27,19 @@ export interface ProblemSectionProps {
   };
 }
 
-const ProblemSection: React.FC = () => {
-  const { problemSection } = useLocale();
+const ProblemSection: React.FC<{ type: 'problem' | 'solution' | 'evolution' | 'governance' }> = ( {
+  type,
+} ) =>
+{
+  const ctx = useLocale();
+  
+  const problemSection = {
+    ['problem']: ctx.problemSection,
+    ['solution']: ctx.solutionSection,
+    ['evolution']: ctx.evolutionSection,
+    ['governance']: ctx.governanceSection,
+  }[type];
+
   return (
     <section className="relative my-32">
       <div className="ml-4 mr-8 xl:ml-56 xl:mr-80 xl:max-w-[70rem]">

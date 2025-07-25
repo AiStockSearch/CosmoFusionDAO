@@ -1,39 +1,45 @@
-import React, { useEffect, useState, useRef } from 'react';
-import HeroSection from './components/hero.section';
-import ProblemSection from './components/problem.sections';
-import Footer from './sections/Footer';
-import Reflections from './components/reflection.sections';
-import GettingStarted from './components/getting.started';
-import { useSectionContent } from './hooks/useSectionContent';
-import type { HeroSectionProps } from './components/hero.section';
-import type { ProblemSectionProps } from './components/problem.sections';
-import type { ReflectionsProps } from './components/reflection.sections';
-import type { GettingStarterData } from './components/getting.started';
-import { SectionAnchorProvider, useSectionAnchor } from './components/SectionAnchorContext';
-import { Helmet } from 'react-helmet-async';
-import sectionSeo from './content/sectionSeo.json';
-import { useLocale } from './hooks/useLocale';
-import { ImmutableJournalSection } from './components';
+import React, { useEffect, useState, useRef } from "react";
+import HeroSection from "./components/hero.section";
+import ProblemSection from "./components/problem.sections";
+import Footer from "./sections/Footer";
+import Reflections from "./components/reflection.sections";
+import GettingStarted from "./components/getting.started";
+import { useSectionContent } from "./hooks/useSectionContent";
+import type { HeroSectionProps } from "./components/hero.section";
+import type { ProblemSectionProps } from "./components/problem.sections";
+import type { ReflectionsProps } from "./components/reflection.sections";
+import type { GettingStarterData } from "./components/getting.started";
+import
+{
+  SectionAnchorProvider,
+  useSectionAnchor,
+} from "./components/SectionAnchorContext";
+import { Helmet } from "react-helmet-async";
+import sectionSeo from "./content/sectionSeo.json";
+import { useLocale } from "./hooks/useLocale";
+import { ImmutableJournalSection } from "./components";
+import UseCases from "./components/cases.work";
 
-const defaultLang: 'ru' | 'en' = 'en';
+const defaultLang: "ru" | "en" = "en";
 
 // Маппинг Table of Contents на id секций (тот же, что в hero.section.tsx)
 const sectionAnchors = [
-  'hero', // новая нулевая секция
-  'lonely-astronauts',
-  'visor-reflection',
-  'thousands-look-galaxy',
-  'democracy-explorers',
-  'lone-to-collective-mind',
-  'become-collective-mind',
-  'dao-logbook',
-  'glossalarium',
+  "hero", // новая нулевая секция
+  "lonely-astronauts",
+  "visor-reflection",
+  "thousands-look-galaxy",
+  "democracy-explorers",
+  "lone-to-collective-mind",
+  "become-collective-mind",
+  "dao-logbook",
+  "glossalarium",
 ];
 
-const SectionWithAnchor: React.FC<{ id: string; children: React.ReactNode }> = ({
-  id,
-  children,
-}) => {
+const SectionWithAnchor: React.FC<{
+  id: string;
+  children: React.ReactNode;
+}> = ( { id, children } ) =>
+  {
   const ref = useRef<HTMLElement | null>(null);
   const { registerSection } = useSectionAnchor();
   useEffect(() => {
@@ -47,62 +53,76 @@ const SectionWithAnchor: React.FC<{ id: string; children: React.ReactNode }> = (
 };
 
 type SectionKey =
-  | 'hero'
-  | 'problem'
-  | 'reflection'
-  | 'solution'
-  | 'evolution'
-  | 'governance'
-  | 'gettingStarted';
+  | "hero"
+  | "problem"
+  | "reflection"
+  | "solution"
+  | "evolution"
+  | "governance"
+  | "gettingStarted";
 
 function getSectionFromHash(hash: string): SectionKey {
-  if (!hash) return 'hero';
+  if ( !hash ) return "hero";
   const map: Record<string, SectionKey> = {
-    '#hero': 'hero',
-    '#problem': 'problem',
-    '#reflection': 'reflection',
-    '#solution': 'solution',
-    '#evolution': 'evolution',
-    '#governance': 'governance',
-    '#getting-started': 'gettingStarted',
+    "#hero": "hero",
+    "#problem": "problem",
+    "#reflection": "reflection",
+    "#solution": "solution",
+    "#evolution": "evolution",
+    "#governance": "governance",
+    "#getting-started": "gettingStarted",
   };
-  return map[hash] || 'hero';
+  return map[ hash ] || "hero";
 }
 
 const LandingPage: React.FC = (): React.JSX.Element => {
   const { locale, setLocale } = useLocale();
-  const heroSection = useSectionContent('hero') as HeroSectionProps['heroPageEn'];
-  const problemSection = useSectionContent('problem') as ProblemSectionProps['problemPageEn'];
+  const heroSection = useSectionContent(
+    "hero"
+  ) as HeroSectionProps[ "heroPageEn" ];
+  const problemSection = useSectionContent(
+    "problem"
+  ) as ProblemSectionProps[ "problemPageEn" ];
   const reflectionSection = useSectionContent(
-    'reflection',
-  ) as ReflectionsProps['reflectionsPageEn'];
-  const solutionSection = useSectionContent('solution') as ProblemSectionProps['problemPageEn'];
-  const evolutionSection = useSectionContent('evolution') as ProblemSectionProps['problemPageEn'];
+    "reflection"
+  ) as ReflectionsProps[ "reflectionsPageEn" ];
+  const solutionSection = useSectionContent(
+    "solution"
+  ) as ProblemSectionProps[ "problemPageEn" ];
+  const evolutionSection = useSectionContent(
+    "evolution"
+  ) as ProblemSectionProps[ "problemPageEn" ];
   const governanceSection = useSectionContent(
-    'governance',
-  ) as ReflectionsProps['reflectionsPageEn'];
-  const motionPhrase = useSectionContent('motionPhrase') as { text: string };
-  const gettingStartedSection = useSectionContent('gettingStarted') as GettingStarterData;
+    "governance"
+  ) as ReflectionsProps[ "reflectionsPageEn" ];
+  const motionPhrase = useSectionContent( "motionPhrase" ) as { text: string };
+  const gettingStartedSection = useSectionContent(
+    "gettingStarted"
+  ) as GettingStarterData;
 
   // Сброс scroll и hash при первом монтировании
   useEffect(() => {
     if (window.location.hash) {
       window.scrollTo(0, 0);
-      window.history.replaceState(null, '', window.location.pathname);
+      window.history.replaceState( null, "", window.location.pathname );
     }
   }, []);
 
   const [currentSection, setCurrentSection] = useState<SectionKey>(
-    getSectionFromHash(window.location.hash),
+    getSectionFromHash( window.location.hash )
   );
   useEffect(() => {
-    const onHashChange = () => setCurrentSection(getSectionFromHash(window.location.hash));
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
+    const onHashChange = () =>
+      setCurrentSection( getSectionFromHash( window.location.hash ) );
+    window.addEventListener( "hashchange", onHashChange );
+    return () => window.removeEventListener( "hashchange", onHashChange );
   }, []);
-  const seoData = (sectionSeo as any)[currentSection]?.[locale] || (sectionSeo as any).hero[locale];
+  const seoData =
+    ( sectionSeo as any )[ currentSection ]?.[ locale ] ||
+    ( sectionSeo as any ).hero[ locale ];
 
   return (
+    <>
     <SectionAnchorProvider>
       <Helmet>
         <title>{seoData.title}</title>
@@ -113,47 +133,24 @@ const LandingPage: React.FC = (): React.JSX.Element => {
         <meta property="og:description" content={seoData.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cosmofusion.app/" />
-        <meta property="og:image" content="https://cosmofusion.app/logo192.png" />
+          <meta
+            property="og:image"
+            content="https://cosmofusion.app/logo192.png"
+          />
         <meta property="og:image:alt" content="CosmoFusion DAO Astronaut" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoData.title} />
         <meta name="twitter:description" content={seoData.description} />
-        <meta name="twitter:image" content="https://cosmofusion.app/logo192.png" />
+          <meta
+            name="twitter:image"
+            content="https://cosmofusion.app/logo192.png"
+          />
         <meta name="twitter:image:alt" content="CosmoFusion DAO Astronaut" />
         <meta name="twitter:site" content="@cosmofusiondao" />
         <meta name="twitter:creator" content="@cosmofusiondao" />
       </Helmet>
-      {/* Language Switcher */}
-      <div className='absolute top-4 right-4 z-50'>
-        <button
-          onClick={() => setLocale('ru')}
-          style={{
-            fontWeight: locale === 'ru' ? 'bold' : 'normal',
-            background: locale === 'ru' ? '#e0e7ef' : 'transparent',
-            border: '1px solid #b6c2d1',
-            borderRadius: 6,
-            marginRight: 4,
-            padding: '4px 12px',
-            cursor: 'pointer',
-          }}
-        >
-          RU
-        </button>
-        <button
-          onClick={() => setLocale('en')}
-          style={{
-            fontWeight: locale === 'en' ? 'bold' : 'normal',
-            background: locale === 'en' ? '#e0e7ef' : 'transparent',
-            border: '1px solid #b6c2d1',
-            borderRadius: 6,
-            padding: '4px 12px',
-            cursor: 'pointer',
-          }}
-        >
-          EN
-        </button>
-      </div>
+        {/* Language Switcher */}
       <div className="min-h-screen bg-white">
         {/*
           [en] Hero section:
@@ -204,7 +201,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
             рассказу о решении.
         */}
         <SectionWithAnchor id={sectionAnchors[1]}>
-          <ProblemSection />
+          <ProblemSection type="problem" />
         </SectionWithAnchor>
         {/*
           [en] Reflection section:
@@ -223,7 +220,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
             подводит к необходимости прозрачности и обратной связи в DAO.
         */}
         <SectionWithAnchor id={sectionAnchors[2]}>
-          <Reflections />
+          <Reflections type="reflection" />
         </SectionWithAnchor>
         {/*
           [en] Solution section:
@@ -242,7 +239,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
             мотивирует присоединиться или попробовать платформу.
         */}
         <SectionWithAnchor id={sectionAnchors[3]}>
-          <ProblemSection />
+          <ProblemSection type="solution" />
         </SectionWithAnchor>
         {/*
           [en] Governance section:
@@ -255,7 +252,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
           - Бизнес-смысл: Снижает опасения централизации, повышает доверие, стимулирует активное участие.
         */}
         <SectionWithAnchor id={sectionAnchors[4]}>
-          <Reflections />
+          <Reflections type="governance" />
         </SectionWithAnchor>
         {/*
           [en] Evolution section:
@@ -269,7 +266,7 @@ const LandingPage: React.FC = (): React.JSX.Element => {
         */}
         {/* Evolution Process (index 5) — без id */}
         <SectionWithAnchor id={sectionAnchors[5]}>
-          <ProblemSection />
+          <ProblemSection type="evolution" />
         </SectionWithAnchor>
         {/*
           [en] Motion Phrase section: Motivational or transitional block, highlights the dynamic nature of truth and the importance of continuous improvement.
@@ -295,12 +292,28 @@ const LandingPage: React.FC = (): React.JSX.Element => {
         <SectionWithAnchor id={sectionAnchors[7]}>
           <GettingStarted gettingStarterData={gettingStartedSection} />
         </SectionWithAnchor>
+          <UseCases />
         <SectionWithAnchor id={sectionAnchors[8]}>
           <ImmutableJournalSection />
         </SectionWithAnchor>
         <Footer />
       </div>
     </SectionAnchorProvider>
+      <div className="absolute top-4 right-4 z-50 gap-2 flex flex-row">
+        <button
+          onClick={() => setLocale( "ru" )}
+          className="font-share-tech-mono font-bold hover:bg-gray-100 rounded-md px-3 pt-2 pb-1 border border-cyan-900 hover:border-cyan-400 bg-[#F5F8FE] hover:bg-cyan-900 hover:border-[#F5F8FE] hover:text-white transition-all duration-300"
+        >
+          RU
+        </button>
+        <button
+          onClick={() => setLocale( "en" )}
+          className="font-share-tech-mono font-bold hover:bg-gray-100 rounded-md px-3 pt-2 pb-1 border border-cyan-900 hover:border-cyan-400 bg-[#F5F8FE] hover:bg-cyan-900 hover:border-[#F5F8FE] hover:text-white transition-all duration-300"
+        >
+          EN
+        </button>
+      </div>
+    </>
   );
 };
 

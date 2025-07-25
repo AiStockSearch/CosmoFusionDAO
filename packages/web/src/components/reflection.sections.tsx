@@ -26,8 +26,17 @@ export interface ReflectionsProps {
   };
 }
 
-const ReflectionSection: React.FC = () => {
-  const { reflectionSection } = useLocale();
+const ReflectionSection: React.FC<{ type: 'reflection' | 'solution' | 'evolution' | 'governance' }> = ({
+  type,
+}) => {
+  const ctx = useLocale();
+  
+  const reflectionSection = {
+    ['reflection']: ctx.reflectionSection,
+    ['solution']: ctx.solutionSection,
+    ['evolution']: ctx.evolutionSection,
+    ['governance']: ctx.governanceSection,
+  }[type];
   return (
     <>
       <section className="relative my-32">
