@@ -1,0 +1,1 @@
+export { ImmutableJournalSection } from './ImmutableJournalSection';
