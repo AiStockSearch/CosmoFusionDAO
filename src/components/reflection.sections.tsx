@@ -32,10 +32,10 @@ const ReflectionSection: React.FC<{ type: 'reflection' | 'solution' | 'evolution
   const ctx = useLocale();
   
   const reflectionSection = {
-    ['reflection']: ctx.reflectionSection,
-    ['solution']: ctx.solutionSection,
-    ['evolution']: ctx.evolutionSection,
-    ['governance']: ctx.governanceSection,
+    reflection: ctx.reflectionSection,
+    solution: ctx.solutionSection,
+    evolution: ctx.evolutionSection,
+    governance: ctx.governanceSection,
   }[type];
   return (
     <>

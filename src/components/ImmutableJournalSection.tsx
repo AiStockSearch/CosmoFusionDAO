@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocale } from '../hooks/useLocale';
 
 export const ImmutableJournalSection: React.FC = () => {
-  const { locale, journalEntries, t } = useLocale();
+  const { journalEntries, t } = useLocale();
   const heading = t('journal.heading');
 
   const render = React.useCallback(
@@ -17,7 +17,7 @@ export const ImmutableJournalSection: React.FC = () => {
     ) => (
       <div
         key={idx}
-        className="flex-shrink-0 w-80 bg-[#f5f8fe] rounded-[32px] shadow-lg p-1 h-[20rem] relative mb-3 border-[0.14rem] border-cyan-900"
+        className="flex-shrink-0 min-w-[18rem] max-w-[18rem] bg-[#f5f8fe] rounded-[32px] shadow-lg p-1 h-[20rem] relative mb-3 border-[0.14rem] border-cyan-900"
       >
         <div className="px-3 pt-3 h-[5rem]">
           <div className="text-[0.72rem] font-bold text-gray-400 mb-1">{entry.date}</div>
@@ -61,7 +61,7 @@ export const ImmutableJournalSection: React.FC = () => {
   return (
     <section className="mx-4 xl:ml-56">
       <div className="mt-32 xl:mr-80 xl:max-w-[70rem] mb-4">
-        <span className="font-share-tech-mono mb-4 text-left text-[1.9rem] font-bold">
+        <span className="font-share-tech-mono mb-8 text-left text-[1.9rem] font-bold">
           {heading}
         </span>
       </div>

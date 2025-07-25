@@ -1,25 +1,26 @@
-import React, { useEffect, useState, useRef } from "react";
-import HeroSection from "./components/hero.section";
-import ProblemSection from "./components/problem.sections";
-import Footer from "./sections/Footer";
-import Reflections from "./components/reflection.sections";
-import GettingStarted from "./components/getting.started";
-import { useSectionContent } from "./hooks/useSectionContent";
-import type { HeroSectionProps } from "./components/hero.section";
-import type { ProblemSectionProps } from "./components/problem.sections";
-import type { ReflectionsProps } from "./components/reflection.sections";
+import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { eventCenter } from './analytics/eventCenter';
+import { ImmutableJournalSection } from "./components";
+import UseCases from "./components/cases.work";
 import type { GettingStarterData } from "./components/getting.started";
+import GettingStarted from "./components/getting.started";
+import type { HeroSectionProps } from "./components/hero.section";
+import HeroSection from "./components/hero.section";
+import PrivacyPolicy from './components/privacy.policy';
+import ProblemSection from "./components/problem.sections";
+import Reflections from "./components/reflection.sections";
 import
 {
   SectionAnchorProvider,
-  useSectionAnchor,
+  useSectionAnchor
 } from "./components/SectionAnchorContext";
-import { Helmet } from "react-helmet-async";
+import { SectionWithViewEvent } from './components/SectionWithViewEvent';
+import { SentryBoundary } from './components/SentryBoundary';
 import sectionSeo from "./content/sectionSeo.json";
 import { useLocale } from "./hooks/useLocale";
-import { ImmutableJournalSection } from "./components";
-import UseCases from "./components/cases.work";
-import PrivacyPolicy from './components/privacy.policy';
+import { useSectionContent } from "./hooks/useSectionContent";
+import Footer from "./sections/Footer";
 
 // Удалены неиспользуемые переменные defaultLang, problemSection, reflectionSection, solutionSection, evolutionSection, governanceSection
 // Маппинг Table of Contents на id секций (тот же, что в hero.section.tsx)
@@ -93,6 +94,17 @@ const LandingPage: React.FC = (): React.JSX.Element => {
     }
   }, []);
 
+  useEffect( () =>
+  {
+    eventCenter.logEvent( { category: 'start', name: 'start_session' }, [ 'amplitude', 'firebase' ] );
+    const onScroll = () =>
+    {
+      eventCenter.logEvent( { category: 'scroll', name: 'scroll_page', value: { scrollY: window.scrollY } }, [ 'amplitude' ] );
+    };
+    window.addEventListener( 'scroll', onScroll, { passive: true } );
+    return () => window.removeEventListener( 'scroll', onScroll );
+  }, [] );
+
   const [currentSection, setCurrentSection] = useState<SectionKey>(
     getSectionFromHash( window.location.hash )
   );
@@ -163,8 +175,13 @@ const LandingPage: React.FC = (): React.JSX.Element => {
           - Бизнес-смысл: Повышает вовлечённость, снижает bounce rate,
             мотивирует читать дальше.
         */}
-        <SectionWithAnchor id={sectionAnchors[0]}>
-          <HeroSection />
+          <main id="main-content">
+            <SectionWithAnchor id={sectionAnchors[ 0 ]}>
+            <SentryBoundary fallback={<p>Ошибка в HeroSection</p>}>
+              <SectionWithViewEvent eventName="view_hero">
+                <HeroSection />
+              </SectionWithViewEvent>
+            </SentryBoundary>
         </SectionWithAnchor>
         <div className="min-h-1/4 mt-16 flex flex-col items-center justify-center bg-gray-200 px-4 py-14">
           <span className="font-share-tech-mono text-center text-[1.1rem]  font-bold text-gray-900 md:w-[42rem]">
@@ -192,7 +209,11 @@ const LandingPage: React.FC = (): React.JSX.Element => {
             рассказу о решении.
         */}
         <SectionWithAnchor id={sectionAnchors[1]}>
-          <ProblemSection type="problem" />
+            <SentryBoundary fallback={<p>Ошибка в ProblemSection</p>}>
+              <SectionWithViewEvent eventName="view_problem">
+                <ProblemSection type="problem" />
+              </SectionWithViewEvent>
+            </SentryBoundary>
         </SectionWithAnchor>
         {/*
           [en] Reflection section:
@@ -211,7 +232,11 @@ const LandingPage: React.FC = (): React.JSX.Element => {
             подводит к необходимости прозрачности и обратной связи в DAO.
         */}
         <SectionWithAnchor id={sectionAnchors[2]}>
-          <Reflections type="reflection" />
+            <SentryBoundary fallback={<p>Ошибка в Reflections</p>}>
+              <SectionWithViewEvent eventName="view_reflection">
+                <Reflections type="reflection" />
+              </SectionWithViewEvent>
+            </SentryBoundary>
         </SectionWithAnchor>
         {/*
           [en] Solution section:
@@ -230,7 +255,11 @@ const LandingPage: React.FC = (): React.JSX.Element => {
             мотивирует присоединиться или попробовать платформу.
         */}
         <SectionWithAnchor id={sectionAnchors[3]}>
-          <ProblemSection type="solution" />
+            <SentryBoundary fallback={<p>Ошибка в SolutionSection</p>}>
+              <SectionWithViewEvent eventName="view_solution">
+                <ProblemSection type="solution" />
+              </SectionWithViewEvent>
+            </SentryBoundary>
         </SectionWithAnchor>
         {/*
           [en] Governance section:
@@ -243,7 +272,9 @@ const LandingPage: React.FC = (): React.JSX.Element => {
           - Бизнес-смысл: Снижает опасения централизации, повышает доверие, стимулирует активное участие.
         */}
         <SectionWithAnchor id={sectionAnchors[4]}>
-          <Reflections type="governance" />
+            <SentryBoundary fallback={<p>Ошибка в GovernanceSection</p>}>
+              <Reflections type="governance" />
+            </SentryBoundary>
         </SectionWithAnchor>
         {/*
           [en] Evolution section:
@@ -257,7 +288,9 @@ const LandingPage: React.FC = (): React.JSX.Element => {
         */}
         {/* Evolution Process (index 5) — без id */}
         <SectionWithAnchor id={sectionAnchors[5]}>
-          <ProblemSection type="evolution" />
+            <SentryBoundary fallback={<p>Ошибка в EvolutionSection</p>}>
+              <ProblemSection type="evolution" />
+            </SentryBoundary>
         </SectionWithAnchor>
         {/*
           [en] Motion Phrase section: Motivational or transitional block, highlights the dynamic nature of truth and the importance of continuous improvement.
@@ -281,24 +314,43 @@ const LandingPage: React.FC = (): React.JSX.Element => {
           - Бизнес-смысл: Максимизирует активацию пользователей, снижает отток, поддерживает рост сообщества.
         */}
         <SectionWithAnchor id={sectionAnchors[7]}>
-          <GettingStarted gettingStarterData={gettingStartedSection} />
+            <SentryBoundary fallback={<p>Ошибка в GettingStarted</p>}>
+              <SectionWithViewEvent eventName="view_card_builder">
+                <GettingStarted gettingStarterData={gettingStartedSection} />
+              </SectionWithViewEvent>
+            </SentryBoundary>
         </SectionWithAnchor>
           <UseCases />
         <SectionWithAnchor id={sectionAnchors[8]}>
-          <ImmutableJournalSection />
+            <SentryBoundary fallback={<p>Ошибка в ImmutableJournalSection</p>}>
+              <ImmutableJournalSection />
+            </SentryBoundary>
         </SectionWithAnchor>
-        <Footer />
+          <SentryBoundary fallback={<p>Ошибка в Footer</p>}>
+            <SectionWithViewEvent eventName="view_footer">
+              <Footer />
+            </SectionWithViewEvent>
+          </SentryBoundary>
+          </main>
       </div>
     </SectionAnchorProvider>
       <div className="absolute top-4 right-4 z-50 gap-2 flex flex-row">
         <button
-          onClick={() => setLocale( "ru" )}
+          onClick={() =>
+          {
+            eventCenter.logEvent( { category: 'click', name: 'change_lang', value: { lang: 'ru' } } );
+            setLocale( 'ru' );
+          }}
           className="font-share-tech-mono font-bold hover:bg-gray-100 rounded-md px-3 pt-2 pb-1 border border-cyan-900 hover:border-cyan-400 bg-[#F5F8FE] hover:bg-cyan-900 hover:border-[#F5F8FE] hover:text-white transition-all duration-300"
         >
           RU
         </button>
         <button
-          onClick={() => setLocale( "en" )}
+          onClick={() =>
+          {
+            eventCenter.logEvent( { category: 'click', name: 'change_lang', value: { lang: 'en' } } );
+            setLocale( 'en' );
+          }}
           className="font-share-tech-mono font-bold hover:bg-gray-100 rounded-md px-3 pt-2 pb-1 border border-cyan-900 hover:border-cyan-400 bg-[#F5F8FE] hover:bg-cyan-900 hover:border-[#F5F8FE] hover:text-white transition-all duration-300"
         >
           EN

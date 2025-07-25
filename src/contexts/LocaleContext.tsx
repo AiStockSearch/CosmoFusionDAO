@@ -1,41 +1,50 @@
-import React, {
-  createContext
-} from 'react';
-import { footerEn } from '../content/footerEn';
-import { footerRu } from '../content/footerRu';
-import { heroPageEn } from '../content/heroPageEn';
-import { heroPageRu } from '../content/heroPageRu';
-import { listArrayBuilder as cardBuilderEn } from '../content/jobBuilder';
-import { problemPageEn } from '../content/problemPageEn';
-import { problemPageRu } from '../content/problemPageRu';
-import { reflectionPageEn } from '../content/reflectionPageEn';
-import { reflectionPageRu } from '../content/reflectionPageRu';
-import { solutionsPageEn } from '../content/solutionPageEn';
-import { solutionsPageRu } from '../content/solutionsPageRu';
-import { evolutionPageEn } from '../content/evolutionPageEn';
-import { evolutionPageRu } from '../content/evolutionPageRu';
-import { governancePageEn } from '../content/governancePageEn';
-import { governancePageRu } from '../content/governancePageRu';
-import en from '../locales/en.json';
-import ru from '../locales/ru.json';
+import React, { createContext } from 'react';
+import enTranslations from '../content/translations-en.json';
+import ruTranslations from '../content/translations-ru.json';
+// Импорт картинок для секций (en/ru)
+import problemImageEnJpg from '../assets/images/problem-alone.jpg';
+import problemImageEnWebp from '../assets/images/problem-alone.webp';
+import problemImageRu from '../assets/images/problem-alone.jpg';
+import reflectionImageEnJpg from '../assets/images/reflection-vision.jpg';
+import reflectionImageEnWebp from '../assets/images/reflection-vision.webp';
+import reflectionImageRu from '../assets/images/reflection-vision.jpg';
+import solutionImageEn from '../assets/images/solution-vision-astronaut.jpg';
+import solutionImageRu from '../assets/images/solution-vision-astronaut.jpg';
+import evolutionImageEn from '../assets/images/evolution-peakpx.jpg';
+import evolutionImageRu from '../assets/images/evolution-peakpx.jpg';
+import governanceImageEnJpg from '../assets/images/governance-democracy.jpg';
+import governanceImageEnWebp from '../assets/images/governance-democracy.webp';
+import governanceImageRu from '../assets/images/governance-democracy.jpg';
 
-const LOCALES = { ru, en };
+// Job Builder images
+import jobExplorerJpg from '../assets/images/job-explorer.jpg';
+import jobExplorerWebp from '../assets/images/job-explorer.webp';
+import jobCriticJpg from '../assets/images/job-critic.jpg';
+import jobCriticWebp from '../assets/images/job-critic.webp';
+import jobCreatorJpg from '../assets/images/job-creator.jpg';
+import jobCreatorWebp from '../assets/images/job-creator.webp';
+import jobObserverJpg from '../assets/images/job-observer.jpg';
+import jobObserverWebp from '../assets/images/job-observer.webp';
+import jobManagerJpg from '../assets/images/job-manager.jpg';
+import jobManagerWebp from '../assets/images/job-manager.webp';
+import jobAmbassadorJpg from '../assets/images/job-ambassador.jpg';
+import jobAmbassadorWebp from '../assets/images/job-ambassador.webp';
+
+const LOCALES = { ru: ruTranslations, en: enTranslations };
 const LOCALE_KEY = 'landing_lang';
 
 type Locale = 'ru' | 'en';
-type Translations = typeof ru;
+type Translations = typeof ruTranslations | typeof enTranslations;
 
-interface JournalEntry
-{
+interface JournalEntry {
   date: string;
   title: string;
   subtitle: string;
   text: string;
 }
 
-interface FooterData
-{
-  [ key: string ]: any;
+interface FooterData {
+  [key: string]: any;
 }
 
 interface LocaleContextType {
@@ -60,31 +69,83 @@ function getInitialLocale(): Locale {
   return 'en';
 }
 
-export const LocaleProvider = ( { children }: { children: React.ReactNode } ) =>
-{
-  const [ journalEntries, setJournalEntries ] = React.useState<JournalEntry[]>( [] );
-  const [ locale, setLocaleState ] = React.useState<Locale>( getInitialLocale() );
-  const [ footerData, setFooterData ] = React.useState<FooterData>( locale === 'ru' ? footerRu : footerEn );
-  const [ heroSection, setHeroSection ] = React.useState<any>( locale === 'ru' ? heroPageRu : heroPageEn );
-  const [ problemSection, setProblemSection ] = React.useState<any>( locale === 'ru' ? problemPageRu : problemPageEn );
-  const [ reflectionSection, setReflectionSection ] = React.useState<any>( locale === 'ru' ? reflectionPageRu : reflectionPageEn );
-  const [ solutionSection, setSolutionSection ] = React.useState<any>( locale === 'ru' ? solutionsPageRu : solutionsPageEn );
-  const [ evolutionSection, setEvolutionSection ] = React.useState<any>( locale === 'ru' ? evolutionPageRu : evolutionPageEn );
-  const [ governanceSection, setGovernanceSection ] = React.useState<any>( locale === 'ru' ? governancePageRu : governancePageEn );
-  const [ cardBuilder, setCardBuilder ] = React.useState<any>( cardBuilderEn );
-  const [ translations, setTranslations ] = React.useState<Translations>( LOCALES[ locale ] );
+function withImages(section: string, data: any, locale: Locale) {
+  switch (section) {
+    case 'problem':
+      return locale === 'en'
+        ? { ...data, image: { jpg: problemImageEnJpg, webp: problemImageEnWebp } }
+        : { ...data, image: problemImageRu };
+    case 'reflection':
+      return locale === 'en'
+        ? { ...data, image: { jpg: reflectionImageEnJpg, webp: reflectionImageEnWebp } }
+        : { ...data, image: reflectionImageRu };
+    case 'solution':
+      return locale === 'en'
+        ? { ...data, image: solutionImageEn }
+        : { ...data, image: solutionImageRu };
+    case 'evolution':
+      return locale === 'en'
+        ? { ...data, image: evolutionImageEn }
+        : { ...data, image: evolutionImageRu };
+    case 'governance':
+      return locale === 'en'
+        ? { ...data, image: { jpg: governanceImageEnJpg, webp: governanceImageEnWebp } }
+        : { ...data, image: governanceImageRu };
+    default:
+      return data;
+  }
+}
 
-  React.useEffect( () =>
-  {
+function withJobBuilderImages( roles: any[], locale: Locale )
+{
+  const jobImages = {
+    Explorer: { jpg: jobExplorerJpg, webp: jobExplorerWebp },
+    Critic: { jpg: jobCriticJpg, webp: jobCriticWebp },
+    Creator: { jpg: jobCreatorJpg, webp: jobCreatorWebp },
+    Observer: { jpg: jobObserverJpg, webp: jobObserverWebp },
+    Manager: { jpg: jobManagerJpg, webp: jobManagerWebp },
+    Ambassador: { jpg: jobAmbassadorJpg, webp: jobAmbassadorWebp }
+  };
+
+  const jobImagesRu = {
+    Исследователь: { jpg: jobExplorerJpg, webp: jobExplorerWebp },
+    Критик: { jpg: jobCriticJpg, webp: jobCriticWebp },
+    Создатель: { jpg: jobCreatorJpg, webp: jobCreatorWebp },
+    Наблюдатель: { jpg: jobObserverJpg, webp: jobObserverWebp },
+    Менеджер: { jpg: jobManagerJpg, webp: jobManagerWebp },
+    Амбассадор: { jpg: jobAmbassadorJpg, webp: jobAmbassadorWebp }
+  };
+
+  return roles.map( role => ( {
+    ...role,
+    img: locale === 'en' ? jobImages[ role.select as keyof typeof jobImages ] : jobImagesRu[ role.select as keyof typeof jobImagesRu ]
+  } ) );
+}
+
+export const LocaleProvider = ({ children }: { children: React.ReactNode }) => {
+  const [journalEntries, setJournalEntries] = React.useState<JournalEntry[]>([]);
+  const [locale, setLocaleState] = React.useState<Locale>(getInitialLocale());
+  const [footerData, setFooterData] = React.useState<FooterData>(locale === 'ru' ? (ruTranslations as any).footer : (enTranslations as any).footer);
+  const [heroSection, setHeroSection] = React.useState<any>(locale === 'ru' ? (ruTranslations as any).hero : (enTranslations as any).hero);
+  const [problemSection, setProblemSection] = React.useState<any>(withImages('problem', locale === 'ru' ? (ruTranslations as any).problem : (enTranslations as any).problem, locale));
+  const [reflectionSection, setReflectionSection] = React.useState<any>(withImages('reflection', locale === 'ru' ? (ruTranslations as any).reflection : (enTranslations as any).reflection, locale));
+  const [solutionSection, setSolutionSection] = React.useState<any>(withImages('solution', locale === 'ru' ? (ruTranslations as any).solution : (enTranslations as any).solution, locale));
+  const [evolutionSection, setEvolutionSection] = React.useState<any>(withImages('evolution', locale === 'ru' ? (ruTranslations as any).evolution : (enTranslations as any).evolution, locale));
+  const [governanceSection, setGovernanceSection] = React.useState<any>(withImages('governance', locale === 'ru' ? (ruTranslations as any).governance : (enTranslations as any).governance, locale));
+  const [ cardBuilder, setCardBuilder ] = React.useState<any>( withJobBuilderImages( locale === 'ru' ? ( ruTranslations as any ).jobBuilder.roles : ( enTranslations as any ).jobBuilder.roles, locale ) );
+  const [translations, setTranslations] = React.useState<Translations>(LOCALES[locale]);
+
+  React.useEffect(() => {
     setTranslations(LOCALES[locale]);
-    setFooterData( locale === 'ru' ? footerRu : footerEn );
-    setHeroSection( locale === 'ru' ? heroPageRu : heroPageEn );
-    setProblemSection( locale === 'ru' ? problemPageRu : problemPageEn );
-    setReflectionSection( locale === 'ru' ? reflectionPageRu : reflectionPageEn );
-    setSolutionSection( locale === 'ru' ? solutionsPageRu : solutionsPageEn );
-    setEvolutionSection( locale === 'ru' ? evolutionPageRu : evolutionPageEn );
-    setGovernanceSection( locale === 'ru' ? governancePageRu : governancePageEn );
-    setCardBuilder( cardBuilderEn );
+    setFooterData(locale === 'ru' ? (ruTranslations as any).footer : (enTranslations as any).footer);
+    setHeroSection(locale === 'ru' ? (ruTranslations as any).hero : (enTranslations as any).hero);
+    setProblemSection(withImages('problem', locale === 'ru' ? (ruTranslations as any).problem : (enTranslations as any).problem, locale));
+    setReflectionSection(withImages('reflection', locale === 'ru' ? (ruTranslations as any).reflection : (enTranslations as any).reflection, locale));
+    setSolutionSection(withImages('solution', locale === 'ru' ? (ruTranslations as any).solution : (enTranslations as any).solution, locale));
+    setEvolutionSection(withImages('evolution', locale === 'ru' ? (ruTranslations as any).evolution : (enTranslations as any).evolution, locale));
+    setGovernanceSection(withImages('governance', locale === 'ru' ? (ruTranslations as any).governance : (enTranslations as any).governance, locale));
+    setCardBuilder( withJobBuilderImages( locale === 'ru' ? ( ruTranslations as any ).jobBuilder.roles : ( enTranslations as any ).jobBuilder.roles, locale ) );
+    setJournalEntries(locale === 'ru' ? (ruTranslations as any).journalEntries : (enTranslations as any).journalEntries);
     if (typeof window !== 'undefined') {
       localStorage.setItem(LOCALE_KEY, locale);
     }
@@ -98,22 +159,6 @@ export const LocaleProvider = ( { children }: { children: React.ReactNode } ) =>
       window.removeEventListener('storage', onStorage);
     };
   }, [locale]);
-
-  React.useEffect( () =>
-  {
-    ( async () =>
-    {
-      if ( locale === 'ru' )
-      {
-        const mod = await import( '../content/journalEntriesRu.json' );
-        setJournalEntries( mod.default );
-      } else
-      {
-        const mod = await import( '../content/journalEntriesEn.json' );
-        setJournalEntries( mod.default );
-      }
-    } )();
-  }, [ locale ] );
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
@@ -132,7 +177,7 @@ export const LocaleProvider = ( { children }: { children: React.ReactNode } ) =>
       }
       return value;
     },
-    [ translations ]
+    [translations]
   );
 
   return (
@@ -150,7 +195,7 @@ export const LocaleProvider = ( { children }: { children: React.ReactNode } ) =>
         solutionSection,
         evolutionSection,
         governanceSection,
-        cardBuilder
+        cardBuilder,
       }}
     >
       {children}
@@ -159,7 +204,7 @@ export const LocaleProvider = ( { children }: { children: React.ReactNode } ) =>
 };
 
 export function useLocale() {
-  const ctx = React.useContext( LocaleContext );
+  const ctx = React.useContext(LocaleContext);
   if (!ctx) throw new Error('useLocale must be used within a LocaleProvider');
   return ctx;
 }

@@ -1,22 +1,6 @@
 import { useMemo, useState, useEffect } from 'react';
-import { heroPageEn } from '../content/heroPageEn';
-import { problemPageEn } from '../content/problemPageEn';
-import { reflectionPageEn } from '../content/reflectionPageEn';
-import { solutionsPageEn } from '../content/solutionPageEn';
-import { evolutionPageEn } from '../content/evolutionPageEn';
-import { governancePageEn } from '../content/governancePageEn';
-import { heroPageRu } from '../content/heroPageRu';
-import { problemPageRu } from '../content/problemPageRu';
-import { reflectionPageRu } from '../content/reflectionPageRu';
-import { solutionsPageRu } from '../content/solutionsPageRu';
-import { evolutionPageRu } from '../content/evolutionPageRu';
-import { governancePageRu } from '../content/governancePageRu';
-import { motionPhraseEn } from '../content/motionPhraseEn';
-import { motionPhraseRu } from '../content/motionPhraseRu';
-import { gettingStarterDataEn } from '../content/gettingStarterDataEn';
-import { gettingStarterDataRu } from '../content/gettingStarterDataRu';
-import { footerEn as footer } from '../content/footerEn';
-import { footerRu } from '../content/footerRu';
+import enTranslations from '../content/translations-en.json';
+import ruTranslations from '../content/translations-ru.json';
 
 // Заглушка для DeepL API (реализуйте реальный запрос при наличии ключа)
 async function deeplTranslate(textObj: any, from: string, to: string): Promise<any> {
@@ -48,16 +32,17 @@ type SectionMap = {
   };
 };
 
+// Создаем маппинг из новых JSON файлов
 const sectionMap: SectionMap = {
-  hero: { en: heroPageEn, ru: heroPageRu },
-  problem: { en: problemPageEn, ru: problemPageRu },
-  reflection: { en: reflectionPageEn, ru: reflectionPageRu },
-  solution: { en: solutionsPageEn, ru: solutionsPageRu },
-  evolution: { en: evolutionPageEn, ru: evolutionPageRu },
-  governance: { en: governancePageEn, ru: governancePageRu },
-  motionPhrase: { en: motionPhraseEn, ru: motionPhraseRu },
-  gettingStarted: { en: gettingStarterDataEn, ru: gettingStarterDataRu },
-  footer: { en: footer, ru: footerRu },
+  hero: { en: (enTranslations as any).hero, ru: (ruTranslations as any).hero },
+  problem: { en: (enTranslations as any).problem, ru: (ruTranslations as any).problem },
+  reflection: { en: (enTranslations as any).reflection, ru: (ruTranslations as any).reflection },
+  solution: { en: (enTranslations as any).solution, ru: (ruTranslations as any).solution },
+  evolution: { en: (enTranslations as any).evolution, ru: (ruTranslations as any).evolution },
+  governance: { en: (enTranslations as any).governance, ru: (ruTranslations as any).governance },
+  motionPhrase: { en: (enTranslations as any).motionPhrase, ru: (ruTranslations as any).motionPhrase },
+  gettingStarted: { en: (enTranslations as any).gettingStarted, ru: (ruTranslations as any).gettingStarted },
+  footer: { en: (enTranslations as any).footer, ru: (ruTranslations as any).footer },
 };
 
 function detectLang(): string {

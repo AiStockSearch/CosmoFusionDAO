@@ -1,10 +1,12 @@
 import React from 'react';
-import astronautPng from '../assets/images/astronaut-optimized.jpg';
-import astronautWebp from '../assets/images/astronaut-optimized.webp';
-import cosmoFusion_dao from '../assets/images/cosmoFusion_dao.jpg';
-import cosmoFusionWebp from '../assets/images/cosmoFusion_dao.webp';
-import { useSectionAnchor } from './SectionAnchorContext';
+import { eventCenter } from '../analytics/eventCenter';
+import astronautPng from '../assets/images/hero-astronaut.jpg';
+import astronautWebp from '../assets/images/hero-astronaut.webp';
+import cosmoFusion_dao from '../assets/images/hero-cosmo-fusion.jpg';
+import cosmoFusionWebp from '../assets/images/hero-cosmo-fusion.webp';
 import { useLocale } from '../hooks/useLocale';
+import { useSectionAnchor } from './SectionAnchorContext';
+import OptimizedImage from './OptimizedImage';
 
 export interface HeroSectionProps {
   heroPageEn: {
@@ -51,16 +53,14 @@ const HeroSection: React.FC = () => {
     <>
       <section className="hero-grid min-h-screen">
         <div className="col-start-2 col-end-4 row-start-1 row-end-3 mt-4 overflow-hidden rounded-[34px] bg-gray-300 p-2 shadow-sm">
-          <picture>
-            <source srcSet={astronautWebp} type="image/webp" />
-            <source srcSet={astronautPng} type="image/jpeg" />
-            <img
-              src={astronautPng}
-              alt={heroSection.alt}
-              className="flex size-full max-h-full min-h-[25rem] rounded-[32px] object-cover"
-              loading="lazy"
-            />
-          </picture>
+          <OptimizedImage
+            src={astronautPng}
+            webpSrc={astronautWebp}
+            alt={heroSection.alt}
+            className="flex h-full w-screen max-h-[42rem] rounded-[32px] object-cover"
+            loading="eager"
+            sizes="(max-width: 680px) 75vw, 30vw"
+          />
         </div>
         <div className="col-start-2 col-end-3 row-start-3 row-end-3 mt-4">
           <div className="flex flex-col items-start px-6 xl:w-[52rem]">
@@ -69,7 +69,7 @@ const HeroSection: React.FC = () => {
               {heroSection.idea.description}
             </p>
             <h3 className="hero-title mb-2 text-gray-900">{heroSection.hypotize.title}</h3>
-            <p className="hero-desc  xs:w-[28rem] w-[22rem] font-bold leading-relaxed text-cyan-900">
+            <p className="hero-desc  xs:w-[28rem] min-w-[16rem] max-w-[28rem] font-bold leading-relaxed text-cyan-900">
               {heroSection.hypotize.description}
             </p>
           </div>
@@ -89,7 +89,21 @@ const HeroSection: React.FC = () => {
                   <span className="hero-list-bullet"> * </span>
                   <span
                     className="hero-list-item cursor-pointer text-blue-600 hover:underline"
-                    onClick={() => scrollToSection(sectionAnchors[idx])}
+                    onClick={() =>
+                    {
+                      eventCenter.logEvent( { category: 'click', name: 'scroll_to_section', value: { anchor: sectionAnchors[ idx ] } } );
+                      scrollToSection( sectionAnchors[ idx ] );
+                    }}
+                    onKeyDown={( e ) =>
+                    {
+                      if ( e.key === 'Enter' || e.key === ' ' )
+                      {
+                        eventCenter.logEvent( { category: 'click', name: 'scroll_to_section', value: { anchor: sectionAnchors[ idx ] } } );
+                        scrollToSection( sectionAnchors[ idx ] );
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
                   >
                     {x}
                   </span>
@@ -128,7 +142,21 @@ const HeroSection: React.FC = () => {
                 <span className="hero-list-bullet"> * </span>
                 <span
                   className="hero-list-item cursor-pointer text-blue-600 hover:underline"
-                  onClick={() => scrollToSection(sectionAnchors[idx])}
+                  onClick={() =>
+                  {
+                    eventCenter.logEvent( { category: 'click', name: 'scroll_to_section', value: { anchor: sectionAnchors[ idx ] } } );
+                    scrollToSection( sectionAnchors[ idx ] );
+                  }}
+                  onKeyDown={( e ) =>
+                  {
+                    if ( e.key === 'Enter' || e.key === ' ' )
+                    {
+                      eventCenter.logEvent( { category: 'click', name: 'scroll_to_section', value: { anchor: sectionAnchors[ idx ] } } );
+                      scrollToSection( sectionAnchors[ idx ] );
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                 >
                   {x}
                 </span>

@@ -1,0 +1,193 @@
+rules:
+  # React Security
+  - id: react-dangerously-set-innerhtml
+    pattern: dangerouslySetInnerHTML={{__html: $X}}
+    message: "Avoid using dangerouslySetInnerHTML as it can lead to XSS attacks"
+    severity: ERROR
+    languages: [javascript, typescript]
+
+  # Hardcoded secrets
+  - id: hardcoded-secret
+    patterns:
+      - pattern: "password.*=.*['\"][^'\"]{8,}['\"]"
+      - pattern: "token.*=.*['\"][^'\"]{8,}['\"]"
+      - pattern: "secret.*=.*['\"][^'\"]{8,}['\"]"
+      - pattern: "key.*=.*['\"][^'\"]{8,}['\"]"
+    message: "Hardcoded secrets detected. Use environment variables instead."
+    severity: ERROR
+    languages: [javascript, typescript]
+
+  # Console statements
+  - id: console-log
+    pattern: console.log($X)
+    message: "Console.log statements should be removed in production"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # Eval usage
+  - id: eval-usage
+    pattern: eval($X)
+    message: "Avoid using eval() as it can lead to code injection attacks"
+    severity: ERROR
+    languages: [javascript, typescript]
+
+  # Unsafe URL construction
+  - id: unsafe-url-construction
+    pattern: window.location.href = $X
+    message: "Ensure URL construction is safe to prevent open redirects"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # Unsafe JSON parsing
+  - id: unsafe-json-parse
+    pattern: JSON.parse($X)
+    message: "Ensure JSON input is validated before parsing"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # React XSS patterns
+  - id: react-xss-href
+    pattern: href={$X}
+    message: "Ensure href values are properly sanitized"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # Environment variable access
+  - id: env-var-access
+    pattern: process.env.$X
+    message: "Ensure environment variables are properly validated"
+    severity: INFO
+    languages: [javascript, typescript]
+
+  # Unsafe object access
+  - id: unsafe-object-access
+    pattern: $OBJ[$X]
+    message: "Ensure object key access is safe"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # Unsafe function calls
+  - id: unsafe-function-call
+    pattern: $FUNC($X)
+    message: "Ensure function calls are safe"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # React prop spreading
+  - id: react-prop-spreading
+    pattern: {...$PROPS}
+    message: "Ensure prop spreading is safe"
+    severity: INFO
+    languages: [javascript, typescript]
+
+  # Unsafe template literals
+  - id: unsafe-template-literal
+    pattern: `${$X}`
+    message: "Ensure template literals are safe"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # Unsafe string concatenation
+  - id: unsafe-string-concat
+    pattern: $STR + $X
+    message: "Ensure string concatenation is safe"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # React event handlers
+  - id: react-event-handler
+    pattern: onClick={$X}
+    message: "Ensure event handlers are properly sanitized"
+    severity: INFO
+    languages: [javascript, typescript]
+
+  # Async/await error handling
+  - id: async-error-handling
+    pattern: |
+      async function $FUNC() {
+        $X
+      }
+    message: "Ensure async functions have proper error handling"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # Promise error handling
+  - id: promise-error-handling
+    pattern: |
+      $PROMISE.then($X)
+    message: "Ensure promises have proper error handling"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # Unsafe regex
+  - id: unsafe-regex
+    pattern: new RegExp($X)
+    message: "Ensure regex patterns are safe"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # Unsafe setTimeout
+  - id: unsafe-settimeout
+    pattern: setTimeout($X, $Y)
+    message: "Ensure setTimeout callbacks are safe"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # Unsafe setInterval
+  - id: unsafe-setinterval
+    pattern: setInterval($X, $Y)
+    message: "Ensure setInterval callbacks are safe"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # React ref usage
+  - id: react-ref-usage
+    pattern: useRef($X)
+    message: "Ensure ref usage is safe"
+    severity: INFO
+    languages: [javascript, typescript]
+
+  # React state updates
+  - id: react-state-update
+    pattern: setState($X)
+    message: "Ensure state updates are safe"
+    severity: INFO
+    languages: [javascript, typescript]
+
+  # React effect dependencies
+  - id: react-effect-deps
+    pattern: |
+      useEffect(() => {
+        $X
+      }, [$Y])
+    message: "Ensure useEffect dependencies are properly managed"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # React context usage
+  - id: react-context-usage
+    pattern: useContext($X)
+    message: "Ensure context usage is safe"
+    severity: INFO
+    languages: [javascript, typescript]
+
+  # React memo usage
+  - id: react-memo-usage
+    pattern: React.memo($X)
+    message: "Ensure memo usage is appropriate"
+    severity: INFO
+    languages: [javascript, typescript]
+
+  # React callback usage
+  - id: react-callback-usage
+    pattern: useCallback($X, $Y)
+    message: "Ensure callback dependencies are properly managed"
+    severity: WARNING
+    languages: [javascript, typescript]
+
+  # React memo usage
+  - id: react-memo-usage-2
+    pattern: useMemo($X, $Y)
+    message: "Ensure memo dependencies are properly managed"
+    severity: WARNING
+    languages: [javascript, typescript] 
