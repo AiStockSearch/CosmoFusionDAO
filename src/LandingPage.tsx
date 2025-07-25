@@ -1,25 +1,25 @@
-import React, { useEffect, useState, useRef } from "react";
-import HeroSection from "./components/hero.section";
-import ProblemSection from "./components/problem.sections";
-import Footer from "./sections/Footer";
-import Reflections from "./components/reflection.sections";
-import GettingStarted from "./components/getting.started";
-import { useSectionContent } from "./hooks/useSectionContent";
-import type { HeroSectionProps } from "./components/hero.section";
-import type { ProblemSectionProps } from "./components/problem.sections";
-import type { ReflectionsProps } from "./components/reflection.sections";
+import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { eventCenter } from "./analytics/eventCenter";
+import { ImmutableJournalSection } from "./components";
+import UseCases from "./components/cases.work";
 import type { GettingStarterData } from "./components/getting.started";
-import
-{
+import GettingStarted from "./components/getting.started";
+import type { HeroSectionProps } from "./components/hero.section";
+import HeroSection from "./components/hero.section";
+import PrivacyPolicy from "./components/privacy.policy";
+import ProblemSection from "./components/problem.sections";
+import Reflections from "./components/reflection.sections";
+import {
   SectionAnchorProvider,
   useSectionAnchor,
 } from "./components/SectionAnchorContext";
-import { Helmet } from "react-helmet-async";
+import { SectionWithViewEvent } from "./components/SectionWithViewEvent";
+import { SentryBoundary } from "./components/SentryBoundary";
 import sectionSeo from "./content/sectionSeo.json";
 import { useLocale } from "./hooks/useLocale";
-import { ImmutableJournalSection } from "./components";
-import UseCases from "./components/cases.work";
-import PrivacyPolicy from './components/privacy.policy';
+import { useSectionContent } from "./hooks/useSectionContent";
+import Footer from "./sections/Footer";
 
 // Удалены неиспользуемые переменные defaultLang, problemSection, reflectionSection, solutionSection, evolutionSection, governanceSection
 // Маппинг Table of Contents на id секций (тот же, что в hero.section.tsx)
@@ -38,8 +38,7 @@ const sectionAnchors = [
 const SectionWithAnchor: React.FC<{
   id: string;
   children: React.ReactNode;
-}> = ( { id, children } ) =>
-  {
+}> = ({ id, children }) => {
   const ref = useRef<HTMLElement | null>(null);
   const { registerSection } = useSectionAnchor();
   useEffect(() => {
@@ -62,7 +61,7 @@ type SectionKey =
   | "gettingStarted";
 
 function getSectionFromHash(hash: string): SectionKey {
-  if ( !hash ) return "hero";
+  if (!hash) return "hero";
   const map: Record<string, SectionKey> = {
     "#hero": "hero",
     "#problem": "problem",
@@ -72,15 +71,15 @@ function getSectionFromHash(hash: string): SectionKey {
     "#governance": "governance",
     "#getting-started": "gettingStarted",
   };
-  return map[ hash ] || "hero";
+  return map[hash] || "hero";
 }
 
 const LandingPage: React.FC = (): React.JSX.Element => {
   const { locale, setLocale } = useLocale();
   const heroSection = useSectionContent(
     "hero"
-  ) as HeroSectionProps[ "heroPageEn" ];
-  const motionPhrase = useSectionContent( "motionPhrase" ) as { text: string };
+  ) as HeroSectionProps["heroPageEn"];
+  const motionPhrase = useSectionContent("motionPhrase") as { text: string };
   const gettingStartedSection = useSectionContent(
     "gettingStarted"
   ) as GettingStarterData;
@@ -89,61 +88,80 @@ const LandingPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     if (window.location.hash) {
       window.scrollTo(0, 0);
-      window.history.replaceState( null, "", window.location.pathname );
+      window.history.replaceState(null, "", window.location.pathname);
     }
   }, []);
 
+  useEffect(() => {
+    eventCenter.logEvent({ category: "start", name: "start_session" }, [
+      "amplitude",
+      "firebase",
+    ]);
+    const onScroll = () => {
+      eventCenter.logEvent(
+        {
+          category: "scroll",
+          name: "scroll_page",
+          value: { scrollY: window.scrollY },
+        },
+        ["amplitude"]
+      );
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const [currentSection, setCurrentSection] = useState<SectionKey>(
-    getSectionFromHash( window.location.hash )
+    getSectionFromHash(window.location.hash)
   );
   useEffect(() => {
     const onHashChange = () =>
-      setCurrentSection( getSectionFromHash( window.location.hash ) );
-    window.addEventListener( "hashchange", onHashChange );
-    return () => window.removeEventListener( "hashchange", onHashChange );
+      setCurrentSection(getSectionFromHash(window.location.hash));
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
   // Показываем PrivacyPolicy, если hash #privacy-policy
-  if (window.location.hash === '#privacy-policy') {
+  if (window.location.hash === "#privacy-policy") {
     return <PrivacyPolicy />;
   }
 
   const seoData =
-    ( sectionSeo as any )[ currentSection ]?.[ locale ] ||
-    ( sectionSeo as any ).hero[ locale ];
+    (sectionSeo as any)[currentSection]?.[locale] ||
+    (sectionSeo as any).hero[locale];
 
   return (
     <>
-    <SectionAnchorProvider>
-      <Helmet>
-        <title>{seoData.title}</title>
-        <meta name="description" content={seoData.description} />
-        <link rel="canonical" href="https://cosmofusion.app/" />
-        {/* Open Graph */}
-        <meta property="og:title" content={seoData.title} />
-        <meta property="og:description" content={seoData.description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://cosmofusion.app/" />
+      <SectionAnchorProvider>
+        <Helmet>
+          <title>{seoData.title}</title>
+          <meta name="description" content={seoData.description} />
+          <link rel="canonical" href="https://cosmofusion.app/" />
+          {/* Open Graph */}
+          <meta property="og:title" content={seoData.title} />
+          <meta property="og:description" content={seoData.description} />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://cosmofusion.app/" />
           <meta
             property="og:image"
             content="https://cosmofusion.app/logo192.png"
           />
-        <meta property="og:image:alt" content="CosmoFusion DAO Astronaut" />
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={seoData.title} />
-        <meta name="twitter:description" content={seoData.description} />
+          <meta property="og:image:alt" content="CosmoFusion DAO Astronaut" />
+          {/* Twitter Card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={seoData.title} />
+          <meta name="twitter:description" content={seoData.description} />
           <meta
             name="twitter:image"
             content="https://cosmofusion.app/logo192.png"
           />
-        <meta name="twitter:image:alt" content="CosmoFusion DAO Astronaut" />
-        <meta name="twitter:site" content="@cosmofusiondao" />
-        <meta name="twitter:creator" content="@cosmofusiondao" />
-      </Helmet>
+          <meta name="twitter:image:alt" content="CosmoFusion DAO Astronaut" />
+          <meta name="twitter:site" content="@cosmofusiondao" />
+          <meta name="twitter:creator" content="@cosmofusiondao" />
+        </Helmet>
         {/* Language Switcher */}
-      <div className="min-h-screen bg-white">
-        {/*
+        <div className="min-h-screen bg-white">
+          {/*
           [en] Hero section:
           - Purpose: To immediately immerse the user in the core idea of
             CosmoFusion DAO.
@@ -163,15 +181,20 @@ const LandingPage: React.FC = (): React.JSX.Element => {
           - Бизнес-смысл: Повышает вовлечённость, снижает bounce rate,
             мотивирует читать дальше.
         */}
-        <SectionWithAnchor id={sectionAnchors[0]}>
-          <HeroSection />
-        </SectionWithAnchor>
-        <div className="min-h-1/4 mt-16 flex flex-col items-center justify-center bg-gray-200 px-4 py-14">
-          <span className="font-share-tech-mono text-center text-[1.1rem]  font-bold text-gray-900 md:w-[42rem]">
-            {heroSection.subtitle}
-          </span>
-        </div>
-        {/*
+          <main id="main-content">
+            <SectionWithAnchor id={sectionAnchors[0]}>
+              <SentryBoundary fallback={<p>Ошибка в HeroSection</p>}>
+                <SectionWithViewEvent eventName="view_hero">
+                  <HeroSection />
+                </SectionWithViewEvent>
+              </SentryBoundary>
+            </SectionWithAnchor>
+            <div className="min-h-1/4 mt-16 flex flex-col items-center justify-center bg-gray-200 px-4 py-14">
+              <span className="font-share-tech-mono text-center text-[1.1rem]  font-bold text-gray-900 md:w-[42rem]">
+                {heroSection.subtitle}
+              </span>
+            </div>
+            {/*
           [en] Problem section:
           - Purpose: To clearly articulate the pain points and limitations of
             existing solutions/platforms.
@@ -191,10 +214,14 @@ const LandingPage: React.FC = (): React.JSX.Element => {
           - Бизнес-смысл: Обосновывает необходимость продукта, подготавливает к
             рассказу о решении.
         */}
-        <SectionWithAnchor id={sectionAnchors[1]}>
-          <ProblemSection type="problem" />
-        </SectionWithAnchor>
-        {/*
+            <SectionWithAnchor id={sectionAnchors[1]}>
+              <SentryBoundary fallback={<p>Ошибка в ProblemSection</p>}>
+                <SectionWithViewEvent eventName="view_problem">
+                  <ProblemSection type="problem" />
+                </SectionWithViewEvent>
+              </SentryBoundary>
+            </SectionWithAnchor>
+            {/*
           [en] Reflection section:
           - Purpose: To highlight psychological and cognitive barriers (biases,
             echo chambers) that hinder effective decision-making.
@@ -210,10 +237,14 @@ const LandingPage: React.FC = (): React.JSX.Element => {
           - Бизнес-смысл: Просвещает пользователя, формирует авторитет,
             подводит к необходимости прозрачности и обратной связи в DAO.
         */}
-        <SectionWithAnchor id={sectionAnchors[2]}>
-          <Reflections type="reflection" />
-        </SectionWithAnchor>
-        {/*
+            <SectionWithAnchor id={sectionAnchors[2]}>
+              <SentryBoundary fallback={<p>Ошибка в Reflections</p>}>
+                <SectionWithViewEvent eventName="view_reflection">
+                  <Reflections type="reflection" />
+                </SectionWithViewEvent>
+              </SentryBoundary>
+            </SectionWithAnchor>
+            {/*
           [en] Solution section:
           - Purpose: To present the unique mechanisms and features of
             CosmoFusion DAO that address the previously described problems.
@@ -229,10 +260,14 @@ const LandingPage: React.FC = (): React.JSX.Element => {
           - Бизнес-смысл: Демонстрирует инновационность, формирует доверие,
             мотивирует присоединиться или попробовать платформу.
         */}
-        <SectionWithAnchor id={sectionAnchors[3]}>
-          <ProblemSection type="solution" />
-        </SectionWithAnchor>
-        {/*
+            <SectionWithAnchor id={sectionAnchors[3]}>
+              <SentryBoundary fallback={<p>Ошибка в SolutionSection</p>}>
+                <SectionWithViewEvent eventName="view_solution">
+                  <ProblemSection type="solution" />
+                </SectionWithViewEvent>
+              </SentryBoundary>
+            </SectionWithAnchor>
+            {/*
           [en] Governance section:
           - Purpose: To explain the democratic structure, voting, and decision-making processes in CosmoFusion DAO.
           - Shows how the community is empowered, how rules evolve, and how responsibility is distributed.
@@ -242,10 +277,12 @@ const LandingPage: React.FC = (): React.JSX.Element => {
           - Показывает, как сообщество наделяется полномочиями, как эволюционируют правила и распределяется ответственность.
           - Бизнес-смысл: Снижает опасения централизации, повышает доверие, стимулирует активное участие.
         */}
-        <SectionWithAnchor id={sectionAnchors[4]}>
-          <Reflections type="governance" />
-        </SectionWithAnchor>
-        {/*
+            <SectionWithAnchor id={sectionAnchors[4]}>
+              <SentryBoundary fallback={<p>Ошибка в GovernanceSection</p>}>
+                <Reflections type="governance" />
+              </SentryBoundary>
+            </SectionWithAnchor>
+            {/*
           [en] Evolution section:
           - Purpose: To illustrate the adaptability and learning capacity of CosmoFusion DAO.
           - Explains how the system and community grow, learn from mistakes, and improve over time.
@@ -255,22 +292,24 @@ const LandingPage: React.FC = (): React.JSX.Element => {
           - Объясняет, как система и сообщество растут, учатся на ошибках и совершенствуются со временем.
           - Бизнес-смысл: Показывает долгосрочное видение, убеждает, что платформа не статична, мотивирует к постоянному участию.
         */}
-        {/* Evolution Process (index 5) — без id */}
-        <SectionWithAnchor id={sectionAnchors[5]}>
-          <ProblemSection type="evolution" />
-        </SectionWithAnchor>
-        {/*
+            {/* Evolution Process (index 5) — без id */}
+            <SectionWithAnchor id={sectionAnchors[5]}>
+              <SentryBoundary fallback={<p>Ошибка в EvolutionSection</p>}>
+                <ProblemSection type="evolution" />
+              </SentryBoundary>
+            </SectionWithAnchor>
+            {/*
           [en] Motion Phrase section: Motivational or transitional block, highlights the dynamic nature of truth and the importance of continuous improvement.
           [ru] Секция Motion Phrase: Мотивационный или переходный блок, подчеркивает динамичность истины и важность постоянного совершенствования.
         */}
-        <SectionWithAnchor id={sectionAnchors[6]}>
-          <div className="min-h-1/4 flex flex-col items-center justify-center bg-gray-200 px-4 py-14">
-            <span className="font-share-tech-mono text-center text-[1.2rem]  font-bold text-gray-900 md:w-[42rem]">
-              {motionPhrase.text}
-            </span>
-          </div>
-        </SectionWithAnchor>
-        {/*
+            <SectionWithAnchor id={sectionAnchors[6]}>
+              <div className="min-h-1/4 flex flex-col items-center justify-center bg-gray-200 px-4 py-14">
+                <span className="font-share-tech-mono text-center text-[1.2rem]  font-bold text-gray-900 md:w-[42rem]">
+                  {motionPhrase.text}
+                </span>
+              </div>
+            </SectionWithAnchor>
+            {/*
           [en] Getting Started section:
           - Purpose: To provide actionable steps and clear onboarding for new users.
           - Removes barriers to entry, answers “what next?”, and increases conversion to active participation.
@@ -280,25 +319,52 @@ const LandingPage: React.FC = (): React.JSX.Element => {
           - Снимает барьеры входа, отвечает на вопрос «что дальше?» и увеличивает конверсию в активное участие.
           - Бизнес-смысл: Максимизирует активацию пользователей, снижает отток, поддерживает рост сообщества.
         */}
-        <SectionWithAnchor id={sectionAnchors[7]}>
-          <GettingStarted gettingStarterData={gettingStartedSection} />
-        </SectionWithAnchor>
-          <UseCases />
-        <SectionWithAnchor id={sectionAnchors[8]}>
-          <ImmutableJournalSection />
-        </SectionWithAnchor>
-        <Footer />
-      </div>
-    </SectionAnchorProvider>
+            <SectionWithAnchor id={sectionAnchors[7]}>
+              <SentryBoundary fallback={<p>Ошибка в GettingStarted</p>}>
+                <SectionWithViewEvent eventName="view_card_builder">
+                  <GettingStarted gettingStarterData={gettingStartedSection} />
+                </SectionWithViewEvent>
+              </SentryBoundary>
+            </SectionWithAnchor>
+            <UseCases />
+            <SectionWithAnchor id={sectionAnchors[8]}>
+              <SentryBoundary
+                fallback={<p>Ошибка в ImmutableJournalSection</p>}
+              >
+                <ImmutableJournalSection />
+              </SentryBoundary>
+            </SectionWithAnchor>
+            <SentryBoundary fallback={<p>Ошибка в Footer</p>}>
+              <SectionWithViewEvent eventName="view_footer">
+                <Footer />
+              </SectionWithViewEvent>
+            </SentryBoundary>
+          </main>
+        </div>
+      </SectionAnchorProvider>
       <div className="absolute top-4 right-4 z-50 gap-2 flex flex-row">
         <button
-          onClick={() => setLocale( "ru" )}
+          onClick={() => {
+            eventCenter.logEvent({
+              category: "click",
+              name: "change_lang",
+              value: { lang: "ru" },
+            });
+            setLocale("ru");
+          }}
           className="font-share-tech-mono font-bold hover:bg-gray-100 rounded-md px-3 pt-2 pb-1 border border-cyan-900 hover:border-cyan-400 bg-[#F5F8FE] hover:bg-cyan-900 hover:border-[#F5F8FE] hover:text-white transition-all duration-300"
         >
           RU
         </button>
         <button
-          onClick={() => setLocale( "en" )}
+          onClick={() => {
+            eventCenter.logEvent({
+              category: "click",
+              name: "change_lang",
+              value: { lang: "en" },
+            });
+            setLocale("en");
+          }}
           className="font-share-tech-mono font-bold hover:bg-gray-100 rounded-md px-3 pt-2 pb-1 border border-cyan-900 hover:border-cyan-400 bg-[#F5F8FE] hover:bg-cyan-900 hover:border-[#F5F8FE] hover:text-white transition-all duration-300"
         >
           EN

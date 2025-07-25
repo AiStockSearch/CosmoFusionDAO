@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
+import { SentryBoundary } from './components/SentryBoundary';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
+import './sentry';
 
 // SEO: динамический title и description
 const setMeta = (title: string, description: string) => {
@@ -21,16 +23,29 @@ setMeta(
   'Открытая платформа для коллективного принятия решений, AI, DAO и инноваций. Грант Cosmos x FIRE.',
 );
 
-// if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', () => {
-//     navigator.serviceWorker.register('/service-worker.js');
-//   });
-// }
+// Register service worker for caching and offline support
+if ( process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator )
+{
+  window.addEventListener( 'load', () =>
+  {
+    navigator.serviceWorker.register( '/service-worker.js' )
+      .then( ( registration ) =>
+      {
+        console.log( 'SW registered: ', registration );
+      } )
+      .catch( ( registrationError ) =>
+      {
+        console.log( 'SW registration failed: ', registrationError );
+      } );
+  } );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <SentryBoundary fallback={<p>Произошла непредвиденная ошибка. Попробуйте обновить страницу.</p>} showDialog>
+      <App />
+    </SentryBoundary>
   </React.StrictMode>,
 );
 

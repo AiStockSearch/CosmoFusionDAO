@@ -1,6 +1,5 @@
 import React from 'react';
 import { CardBuilder } from './comp.CardBuilder';
-import { useLocale } from '../hooks/useLocale';
 
 export interface GettingStarterData {
   title: string;

@@ -88,7 +88,74 @@
 }
 
 .hero-grid {
-  @apply w-screen h-auto grid grid-cols-[0_auto_0_0_0_0] lg:grid-cols-[1fr_rem_0.5fr_0_0_1fr] xl:grid-cols-[14rem_64rem_0.5fr_0.1fr_300px_0.1fr] grid-rows-[0px_350px_56rem] md:grid-rows-[0.01fr_1fr_0.7fr];
+  @apply w-screen h-auto sm:grid sm:grid-cols-[0_auto_0_0_0_0] lg:grid-cols-[1fr_rem_0.5fr_0_0_1fr] xl:grid-cols-[14rem_64rem_0.5fr_0.1fr_300px_0.1fr] sm:grid-rows-[0px_350px_56rem] md:grid-rows-[0.01fr_1fr_0.7fr];
+}
+
+*:focus {
+  outline: 2px solid #0ea4e900 !important;
+  outline-offset: 2px !important;
+}
+
+/* Специальные стили для кнопок */
+button:focus,
+[role="button"]:focus {
+  outline: 2px solid #0ea4e900 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 2px #0ea4e900 !important;
+}
+
+/* Стили для ссылок */
+a:focus {
+  outline: 2px solid #0ea4e900 !important;
+  outline-offset: 2px !important;
+  text-decoration: underline !important;
+}
+
+/* Стили для форм */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #0ea4e900 !important;
+  outline-offset: 2px !important;
+  border-color: #0ea4e900 !important;
+}
+
+/* Поддержка масштабирования текста */
+html {
+  font-size: 16px; /* Базовый размер для WCAG 2.1 AA */
+}
+
+/* Относительные единицы для масштабирования */
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Focus not screen reader only */
+.focus\:not-sr-only:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0.5rem 1rem !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  border: 2px solid #0ea5e9 !important;
 }
 
 /* === ГЛОБАЛЬНАЯ ПАЛИТРА ЦВЕТОВ === */
@@ -175,5 +242,18 @@
   src: url('./assets/fonts/ShareTechMono-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-family: 'Share Tech Mono';
+  src: url('./assets/fonts/ShareTechMono-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url('./assets/fonts/SpaceMono-Regular.woff2') format('woff2');
   font-display: swap;
 }

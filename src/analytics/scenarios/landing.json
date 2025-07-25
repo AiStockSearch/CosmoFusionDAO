@@ -1,0 +1,66 @@
+[
+  {
+    "event": "change_lang",
+    "category": "click",
+    "description": "Смена языка пользователем",
+    "params": ["lang", "sessionId"],
+    "platforms": ["amplitude", "sentry"],
+    "businessGoal": "Анализ популярности языков, UX"
+  },
+  {
+    "event": "scroll_to_section",
+    "category": "click",
+    "description": "Переход по якорю",
+    "params": ["anchor", "sessionId"],
+    "platforms": ["amplitude", "firebase"],
+    "businessGoal": "Анализ вовлечённости, навигации"
+  },
+  {
+    "event": "view_hero",
+    "category": "view",
+    "description": "Показ секции hero",
+    "params": ["sessionId"],
+    "platforms": ["amplitude", "firebase"],
+    "businessGoal": "Анализ первого экрана, видимость"
+  },
+  {
+    "event": "view_problem",
+    "category": "view",
+    "description": "Показ секции problem",
+    "params": ["sessionId"],
+    "platforms": ["amplitude", "firebase"],
+    "businessGoal": "Анализ вовлечённости, глубины просмотра"
+  },
+  {
+    "event": "view_reflection",
+    "category": "view",
+    "description": "Показ секции reflection",
+    "params": ["sessionId"],
+    "platforms": ["amplitude", "firebase"],
+    "businessGoal": "Анализ вовлечённости, глубины просмотра"
+  },
+  {
+    "event": "view_solution",
+    "category": "view",
+    "description": "Показ секции solution",
+    "params": ["sessionId"],
+    "platforms": ["amplitude", "firebase"],
+    "businessGoal": "Анализ вовлечённости, глубины просмотра"
+  },
+  {
+    "event": "scroll_page",
+    "category": "scroll",
+    "description": "Прокрутка страницы",
+    "params": ["scrollY", "sessionId"],
+    "platforms": ["amplitude"],
+    "businessGoal": "Анализ глубины скролла, вовлечённости"
+  },
+  {
+    "event": "start_session",
+    "category": "start",
+    "description": "Первый вход на сайт",
+    "params": ["sessionId"],
+    "platforms": ["amplitude", "firebase"],
+    "businessGoal": "Анализ новых сессий, retention"
+  }
+] 

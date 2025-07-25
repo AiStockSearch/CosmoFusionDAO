@@ -1,0 +1,26 @@
+[
+  {
+    "event": "card_builder_select",
+    "category": "click",
+    "description": "Выбор карточки в CardBuilder",
+    "params": ["index", "sessionId"],
+    "platforms": ["amplitude", "sentry"],
+    "businessGoal": "Анализ вовлечённости, интереса к ролям"
+  },
+  {
+    "event": "view_card_builder",
+    "category": "view",
+    "description": "Показ блока CardBuilder",
+    "params": ["sessionId"],
+    "platforms": ["amplitude", "firebase"],
+    "businessGoal": "Анализ видимости блока"
+  },
+  {
+    "event": "scroll_card_builder",
+    "category": "scroll",
+    "description": "Прокрутка CardBuilder",
+    "params": ["scrollX", "sessionId"],
+    "platforms": ["amplitude"],
+    "businessGoal": "Анализ взаимодействия с карточками"
+  }
+] 

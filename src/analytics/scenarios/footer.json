@@ -1,0 +1,42 @@
+[
+  {
+    "event": "footer_hero_primary",
+    "category": "click",
+    "description": "Клик по главной CTA в футере",
+    "params": ["url", "sessionId"],
+    "platforms": ["amplitude", "sentry"],
+    "businessGoal": "Анализ интереса к CTA"
+  },
+  {
+    "event": "subscribe_form_submit",
+    "category": "submit",
+    "description": "Отправка формы подписки",
+    "params": ["email", "sessionId"],
+    "platforms": ["amplitude", "firebase"],
+    "businessGoal": "Конверсия, эффективность подписки"
+  },
+  {
+    "event": "footer_social_click",
+    "category": "click",
+    "description": "Клик по соцсети в футере",
+    "params": ["network", "url", "sessionId"],
+    "platforms": ["amplitude"],
+    "businessGoal": "Анализ интереса к соцсетям"
+  },
+  {
+    "event": "footer_email_click",
+    "category": "click",
+    "description": "Клик по email в футере",
+    "params": ["email", "sessionId"],
+    "platforms": ["amplitude"],
+    "businessGoal": "Анализ интереса к обратной связи"
+  },
+  {
+    "event": "view_footer",
+    "category": "view",
+    "description": "Показ футера",
+    "params": ["sessionId"],
+    "platforms": ["amplitude", "firebase"],
+    "businessGoal": "Анализ глубины просмотра"
+  }
+] 

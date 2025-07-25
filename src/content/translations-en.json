@@ -1,0 +1,545 @@
+{
+  "hero": {
+    "title": "When one astronaut looks at the galaxy, he sees only part of the truth",
+    "subtitle": "CosmoFusion DAO is a next-generation decentralized platform where every member becomes part of a collective mind. Here, ideas are born, discussed, and evolve from hypothesis to truth through collaborative thinking, open dialogue, and transparent decision-making.",
+    "description": "CosmoFusion DAO brings together people with diverse backgrounds and perspectives to find the best solutions, preserve knowledge, and build a community where every contribution matters. We believe that truth is not a final destination, but a continuous journey forward—where every voice counts and the experience of the past shapes the future. Join us to be part of the evolution of ideas, contribute to a common cause, and help create a space for open innovation and collective growth.",
+    "cta": "Join the search for truth",
+    "visual": {
+      "type": "image",
+      "description": "An astronaut on a planet looking at the galaxy",
+      "alt": "A lone astronaut contemplates a majestic galaxy",
+      "position": "center",
+      "animation": "fade-in-up",
+      "svg_elements": [
+        {
+          "type": "floating_particles",
+          "description": "Twinkling stars around the astronaut",
+          "animation": "twinkle"
+        },
+        {
+          "type": "galaxy_glow",
+          "description": "Glowing core of the galaxy",
+          "animation": "pulse"
+        }
+      ]
+    },
+    "idea": {
+      "title": "Idea",
+      "description": "Imagine an astronaut looking at a galaxy from a distant planet. He sees the beauty, but does he truly understand the nature of what he observes? The same goes for us—each of us looks at the world through our own lens, making decisions based on a limited perspective. But what if thousands of astronauts looked at the same galaxy from different planets at the same time? What if their visions merged into a single picture of truth?"
+    },
+    "hypotize": {
+      "title": "Hypothesis",
+      "description": "CosmoFusion DAO is a platform where ideas transform from hypotheses to truth through collective thinking and open dialogue. Here, every voice contributes to knowledge development, and the wisdom of the crowd creates collective intelligence. Through blockchain voting and AI analysis, we create a space where truth emerges from collaborative exploration, not from authority."
+    },
+    "arr": {
+      "list": [
+        "We are all lonely astronauts in the cosmos of decisions",
+        "The astronaut's visor reflects only what he wants to see",
+        "When thousands of astronauts look at one galaxy",
+        "Democracy of space explorers",
+        "From a lone astronaut to a collective mind",
+        "Truth in motion is not just a beautiful phrase",
+        "Getting started",
+        "CosmoFusion DAO logbook"
+      ],
+      "title": "Table of Contents"
+    }
+  },
+  "problem": {
+    "title": "We are all lonely astronauts in the space of decisions",
+    "intro": "Imagine an astronaut floating in endless space. They see stars, nebulae, distant galaxies — but their vision is limited to a single observation point. This is how today's investment platforms work.",
+    "problems": [
+      {
+        "title": "Centralization Problem",
+        "description": "Decisions are made by a narrow circle of 'astronauts' in closed offices. They see only their part of space, unaware of what lies beyond the horizon."
+      },
+      {
+        "title": "Transparency Problem",
+        "description": "The logic of decisions remains a 'black box'. Users don't understand why this particular strategy was chosen, what data was analyzed, what alternatives were considered."
+      },
+      {
+        "title": "Memory Problem",
+        "description": "Each mission starts from scratch. Past mistakes are forgotten, successful patterns are not preserved, experience is not passed on to future generations."
+      }
+    ],
+    "quote": "If an astronaut makes a mistake in trajectory calculations, who will correct them? If their instruments fail, who will provide alternative data?"
+  },
+  "solution": {
+    "title": "When thousands of astronauts look at the same galaxy",
+    "intro": "Imagine: thousands of astronauts on different planets, looking at the same galaxy simultaneously. Each sees it from their own angle, from their own perspective. Together they see the complete picture.",
+    "problems": [
+      {
+        "title": "Mill's Trident Principle",
+        "description": "In any argument there are only three possibilities: you are right (need criticism to strengthen), partially right (need opposing views), wrong (need free speech to correct)."
+      },
+      {
+        "title": "Collective Intelligence",
+        "description": "When many minds work together, they can solve problems inaccessible to individuals. Different perspectives complement each other."
+      },
+      {
+        "title": "Process Transparency",
+        "description": "Every decision, every argument, every vote is recorded in an immutable journal. History becomes a teacher."
+      },
+      {
+        "title": "Idea Evolution",
+        "description": "Truth is not static — it evolves through collective interaction, criticism, verification, constant refinement."
+      },
+      {
+        "title": "AI-Powered Analysis",
+        "description": "Artificial intelligence processes vast amounts of data, identifies patterns invisible to humans, and provides unbiased insights to support decision-making."
+      },
+      {
+        "title": "Blockchain Immutability",
+        "description": "All decisions and their reasoning are permanently recorded on blockchain, creating an unchangeable history that prevents manipulation and ensures accountability."
+      }
+    ],
+    "process": {
+      "title": "Technological Decision-Making Process",
+      "steps": [
+        "Data collection from all participants",
+        "AI analysis and pattern identification",
+        "Collective discussion with full transparency",
+        "Voting with blockchain recording",
+        "Implementation with constant monitoring",
+        "Result analysis and knowledge base updates"
+      ]
+    },
+    "quote": "Truth is born not in the solitude of genius, but in collective search, where every contribution matters, every criticism is constructive, every result teaches."
+  },
+  "reflection": {
+    "title": "In the astronaut's visor, only what he wants to see is reflected",
+    "intro": "Look at an astronaut whose helmet reflects Earth. Beautiful, right? But this reflection is not Earth itself, but only a distorted representation of it. This is how we perceive reality.",
+    "biases": [
+      {
+        "title": "Cognitive Biases",
+        "description": "We see what we want to see, confirm our beliefs, ignore contradictory data. Our 'visor' filters information, leaving only what's convenient."
+      },
+      {
+        "title": "Echo Chambers",
+        "description": "We surround ourselves with like-minded people, listen only to those who agree with us, create an illusion of universal agreement."
+      },
+      {
+        "title": "Confirmation Bias",
+        "description": "We seek data that confirms our hypotheses, ignore facts that contradict them."
+      },
+      {
+        "title": "Anchoring Effect",
+        "description": "The first information we receive becomes an anchor for all subsequent judgments. If we initially hear a negative assessment, we'll evaluate everything through this lens."
+      },
+      {
+        "title": "Groupthink",
+        "description": "In groups, we tend to conform to majority opinion, suppress dissenting views, and create an illusion of unanimity that prevents critical thinking."
+      },
+      {
+        "title": "Availability Heuristic",
+        "description": "We judge the probability of events by how easily we can recall similar examples, often ignoring statistical reality in favor of vivid memories."
+      }
+    ],
+    "quote": "What if the astronaut's visor reflects not Earth, but their own expectations? What if reality looks completely different?"
+  },
+  "governance": {
+    "title": "Democracy of astronauts",
+    "intro": "Imagine a space station where every astronaut has the right to vote on expedition course decisions. Not hierarchy, but collective wisdom determines the path to truth.",
+    "biases": [
+      {
+        "title": "One astronaut — one vote",
+        "description": "Every DAO participant has equal voting rights, regardless of status or resources. It's not power that matters, but collective wisdom."
+      },
+      {
+        "title": "Transparency of all decisions",
+        "description": "Every vote, every argument, every result is recorded on blockchain. No secret meetings, no hidden motives."
+      },
+      {
+        "title": "Collective responsibility",
+        "description": "Decisions are made by the community, and the community is responsible for their consequences. Success and failure are shared."
+      },
+      {
+        "title": "Evolution of rules",
+        "description": "Governance rules are not static — they evolve with the community. New challenges require new approaches."
+      }
+    ],
+    "process": {
+      "title": "Decision-making process:",
+      "steps": [
+        "Proposal of idea by any participant",
+        "Collective discussion and criticism",
+        "Voting with transparent results",
+        "Implementation and monitoring",
+        "Result analysis and lesson extraction"
+      ]
+    },
+    "quote": "There's no room for dictatorship in space. Only collective wisdom can lead an expedition to success."
+  },
+  "evolution": {
+    "title": "From a single astronaut to a collective mind",
+    "intro": "Imagine an astronaut floating in endless space. They see stars, nebulae, distant galaxies — but their vision is limited to a single observation point. This is how today's investment platforms work.",
+    "problems": [
+      {
+        "title": "Stage 1: Solo Astronaut",
+        "description": "Traditional platforms are lone explorers making decisions in isolation. They may be brilliant, but their vision is limited to a single point of observation."
+      },
+      {
+        "title": "Stage 2: Group of Explorers",
+        "description": "A DAO community is a group of astronauts working together. They share observations, discuss hypotheses, and vote for the best solutions."
+      },
+      {
+        "title": "Stage 3: AI Beacons",
+        "description": "Artificial intelligence becomes cosmic beacons illuminating the path to truth. AI agents analyze data, identify patterns, and propose hypotheses."
+      },
+      {
+        "title": "Stage 4: Collective Intelligence",
+        "description": "AI + DAO + Blockchain = Collective Intelligence. The system learns from every decision, preserves experience, and evolves together with the community."
+      }
+    ],
+    "arr": {
+      "title": "Idea Evolution Process:",
+      "list": [
+        "Hypothesis",
+        "Discussion",
+        "Voting",
+        "Implementation",
+        "Result",
+        "Learning"
+      ]
+    },
+    "process": {
+      "title": "Uniqueness of Approach:",
+      "steps": [
+        "Not static solutions, but dynamic evolution",
+        "Not one expert, but collective intelligence",
+        "Not closed analytics, but transparent history",
+        "Not repeating mistakes, but studying patterns"
+      ]
+    },
+    "quote": "We are not just creating a platform — we are creating an ecosystem of collective truth-seeking, where every participant becomes part of something greater."
+  },
+  "gettingStarted": {
+    "title": "Getting started with CosmoFusion DAO",
+    "description": "Truth awaits those ready to seek it together. Join the collective mind.",
+    "addonsTitle": "Addons",
+    "arr": [
+      "Access to collective intelligence",
+      "Transparency of all processes and decisions",
+      "Ability to influence platform development",
+      "Participation in profit distribution",
+      "NFT certificates for contribution to development"
+    ]
+  },
+  "motionPhrase": {
+    "text": "Truth in Motion is not just a beautiful phrase. It's the principle by which our entire platform works. There are no final answers here, only constant search, collective evolution, endless approximation to truth."
+  },
+  "useCases": {
+    "title": "Use Cases",
+    "description": "CosmoFusion DAO is a platform for collective intelligence, open innovation, and transparent governance. Here, every member can propose ideas, discuss them with like-minded people, and together turn concepts into real solutions that benefit the whole ecosystem. We unite people from diverse backgrounds—engineers, visionaries, creators, critics, ambassadors, and explorers—who believe that truth is not a static point, but a continuous journey. In CosmoFusion DAO, ideas evolve through open dialogue, constructive criticism, and collective decision-making. Our mission is to preserve knowledge, share best practices, and build a resilient, adaptive organization where every voice matters. All key processes—proposals, discussions, voting, and results—are recorded on-chain, ensuring full transparency and trust. By joining CosmoFusion DAO, you become part of a global movement to shape the future of decentralized collaboration, support breakthrough projects, and create a space where innovation, fairness, and collective wisdom drive progress. Together, we are building an open platform for honest governance, sustainable growth, and the evolution of ideas.",
+    "categories": {
+      "investments": {
+        "title": "Investments",
+        "description": "Collective market analysis, transparent strategies, historical pattern study"
+      },
+      "science": {
+        "title": "Science",
+        "description": "DAO for scientific research, collective hypothesis verification, open science"
+      },
+      "education": {
+        "title": "Education",
+        "description": "NFT certificates, collective learning, educational program evolution"
+      },
+      "grants": {
+        "title": "Grants",
+        "description": "Transparent fund distribution, collective project evaluation, result tracking"
+      },
+      "predictionMarkets": {
+        "title": "Prediction Markets",
+        "description": "Collective forecasts, prediction accuracy study, model evolution"
+      }
+    }
+  },
+  "journal": {
+    "heading": "CosmoFusion DAO Journal",
+    "description": "Journal is a place where we record all processes and decisions that happen in CosmoFusion DAO. Here you can find all the information about how our platform works and how we make decisions."
+  },
+  "footer": {
+    "title": "CosmoFusion DAO",
+    "description": "CosmoFusion DAO - is a next-generation decentralized community and platform for collective intelligence, open innovation, and transparent governance. Here, every member can propose ideas, discuss them with like-minded people, and together turn concepts into real solutions that benefit the whole ecosystem. We unite people from diverse backgrounds—engineers, visionaries, creators, critics, ambassadors, and explorers—who believe that truth is not a static point, but a continuous journey. In CosmoFusion DAO, ideas evolve through open dialogue, constructive criticism, and collective decision-making. Our mission is to preserve knowledge, share best practices, and build a resilient, adaptive organization where every voice matters. All key processes—proposals, discussions, voting, and results—are recorded on-chain, ensuring full transparency and trust. By joining CosmoFusion DAO, you become part of a global movement to shape the future of decentralized collaboration, support breakthrough projects, and create a space where innovation, fairness, and collective wisdom drive progress. Together, we are building an open platform for honest governance, sustainable growth, and the evolution of ideas.",
+    "buttonText": "Work with us",
+    "buttonText2": "Contact us",
+    "subscribeForm": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "namePlaceholder": "Enter your name",
+      "emailPlaceholder": "Enter your email",
+      "button": "→",
+      "success": "Thank you for subscribing!",
+      "error": "Error sending form",
+      "invalidEmail": "Invalid email",
+      "privacyPolicy": "We care about your data. More in the privacy policy.",
+      "privacyPolicyLink": "privacyPolicy",
+      "privacyText": "We care about your data. More in the privacy policy.",
+      "privacyLink": "privacyPolicy",
+      "telegramLabel": "Telegram",
+      "substackLabel": "Substack"
+    },
+    "links": [
+      { "text": "Get Started", "link": "getStarted" },
+      { "text": "Partners", "link": "partners" },
+      { "text": "About us", "link": "aboutUs" },
+      { "text": "Media and Events", "link": "mediaAndEvents" },
+      { "text": "Docs", "link": "docs" },
+      { "text": "Email", "link": "mailto:workEmail" },
+      { "text": "Google Hangout", "link": "workEmail" }
+    ],
+    "linksTitle": "Explore",
+    "purchase": [
+      { "text": "OpenSea", "link": "opensea" },
+      { "text": "NFT (Stargaze)", "link": "nft" },
+      { "text": "Bridge ETH↔ATOM", "link": "bridge" },
+      { "text": "Tangem", "link": "tangemOrder" }
+    ],
+    "purchaseTitle": "Purchase and rewards",
+    "more": [
+      { "text": "CosmoFusion Labs", "link": "gevulotLabs" },
+      { "text": "Explorer", "link": "explorer" },
+      { "text": "Blog", "link": "blog" },
+      { "text": "Github", "link": "github" },
+      {
+        "text": "Node Rental & Node Operator Token Grant Terms",
+        "link": "nodeRental"
+      },
+      { "text": "Whitepaper", "link": "whitepaper" },
+      { "text": "Disclaimer & updates", "link": "disclaimer" }
+    ],
+    "moreTitle": "More",
+    "socialLinks": [
+      { "text": "Telegram", "link": "telegram" },
+      { "text": "X", "link": "x" },
+      { "text": "Discord", "link": "discord" },
+      { "text": "Galxe", "link": "galxe" }
+    ],
+    "subscribeText": "Subscribe to our newsletter",
+    "subscribePlaceholder": "Enter your email",
+    "subscribeButton": "→",
+    "subscribePrivacyPolicy": "We care about your data. More in the privacy policy.",
+    "subscribePrivacyPolicyLink": "privacyPolicy",
+    "privacyPolicy": "Privacy policy"
+  },
+  "journalEntries": [
+    {
+      "date": "25.12.2025",
+      "title": "Mill's Trident: Philosophy underlying CosmoFusion DAO",
+      "subtitle": "CosmoFusion DAO",
+      "text": "How John Stuart Mill's principles help us create a more just and effective decision-making system"
+    },
+    {
+      "date": "25.12.2025",
+      "title": "From solitude to collective mind: Evolution of investment platforms",
+      "subtitle": "CosmoFusion DAO",
+      "text": "The development history from centralized systems to decentralized collective intelligence"
+    },
+    {
+      "date": "25.12.2025",
+      "title": "AI Beacons: How artificial intelligence illuminates the path to truth",
+      "subtitle": "CosmoFusion DAO",
+      "text": "The role of AI agents in creating transparent and effective collective decision-making systems"
+    },
+    {
+      "date": "25.12.2025",
+      "title": "Blockchain: The backbone of cosmic trust",
+      "subtitle": "CosmoFusion DAO",
+      "text": "How blockchain technology ensures transparency and trust in collective governance"
+    }
+  ],
+  "jobBuilder": {
+    "title": "Choose your role in the collective mind",
+    "description": "Each role in CosmoFusion DAO contributes to the collective search for truth. Choose the role that best fits your skills and interests.",
+    "roles": [
+      {
+        "select": "Explorer",
+        "title": "Explorer: Votes for new ideas!",
+        "description": "My hypothesis deserves a chance!",
+        "image": {
+          "jpg": "job-explorer.jpg",
+          "webp": "job-explorer.webp"
+        },
+        "responsibilitiesTitle": "Responsibilities:",
+        "responsibilities": [
+          "Propose at least 1 idea per voting cycle, registered in the blockchain journal.",
+          "Vote for 3+ hypotheses, adding arguments to the transparent journal.",
+          "Participate in discussions before voting, leaving at least 2 comments."
+        ],
+        "rewardTitle": "Token reward:",
+        "rewards": [
+          "8 governance tokens for an accepted idea (by voting results).",
+          "3 tokens for active voting with argumentation.",
+          "Goal: Launch ideas and support promising hypotheses through voting, advancing the collective search for truth."
+        ],
+        "addonTitle": "Additional responsibility and reward:",
+        "addons": [
+          "Launch ideas and support promising hypotheses through voting, advancing the collective search for truth.",
+          "Opportunity to become an expert and receive additional rewards.",
+          "Participation in the expert group evaluating the quality of hypotheses."
+        ]
+      },
+      {
+        "select": "Critic",
+        "title": "Critic: Votes for proven ideas!",
+        "description": "Only strong hypotheses will pass!",
+        "image": {
+          "jpg": "job-critic.jpg",
+          "webp": "job-critic.webp"
+        },
+        "responsibilitiesTitle": "Responsibilities:",
+        "responsibilities": [
+          "Evaluate 3+ hypotheses per cycle, indicating weaknesses in the journal.",
+          "Vote for or against ideas, justifying the choice in the blockchain.",
+          "Write at least 3 comments in discussions, strengthening criticism."
+        ],
+        "rewardTitle": "Token reward:",
+        "rewards": [
+          "7 tokens for accepted criticism (confirmed by votes).",
+          "3 tokens for voting with transparent argumentation."
+        ],
+        "addonTitle": "Additional responsibility and reward:",
+        "addons": [
+          "Evaluate and maintain the quality of hypotheses, advancing the collective search for truth.",
+          "Opportunity to become an expert and receive additional rewards.",
+          "Participation in the expert group evaluating the quality of hypotheses."
+        ]
+      },
+      {
+        "select": "Creator",
+        "title": "Creator: Develops new ideas!",
+        "description": "My tools will strengthen the DAO!",
+        "image": {
+          "jpg": "job-creator.jpg",
+          "webp": "job-creator.webp"
+        },
+        "responsibilitiesTitle": "Responsibilities:",
+        "responsibilities": [
+          "Propose 1+ AI or platform improvement per cycle, registered in the blockchain.",
+          "Vote for 3+ technical proposals, justifying the choice.",
+          "Participate in technical discussions, leaving 2+ comments."
+        ],
+        "rewardTitle": "Token reward:",
+        "rewards": [
+          "10 governance tokens for an accepted improvement (by voting results).",
+          "5 tokens for active voting with argumentation."
+        ],
+        "addonTitle": "Additional responsibility and reward:",
+        "addons": [
+          "Develop and improve the platform, advancing the collective search for truth.",
+          "Opportunity to become an expert and receive additional rewards.",
+          "Participation in the expert group evaluating the quality of hypotheses."
+        ]
+      },
+      {
+        "select": "Observer",
+        "title": "Observer: Monitors the process! Votes for lessons!",
+        "description": "Patterns will show the way!",
+        "image": {
+          "jpg": "job-observer.jpg",
+          "webp": "job-observer.webp"
+        },
+        "responsibilitiesTitle": "Responsibilities:",
+        "responsibilities": [
+          "Propose 1+ AI or platform improvement per cycle, registered in the blockchain.",
+          "Vote for 3+ technical proposals, justifying the choice.",
+          "Participate in technical discussions, leaving 2+ comments."
+        ],
+        "rewardTitle": "Token reward:",
+        "rewards": [
+          "10 tokens for an accepted technical proposal.",
+          "4 tokens for voting with argumentation."
+        ],
+        "addonTitle": "Additional responsibility and reward:",
+        "addons": [
+          "Monitor the process, advancing the collective search for truth.",
+          "Opportunity to become an expert and receive additional rewards.",
+          "Participation in the expert group evaluating the quality of hypotheses."
+        ]
+      },
+      {
+        "select": "Manager",
+        "title": "Manager: Votes for order in the DAO!",
+        "description": "My vote is for justice!",
+        "image": {
+          "jpg": "job-manager.jpg",
+          "webp": "job-manager.webp"
+        },
+        "responsibilitiesTitle": "Responsibilities:",
+        "responsibilities": [
+          "Propose 1+ governance rule per cycle, recorded in the blockchain.",
+          "Vote for 5+ proposals, justifying in the journal.",
+          "Moderate 2+ discussions before voting for transparency."
+        ],
+        "rewardTitle": "Token reward:",
+        "rewards": [
+          "10 tokens for an accepted governance rule.",
+          "4 tokens for voting with argumentation."
+        ],
+        "addonTitle": "Additional responsibility and reward:",
+        "addons": [
+          "Ensure fair voting, forming transparent governance.",
+          "Monitor the process, advancing the collective search for truth.",
+          "Opportunity to become an expert and receive additional rewards.",
+          "Participation in the expert group evaluating the quality of governance rules."
+        ]
+      },
+      {
+        "select": "Ambassador",
+        "title": "Ambassador: Votes for DAO growth!",
+        "description": "I will tell the whole galaxy about the DAO!",
+        "image": {
+          "jpg": "job-ambassador.jpg",
+          "webp": "job-ambassador.webp"
+        },
+        "responsibilitiesTitle": "Responsibilities:",
+        "responsibilities": [
+          "Vote for 3+ proposals promoting the DAO mission.",
+          "Share voting results in Telegram/Discord (2+ posts per cycle).",
+          "Attract 2+ new participants to voting via referral links."
+        ],
+        "rewardTitle": "Token reward:",
+        "rewards": [
+          "10 tokens for an accepted technical proposal.",
+          "4 tokens for voting with argumentation."
+        ],
+        "addonTitle": "Additional responsibility and reward:",
+        "addons": [
+          "Tell the whole galaxy about the DAO.",
+          "Opportunity to become an expert and receive additional rewards.",
+          "Participation in the expert group evaluating the quality of proposals."
+        ]
+      }
+    ]
+  },
+  "seo": {
+    "hero": {
+      "title": "CosmoFusion DAO — Collective Intelligence & Innovation Platform",
+      "description": "Join CosmoFusion DAO, a next-generation decentralized community for collective intelligence, open innovation, and transparent governance. Propose ideas, collaborate, and shape the future together."
+    },
+    "problem": {
+      "title": "Key Challenges & Problems — CosmoFusion DAO",
+      "description": "Discover the main challenges in decentralized collaboration and how CosmoFusion DAO addresses issues of transparency, engagement, and collective decision-making."
+    },
+    "reflection": {
+      "title": "Reflections & Insights — CosmoFusion DAO",
+      "description": "Explore community insights, reflections, and lessons learned on the path to building a transparent, adaptive, and innovative DAO."
+    },
+    "solution": {
+      "title": "Innovative Solutions — CosmoFusion DAO",
+      "description": "Learn about the unique mechanisms and features of CosmoFusion DAO that empower collective intelligence, transparency, and sustainable growth."
+    },
+    "evolution": {
+      "title": "Evolution & Growth — CosmoFusion DAO",
+      "description": "See how CosmoFusion DAO evolves, adapts, and grows through community-driven learning, feedback, and continuous improvement."
+    },
+    "governance": {
+      "title": "Governance & Decision-Making — CosmoFusion DAO",
+      "description": "Discover the democratic structure, voting processes, and transparent governance that empower every member of CosmoFusion DAO."
+    },
+    "gettingStarted": {
+      "title": "Getting Started with CosmoFusion DAO",
+      "description": "Step-by-step guide to joining CosmoFusion DAO, participating in the community, and making your first contribution."
+    }
+  }
+} 

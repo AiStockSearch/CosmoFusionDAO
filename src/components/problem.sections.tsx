@@ -34,10 +34,10 @@ const ProblemSection: React.FC<{ type: 'problem' | 'solution' | 'evolution' | 'g
   const ctx = useLocale();
   
   const problemSection = {
-    ['problem']: ctx.problemSection,
-    ['solution']: ctx.solutionSection,
-    ['evolution']: ctx.evolutionSection,
-    ['governance']: ctx.governanceSection,
+    problem: ctx.problemSection,
+    solution: ctx.solutionSection,
+    evolution: ctx.evolutionSection,
+    governance: ctx.governanceSection,
   }[type];
 
   return (

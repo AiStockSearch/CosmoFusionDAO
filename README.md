@@ -1,127 +1,277 @@
 # CosmoFusion DAO — Web Landing
 
-Лендинг для гранта Cosmos x FIRE. Реализован на React с Tailwind CSS, поддерживает локализацию (RU/EN), адаптивность, плавные анимации, SEO и OpenGraph, PWA, accessibility, централизованные ссылки и memory bank для AI.
+A modern React landing page for CosmoFusion DAO, built with React 19, TypeScript, and Tailwind CSS. Features include localization (EN/RU), responsive design, smooth animations, SEO optimization, PWA capabilities, accessibility, centralized links, and memory bank for AI development.
 
 ---
 
-## Структура проекта
+## Project Structure
 
-- `src/locales/en.json`, `src/locales/ru.json` — все тексты секций и alt-тексты (локализация)
-- `src/content/links.json` — централизованные внешние/внутренние ссылки (соцсети, explorer, docs, NFT, purchase)
-- `src/content/sectionSeo.json` — SEO title/description для секций
-- `src/shared/memory-bank/` — memory bank (только для Cursor/AI, не для пользовательских данных)
-- `src/LandingPage.tsx` — главный компонент лендинга, SEO через Helmet
-- `src/components/` — UI-компоненты (feature-based структура)
-- `src/hooks/useLocale.ts`, `useSectionContent.ts` — локализация, получение секционного контента
-- `src/components/SectionAnchorContext.tsx` — кастомный anchor scroll с offset
-- `src/assets/images/` — оптимизированные изображения (webp, jpg)
-- `src/assets/svg/` — SVG-иконки для UI
-- `public/service-worker.js`, `offline.html`, `manifest.json` — PWA, offline-режим
-- `src/components/__tests__/` — unit-тесты компонентов (Jest + RTL)
+```
+src/
+├── components/           # UI components (feature-based structure)
+│   ├── hero.section.tsx
+│   ├── problem.sections.tsx
+│   ├── reflection.sections.tsx
+│   ├── getting.started.tsx
+│   ├── cases.work.tsx
+│   ├── privacy.policy.tsx
+│   ├── footer.*.tsx     # Footer components
+│   ├── comp.*.tsx       # Reusable components
+│   └── __tests__/       # Unit tests
+├── content/             # Content and translations
+│   ├── *En.tsx         # English content
+│   ├── *Ru.tsx         # Russian content
+│   ├── links.ts         # Centralized links
+│   └── sectionSeo.json  # SEO metadata
+├── hooks/               # Custom React hooks
+│   ├── useLocale.ts
+│   ├── useSectionContent.ts
+│   └── useUnifiedTranslations.ts
+├── analytics/           # Analytics integration
+│   ├── eventCenter.ts   # Universal event center
+│   ├── eventTypes.ts    # Event types and categories
+│   ├── eventMap.ts      # Event mapping
+│   └── scenarios/       # Event scenarios
+├── shared/
+│   └── memory-bank/     # AI development context
+├── sections/            # Page sections
+├── contexts/            # React contexts
+├── locales/             # Translation files
+├── links/               # Link management
+├── telegram-bot/        # Telegram integration
+├── types/               # TypeScript types
+└── utils/               # Utility functions
+```
 
-## Технологии
+## Technologies
 
-- **React 19** — основной фреймворк
-- **TypeScript** — строгая типизация
-- **Tailwind CSS** — стилизация (утилитарные классы)
-- **PostCSS** — обработка CSS
-- **Jest + RTL** — тестирование
-- **react-helmet-async** — SEO/meta
-- **PWA** — offline, manifest, service worker
+- **React 19** — Main framework
+- **TypeScript** — Strict typing
+- **Tailwind CSS** — Utility-first CSS framework
+- **PostCSS** — CSS processing
+- **Jest + RTL** — Testing framework
+- **react-helmet-async** — SEO and meta tags
+- **Framer Motion** — Animations
+- **PWA** — Progressive Web App features
+- **Sentry** — Error tracking and monitoring
 
-## Как обновлять контент и переводы
+## Key Features
 
-1. Откройте `src/locales/en.json` и/или `ru.json`.
-2. Измените или добавьте секцию/ключ (соблюдайте структуру).
-3. Для новых ссылок — добавьте в `src/content/links.json`.
-4. Для SEO — обновите `src/content/sectionSeo.json`.
-5. Сохраните — изменения появятся автоматически.
+### Localization
+- Automatic language detection (browser/geo)
+- Language switcher (EN/RU)
+- All sections and alt-texts are localized
+- Translation files: `src/locales/en.json`, `src/locales/ru.json`
 
-## Стилизация компонентов
+### Analytics Integration
+- Universal event center supporting multiple platforms
+- Event scenarios for different sections
+- Automatic session tracking
+- Error tracking with Sentry
 
-Проект использует **Tailwind CSS** для стилизации:
+### SEO & OpenGraph
+- Dynamic title, description, and og/tw tags via Helmet
+- Section-specific SEO data in `src/content/sectionSeo.json`
+- Optimized for search engines
+
+### Accessibility
+- ARIA labels for interactive elements
+- Keyboard navigation support
+- Responsive design for all devices
+- Semantic HTML structure
+
+### PWA Features
+- Service worker for offline functionality
+- Web app manifest
+- Installable on mobile devices
+- Offline fallback page
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- Yarn or npm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd cosmofusion-dao-web
+
+# Install dependencies
+yarn install
+
+# Start development server
+yarn start
+
+# Run tests
+yarn test
+
+# Build for production
+yarn build
+```
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+REACT_APP_TELEGRAM_HTTP_API=your_telegram_bot_token
+REACT_APP_TELEGRAM_CHAT_ID=your_chat_id
+```
+
+## Development
+
+### Content Updates
+
+1. **Translations**: Update `src/locales/en.json` and `src/locales/ru.json`
+2. **Links**: Modify `src/content/links.ts` for centralized link management
+3. **SEO**: Update `src/content/sectionSeo.json` for section-specific SEO
+4. **Content**: Edit content files in `src/content/` directory
+
+### Component Development
+
+Components follow a feature-based structure:
 
 ```tsx
+// Example component structure
 <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-200">
-  <h2 className="text-3xl font-bold text-primary-600">Заголовок</h2>
+  <h2 className="text-3xl font-bold text-primary-600">Title</h2>
 </div>
 ```
 
-### Кастомные цвета:
+### Custom Colors
 
-- `primary-600` — основной синий цвет
-- `secondary-600` — дополнительный фиолетовый цвет
+- `primary-600` — Main blue color
+- `secondary-600` — Secondary purple color
 
-### Анимации:
+### Animations
 
-- `animate-fade-in` — плавное появление
-- `animate-slide-up` — появление снизу
+- `animate-fade-in` — Smooth fade-in animation
+- `animate-slide-up` — Slide-up animation
 
-## Запуск и тесты
+## Testing
 
 ```bash
-yarn install
-yarn start         # локальный запуск
-yarn test          # юнит-тесты (Jest + RTL)
+# Run all tests
+yarn test
+
+# Run tests in watch mode
+yarn test --watch
+
+# Generate test coverage
+yarn test --coverage
 ```
 
-## Деплой на GitHub Pages
+Tests are located in `src/components/__tests__/` and follow Jest + React Testing Library patterns.
 
-1. Убедитесь, что поле `homepage` в package.json корректно (https://jsnanodegree.github.io/cosmofusion-dao/)
-2. Выполните:
+## Deployment
+
+### GitHub Pages
+
+1. Ensure `homepage` field in `package.json` is correct
+2. Run deployment:
 
 ```bash
 yarn deploy
 ```
 
-## SEO и OpenGraph
+### Other Platforms
 
-- Title, description, og/tw теги выставляются динамически через Helmet
-- SEO-данные секций — в `src/content/sectionSeo.json`
-- og:image/twitter:image — абсолютный путь (https://cosmofusion.app/logo192.png)
+```bash
+# Build for production
+yarn build
 
-## Адаптивность, accessibility и анимации
+# The build folder contains deployable files
+```
 
-- Лендинг адаптивен для мобильных и десктопов
-- Секции плавно появляются при прокрутке
-- Используются Tailwind responsive классы (md:, lg:)
-- Все интерактивные элементы имеют aria-label
-- Поддержка навигации с клавиатуры
+## Analytics
 
-## Локализация
+The project includes a comprehensive analytics system:
 
-- Автоопределение языка (браузер/гео)
-- Переключатель RU/EN
-- Все секции и alt-тексты локализованы
-- Для новых языков — добавьте ключи в JSON
+- **Event Center**: Universal event logging (`src/analytics/eventCenter.ts`)
+- **Event Scenarios**: Predefined event patterns (`src/analytics/scenarios/`)
+- **Multiple Platforms**: Support for Amplitude, Firebase, Sentry
+- **Session Tracking**: Automatic session management
+
+### Adding Analytics Events
+
+```typescript
+import { eventCenter } from './analytics/eventCenter';
+
+// Log an event
+eventCenter.logEvent({
+  category: 'click',
+  name: 'button_click',
+  value: { button: 'subscribe' }
+}, ['amplitude', 'sentry']);
+```
 
 ## Memory Bank
 
-- Используется только для AI/агента (Cursor)
-- Не хранит пользовательские данные
-- src/shared/memory-bank/
+The memory bank (`src/shared/memory-bank/`) is used exclusively for AI development context:
 
-## Централизованные ссылки
+- Stores technical context for Cursor/AI interaction
+- Does not contain user data or business logic
+- Used only during development process
 
-- Все внешние/внутренние ссылки — в `src/content/links.json`
-- Для добавления/редактирования — обновите JSON
+## Telegram Integration
 
-## PWA
+The project includes Telegram bot integration for form submissions:
 
-- manifest.json, service-worker.js, offline.html
-- offline-режим, favicon, robots.txt, sitemap.xml
+- Automatic message formatting
+- Error handling and logging
+- Analytics integration
+- Configurable via environment variables
 
-## Тестирование
+## Performance
 
-- Unit-тесты для компонентов (Jest + RTL)
-- Покрытие критических путей
-- Для новых компонентов — автогенерация тестов
+- Optimized images (WebP format)
+- Lazy loading for components
+- Code splitting with React.lazy
+- PWA caching strategies
+- Bundle size optimization
+
+## Security
+
+- **Automated Security Scanning**: Snyk integration for vulnerability detection
+- **GitHub Security Tab**: Automatic upload of security findings
+- **Dependency Auditing**: npm/yarn audit integration
+- **Container Scanning**: Trivy for Docker image security
+- **Input validation with TypeScript**
+- **Secure environment variable handling**
+- **HTTPS enforcement**
+- **Content Security Policy**
+- **XSS protection**
+
+### Security Workflows
+
+The project includes automated security workflows:
+
+- **Dev Branch**: Basic security checks with critical vulnerability detection
+- **Main/Master Branch**: Comprehensive security scanning with high severity threshold
+
+See [SECURITY_SETUP.md](./SECURITY_SETUP.md) for detailed configuration instructions.
+
+## Contributing
+
+1. Follow the existing code structure
+2. Add tests for new components
+3. Update documentation as needed
+4. Ensure accessibility compliance
+5. Test on multiple devices
+
+## License
+
+This project is private and proprietary.
 
 ---
 
-**Вопросы и доработки:**
+**For questions and improvements:**
 
-- Для расширения секций — добавьте ключи в JSON
-- Для новых SVG/иконок — положите в assets/svg/
-- Для accessibility — проверяйте aria-label и фокус
-- Для кастомных стилей — добавьте в tailwind.config.js
+- For section expansion — add keys to JSON files
+- For new SVG/icons — place in `src/assets/svg/`
+- For accessibility — check ARIA labels and focus management
+- For custom styles — add to `tailwind.config.js`
+- For new features — follow the feature-based folder structure

@@ -3,3 +3,6 @@ build
 .git
 Dockerfile
 .dockerignore
+pattern-labs/*
+fractal-styleguide/*
+.env
