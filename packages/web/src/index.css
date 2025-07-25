@@ -1,15 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 .font-space-mono {
-  font-family: "Space Mono", monospace;
+  font-family: 'Space Mono', monospace;
 }
 
 .font-share-tech-mono {
-  font-family: "Share Tech Mono", monospace;
+  font-family: 'Share Tech Mono', monospace;
 }
 
 /* === HERO SECTION UTILITY CLASSES === */
@@ -38,11 +38,11 @@
   @apply text-[0.9rem]  text-gray-600 font-space-mono leading-relaxed;
 }
 
-.problem-process-item{
+.problem-process-item {
   @apply text-[0.8rem] font-share-tech-mono leading-relaxed mb-2 hover:font-bold text-cyan-700;
 }
 
-.problem-quote{
+.problem-quote {
   @apply text-[1.2rem] text-cyan-900 font-share-tech-mono font-bold leading-relaxed;
 }
 
@@ -91,83 +91,6 @@
   @apply w-screen h-auto grid grid-cols-[0_auto_0_0_0_0] lg:grid-cols-[1fr_rem_0.5fr_0_0_1fr] xl:grid-cols-[14rem_64rem_0.5fr_0.1fr_300px_0.1fr] grid-rows-[0px_350px_56rem] md:grid-rows-[0.01fr_1fr_0.7fr];
 }
 
-/* === END HERO SECTION UTILITY CLASSES === */
-
-/* ZkCloud Fonts - TASA Orbiter Display */
-@font-face {
-  font-family: "TASA Orbiter Display";
-  src: url("./assets/fonts/TASAOrbiterDisplay-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "TASA Orbiter Display";
-  src: url("./assets/fonts/TASAOrbiterDisplay-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "TASA Orbiter Display";
-  src: url("./assets/fonts/TASAOrbiterDisplay-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "TASA Orbiter Display";
-  src: url("./assets/fonts/TASAOrbiterDisplay-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ZkCloud Fonts - Aspekta */
-@font-face {
-  font-family: "Aspekta";
-  src: url("./assets/fonts/Aspekta-450.woff2") format("woff2");
-  font-weight: 450;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Aspekta";
-  src: url("./assets/fonts/Aspekta-500.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Aspekta";
-  src: url("./assets/fonts/Aspekta-550.woff2") format("woff2");
-  font-weight: 550;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Aspekta";
-  src: url("./assets/fonts/Aspekta-600.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ZkCloud Fonts - Trap */
-@font-face {
-  font-family: "Trap";
-  src: url("./assets/fonts/Trap-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* === ГЛОБАЛЬНАЯ ПАЛИТРА ЦВЕТОВ === */
 :root {
   --color-bg-main: #f7f9fb;
@@ -211,16 +134,15 @@
 @layer base {
   body {
     margin: 0;
-    font-family: "Aspekta", -apple-system, BlinkMacSystemFont, "Segoe UI",
-      "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-      "Helvetica Neue", sans-serif;
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+      'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   }
 
   h1,
@@ -229,7 +151,29 @@
   h4,
   h5,
   h6 {
-    font-family: "TASA Orbiter Display", "Aspekta", -apple-system,
-      BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+    font-family:
+      'TASA Orbiter Display',
+      'Aspekta',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      'Roboto',
+      sans-serif;
   }
+}
+
+/* Подключение локальных шрифтов */
+@font-face {
+  font-family: 'Space Mono';
+  src: url('./assets/fonts/SpaceMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Share Tech Mono';
+  src: url('./assets/fonts/ShareTechMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }

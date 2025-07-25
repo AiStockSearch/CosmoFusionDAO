@@ -6,7 +6,7 @@ import cosmoFusionWebp from '../assets/images/cosmoFusion_dao.webp';
 import { useSectionAnchor } from './SectionAnchorContext';
 import { useLocale } from '../hooks/useLocale';
 
-interface HeroSectionProps {
+export interface HeroSectionProps {
   heroPageEn: {
     title: string;
     subtitle: string;
@@ -49,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroPageEn }) => {
 
   return (
     <>
-      <section className="hero-grid">
+      <section className="hero-grid min-h-screen">
         <div className="col-start-2 col-end-4 row-start-1 row-end-3 mt-4 overflow-hidden rounded-[34px] bg-gray-300 p-2 shadow-sm">
           <picture>
             <source srcSet={astronautWebp} type="image/webp" />
@@ -57,7 +57,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroPageEn }) => {
             <img
               src={astronautPng}
               alt={t('hero.alt')}
-              className="flex size-full max-h-[38rem] min-h-[25rem] rounded-[32px] object-cover"
+              className="flex size-full max-h-full min-h-[25rem] rounded-[32px] object-cover"
               loading="lazy"
             />
           </picture>
@@ -111,7 +111,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroPageEn }) => {
           </picture>
         </div>
       </section>
-      <div className="shadow-xs absolute bottom-14 right-20 -mx-6 flex hidden w-[360px] flex-col rounded-[34px] bg-gray-200 p-2 shadow-xl md:block">
+      <div className="shadow-xs absolute bottom-14 right-20 -mx-6 hidden w-[360px] flex-col rounded-[34px] bg-gray-200 p-2 shadow-xl md:flex">
         <div className="rounded-[30px] bg-white p-4 ">
           <span className="hero-list-title">{heroPageEn.arr.title}</span>
           {heroPageEn.arr.list.map((x, idx) => {

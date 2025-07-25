@@ -30,7 +30,7 @@ const ProblemSection: React.FC<ProblemSectionProps> = ({ problemPageEn }) => {
     <section className="relative my-32">
       <div className="ml-4 mr-8 xl:ml-56 xl:mr-80 xl:max-w-[70rem]">
         <div className="flex flex-col items-start justify-start">
-          <div className="flex flex-col flex-col-reverse items-start justify-start  lg:flex-row">
+          <div className="flex flex-col-reverse items-start justify-start lg:flex-row">
             <ProblemImageSection problemPageEn={problemPageEn} />
             <ProblemMainSection problemPageEn={problemPageEn} />
           </div>

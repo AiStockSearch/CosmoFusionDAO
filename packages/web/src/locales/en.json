@@ -59,14 +59,7 @@
     ],
     "arr": {
       "title": "Idea Evolution Process:",
-      "list": [
-        "Hypothesis",
-        "Discussion",
-        "Voting",
-        "Implementation",
-        "Result",
-        "Learning"
-      ]
+      "list": ["Hypothesis", "Discussion", "Voting", "Implementation", "Result", "Learning"]
     },
     "process": {
       "title": "Uniqueness of Approach:",
@@ -274,4 +267,4 @@
     "backToTopLink": "https://galxe.com/zkcloud",
     "backToTopLinkText": "↑"
   }
-} 
+}

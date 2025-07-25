@@ -1,41 +1,55 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./public/index.html"
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   theme: {
     extend: {
       fontFamily: {
-        'tasa': ['TASA Orbiter Display', 'serif'],
-        'aspekta': ['Aspekta', 'sans-serif'],
-        'trap': ['Trap', 'sans-serif'],
+        space: ['Space Mono', 'monospace'],
+        share: ['Share Tech Mono', 'monospace'],
       },
       fontSize: {
-        'tasa-large': ['44px', {
-          lineHeight: '1',
-          fontWeight: '500',
-        }],
-        'tasa-hero': ['64px', {
-          lineHeight: '1.1',
-          fontWeight: '600',
-        }],
-        'aspekta-body': ['16px', {
-          lineHeight: '1.5',
-          fontWeight: '450',
-        }],
-        'aspekta-heading': ['24px', {
-          lineHeight: '1.3',
-          fontWeight: '550',
-        }],
-        'aspekta-subheading': ['20px', {
-          lineHeight: '1.4',
-          fontWeight: '500',
-        }],
-        'trap-accent': ['18px', {
-          lineHeight: '1.2',
-          fontWeight: '700',
-        }],
+        'tasa-large': [
+          '44px',
+          {
+            lineHeight: '1',
+            fontWeight: '500',
+          },
+        ],
+        'tasa-hero': [
+          '64px',
+          {
+            lineHeight: '1.1',
+            fontWeight: '600',
+          },
+        ],
+        'aspekta-body': [
+          '16px',
+          {
+            lineHeight: '1.5',
+            fontWeight: '450',
+          },
+        ],
+        'aspekta-heading': [
+          '24px',
+          {
+            lineHeight: '1.3',
+            fontWeight: '550',
+          },
+        ],
+        'aspekta-subheading': [
+          '20px',
+          {
+            lineHeight: '1.4',
+            fontWeight: '500',
+          },
+        ],
+        'trap-accent': [
+          '18px',
+          {
+            lineHeight: '1.2',
+            fontWeight: '700',
+          },
+        ],
       },
       colors: {
         primary: {
@@ -66,9 +80,9 @@ module.exports = {
       animation: {
         'fade-in': 'fadeIn 0.7s cubic-bezier(.4,0,.2,1)',
         'slide-up': 'slideUp 0.7s cubic-bezier(.4,0,.2,1)',
-        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'bounce': 'bounce 1s infinite',
-        'float': 'float 6s ease-in-out infinite',
+        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        bounce: 'bounce 1s infinite',
+        float: 'float 6s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -82,7 +96,7 @@ module.exports = {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
-        }
+        },
       },
       backdropBlur: {
         xs: '2px',
@@ -94,5 +108,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
-
+};

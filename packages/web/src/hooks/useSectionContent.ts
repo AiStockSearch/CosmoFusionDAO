@@ -15,7 +15,7 @@ import { motionPhraseEn } from '../content/motionPhraseEn';
 import { motionPhraseRu } from '../content/motionPhraseRu';
 import { gettingStarterDataEn } from '../content/gettingStarterDataEn';
 import { gettingStarterDataRu } from '../content/gettingStarterDataRu';
-import { footerEn } from '../content/footerEn';
+import footer from '../content/footer';
 import { footerRu } from '../content/footerRu';
 
 // Заглушка для DeepL API (реализуйте реальный запрос при наличии ключа)
@@ -57,7 +57,7 @@ const sectionMap: SectionMap = {
   governance: { en: governancePageEn, ru: governancePageRu },
   motionPhrase: { en: motionPhraseEn, ru: motionPhraseRu },
   gettingStarted: { en: gettingStarterDataEn, ru: gettingStarterDataRu },
-  footer: { en: footerEn, ru: footerRu },
+  footer: { en: footer, ru: footerRu },
 };
 
 function detectLang(): string {
@@ -70,7 +70,7 @@ function detectLang(): string {
   return 'en';
 }
 
-export function useSectionContent(section: keyof typeof sectionMap) {
+export function useSectionContent(section: keyof typeof sectionMap): string | object | unknown {
   const lang = detectLang();
   const [autoTranslated, setAutoTranslated] = useState<any>(null);
   const map = sectionMap[section];

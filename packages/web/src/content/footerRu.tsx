@@ -1,3 +1,5 @@
+import links from './links.json';
+
 export const footerRu = {
   title: 'CosmoFusion DAO',
   description: `
@@ -9,4 +11,45 @@ CosmoFusion DAO — это децентрализованное сообщест
 
 Присоединившись к CosmoFusion DAO, вы становитесь частью глобального движения, формирующего будущее децентрализованного сотрудничества, поддерживаете прорывные проекты и создаёте пространство, где инновации, справедливость и коллективная мудрость двигают прогресс. Вместе мы строим открытую платформу для честного управления, устойчивого роста и эволюции идей.
 `,
+  buttonText: 'Работать с нами',
+  buttonLink: links.workWithUs,
+  buttonText2: 'Связаться',
+  buttonLink2: links.contactUs,
+  links: [
+    { text: 'Get Started', link: links.getStarted },
+    { text: 'Partners', link: links.partners },
+    { text: 'About us', link: links.aboutUs },
+    { text: 'Media and Events', link: links.mediaAndEvents },
+    { text: 'Docs', link: links.docs },
+  ],
+  linksTitle: 'Explore',
+  purchase: [
+    { text: 'OpenSea', link: links.opensea },
+    { text: 'NFT (Stargaze)', link: links.nft },
+    { text: 'Bridge ETH↔ATOM', link: links.bridge },
+    { text: 'Tangem', link: links.tangemOrder },
+  ],
+  purchaseTitle: 'Покупка и награды',
+  more: [
+    { text: 'CosmoFusion Labs', link: links.gevulotLabs },
+    { text: 'Explorer', link: links.explorer },
+    { text: 'Blog', link: links.blog },
+    { text: 'Github', link: links.github },
+    { text: 'Node Rental & Node Operator Token Grant Terms', link: links.nodeRental },
+    { text: 'Whitepaper', link: links.whitepaper },
+    { text: 'Disclaimer & updates', link: links.disclaimer },
+  ],
+  moreTitle: 'More',
+  socialLinks: [
+    { text: 'Telegram', link: links.telegram },
+    { text: 'X', link: links.x },
+    { text: 'Discord', link: links.discord },
+    { text: 'Galxe', link: links.galxe },
+  ],
+  subscribeText: 'Подпишитесь на новости',
+  subscribePlaceholder: 'Введите ваш email',
+  subscribeButton: '→',
+  subscribePrivacyPolicy: 'Мы заботимся о ваших данных. Подробнее в политике конфиденциальности.',
+  subscribePrivacyPolicyLink: links.privacyPolicy,
+  privacyPolicy: 'Политика конфиденциальности',
 };

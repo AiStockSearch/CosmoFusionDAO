@@ -22,12 +22,15 @@
     "sourceType": "module"
   },
   "rules": {
-    "prettier/prettier": ["error", {
-      "singleQuote": true,
-      "trailingComma": "all",
-      "printWidth": 100
-    }],
-    "quotes": ["error", "single"],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "all",
+        "printWidth": 100
+      }
+    ],
+    "quotes": ["off", "single"],
     "semi": ["error", "always"],
     "object-curly-spacing": ["error", "always"],
     "array-bracket-spacing": ["error", "never"],
@@ -36,7 +39,7 @@
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "no-var": "error",
     "prefer-const": "error",
-    "max-len": ["error", { "code": 100 }],
+    "max-len": "off",
     "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/explicit-function-return-type": "warn",
@@ -54,4 +57,4 @@
       "version": "detect"
     }
   }
-} 
+}

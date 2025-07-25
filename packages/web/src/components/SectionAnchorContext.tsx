@@ -8,13 +8,15 @@ interface SectionAnchorContextType {
 
 const SectionAnchorContext = createContext<SectionAnchorContextType | undefined>(undefined);
 
-export const useSectionAnchor = () => {
+export const useSectionAnchor = (): SectionAnchorContextType => {
   const ctx = useContext(SectionAnchorContext);
   if (!ctx) throw new Error('useSectionAnchor must be used within SectionAnchorProvider');
   return ctx;
 };
 
-export const SectionAnchorProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const SectionAnchorProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}): React.JSX.Element => {
   const sectionRefs = useRef<Record<string, React.RefObject<HTMLElement | null>>>({});
 
   const registerSection = useCallback((id: string, ref: React.RefObject<HTMLElement | null>) => {
@@ -35,7 +37,7 @@ export const SectionAnchorProvider: React.FC<{ children: React.ReactNode }> = ({
       const entries = Object.entries(sectionRefs.current);
       const scrollY = window.scrollY;
       for (let i = 0; i < entries.length; ++i) {
-        const [id, ref] = entries[i];
+        const [, ref] = entries[i];
         if (!ref?.current) continue;
         const top = ref.current.offsetTop;
         const height = ref.current.offsetHeight;

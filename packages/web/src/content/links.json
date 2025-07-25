@@ -19,14 +19,9 @@
   "nodeRental": "https://galxe.com/zkcloud",
   "whitepaper": "https://whitepaper.cosmos.network/",
   "disclaimer": "https://galxe.com/zkcloud",
-  "svgIcons": [
-    "cosmos.svg",
-    "rocket.svg",
-    "planet.svg",
-    "star.svg"
-  ],
+  "svgIcons": ["cosmos.svg", "rocket.svg", "planet.svg", "star.svg"],
   "opensea": "https://opensea.io/collection/cosmos-nft",
   "nft": "https://stargaze.zone/collections/cosmos-nft",
   "bridge": "https://app.squidrouter.com/bridge?from=ETH&to=ATOM",
   "tangemOrder": "https://tangem.com/en/order/"
-} 
+}

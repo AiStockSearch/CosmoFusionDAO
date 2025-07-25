@@ -4,10 +4,11 @@ import './CardBuilder.css';
 import { listArrayBuilder } from '../content/jobBuilder';
 import { useLocale } from '../hooks/useLocale';
 
-export const CardBuilder = () => {
+export const CardBuilder: React.FC<{ locale?: 'ru' | 'en' }> = ({ locale }) => {
   const [state, setState] = React.useState(5);
   const nodeRefs = React.useRef<(HTMLDivElement | null)[]>([]);
-  const { t } = useLocale();
+  const { t, locale: hookLocale } = useLocale();
+  const currentLocale = locale || hookLocale;
 
   return (
     <div className="flex flex-col gap-2 md:flex-col-reverse">
@@ -24,7 +25,7 @@ export const CardBuilder = () => {
                 state === index ? 'text-cyan-900 font-bold' : 'text-gray-400',
               ].join(' ')}
             >
-              {x.select.en}
+              {x.select[currentLocale]}
             </span>
           </div>
         ))}
@@ -73,42 +74,51 @@ export const CardBuilder = () => {
                 className="jobs-header leading-relaxed text-black"
                 data-testid="cardbuilder-tab-title"
               >
-                {listArrayBuilder[state].title.en}
+                {listArrayBuilder[state].title[currentLocale]}
               </span>
               <span className="jobs-header-desc mb-4 text-cyan-700">
-                {listArrayBuilder[state].description.en}
+                {listArrayBuilder[state].description[currentLocale]}
               </span>
               <span
                 className="jobs-title leading-relaxed"
                 style={{ color: 'var(--color-text-gray-600)' }}
               >
-                {listArrayBuilder[state].arrTitle.en}
+                {listArrayBuilder[state].arrTitle[currentLocale]}
               </span>
               {listArrayBuilder[state]?.arr?.map((x) => (
-                <div key={x.en} className="flex flex-row items-start justify-start">
+                <div key={x[currentLocale]} className="flex flex-row items-start justify-start">
                   <span className="jobs-desc pr-2 leading-relaxed text-gray-500">*</span>
-                  <span className="jobs-desc leading-relaxed text-gray-500">{x.en}</span>
+                  <span className="jobs-desc leading-relaxed text-gray-500">
+                    {x[currentLocale]}
+                  </span>
                 </div>
               ))}
               <span className="jobs-title leading-relaxed text-gray-600">
-                {listArrayBuilder[state].rewardTitle.en}
+                {listArrayBuilder[state].rewardTitle[currentLocale]}
               </span>
               {listArrayBuilder[state]?.reward?.map((x) => (
-                <div key={x.en} className="flex flex-row items-start justify-start">
+                <div key={x[currentLocale]} className="flex flex-row items-start justify-start">
                   <span className="jobs-desc pr-2 leading-relaxed text-gray-500">*</span>
-                  <span className="jobs-desc leading-relaxed text-gray-500">{x.en}</span>
+                  <span className="jobs-desc leading-relaxed text-gray-500">
+                    {x[currentLocale]}
+                  </span>
                 </div>
               ))}
               {listArrayBuilder?.[state]?.addonTitle && (
                 <>
                   <span className="jobs-title leading-relaxed text-gray-600">
-                    {listArrayBuilder[state].addonTitle.en}
+                    {listArrayBuilder[state].addonTitle[currentLocale]}
                   </span>
                   {listArrayBuilder[state]?.addon &&
                     listArrayBuilder?.[state]?.addon?.map((x) => (
-                      <div key={x.en} className="flex flex-row items-start justify-start">
+                      <div
+                        key={x[currentLocale]}
+                        className="flex flex-row items-start justify-start"
+                      >
                         <span className="jobs-desc pr-2 leading-relaxed text-gray-500">*</span>
-                        <span className="jobs-desc leading-relaxed text-gray-500">{x.en}</span>
+                        <span className="jobs-desc leading-relaxed text-gray-500">
+                          {x[currentLocale]}
+                        </span>
                       </div>
                     ))}
                 </>

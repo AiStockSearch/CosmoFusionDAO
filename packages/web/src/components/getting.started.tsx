@@ -1,7 +1,8 @@
 import React from 'react';
 import { CardBuilder } from './comp.CardBuilder';
+import { useLocale } from '../hooks/useLocale';
 
-interface GettingStarterData {
+export interface GettingStarterData {
   title: string;
   description: string;
   arr: string[];
@@ -9,6 +10,7 @@ interface GettingStarterData {
 }
 
 const UseCases: React.FC<{ gettingStarterData: GettingStarterData }> = ({ gettingStarterData }) => {
+  const { locale } = useLocale();
   return (
     <section className="mx-4 xl:ml-56 xl:mr-80 xl:max-w-[70rem]">
       <div className="mt-32">
@@ -20,7 +22,7 @@ const UseCases: React.FC<{ gettingStarterData: GettingStarterData }> = ({ gettin
         </div>
       </div>
       <div className="mt-10">
-        <CardBuilder />
+        <CardBuilder locale={locale} />
       </div>
       <div className="mt-10 flex">
         <div className="my-4 flex flex-col">

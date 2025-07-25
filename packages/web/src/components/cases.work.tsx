@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UseCases = () => {
+const UseCases = (): React.JSX.Element => {
   return (
     <section className="relative my-16 mt-28">
       <div className="ml-4 mr-8 xl:ml-56 xl:mr-80 xl:max-w-[70rem]">

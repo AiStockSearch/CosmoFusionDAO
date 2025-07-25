@@ -5,9 +5,14 @@ import Footer from './sections/Footer';
 import Reflections from './components/reflection.sections';
 import GettingStarted from './components/getting.started';
 import { useSectionContent } from './hooks/useSectionContent';
+import type { HeroSectionProps } from './components/hero.section';
+import type { ProblemSectionProps } from './components/problem.sections';
+import type { ReflectionsProps } from './components/reflection.sections';
+import type { GettingStarterData } from './components/getting.started';
 import { SectionAnchorProvider, useSectionAnchor } from './components/SectionAnchorContext';
 import { Helmet } from 'react-helmet-async';
 import sectionSeo from './content/sectionSeo.json';
+import { useLocale } from './hooks/useLocale';
 
 const defaultLang: 'ru' | 'en' = 'en';
 
@@ -69,16 +74,21 @@ function getSectionFromHash(hash: string): SectionKey {
   return map[hash] || 'hero';
 }
 
-const LandingPage: React.FC = () => {
+const LandingPage: React.FC = (): React.JSX.Element => {
+  const { locale, setLocale } = useLocale();
   const [lang] = useState<'ru' | 'en'>(getInitialLang());
-  const heroSection = useSectionContent('hero');
-  const problemSection = useSectionContent('problem');
-  const reflectionSection = useSectionContent('reflection');
-  const solutionSection = useSectionContent('solution');
-  const evolutionSection = useSectionContent('evolution');
-  const governanceSection = useSectionContent('governance');
-  const motionPhrase = useSectionContent('motionPhrase');
-  const gettingStartedSection = useSectionContent('gettingStarted');
+  const heroSection = useSectionContent('hero') as HeroSectionProps['heroPageEn'];
+  const problemSection = useSectionContent('problem') as ProblemSectionProps['problemPageEn'];
+  const reflectionSection = useSectionContent(
+    'reflection',
+  ) as ReflectionsProps['reflectionsPageEn'];
+  const solutionSection = useSectionContent('solution') as ProblemSectionProps['problemPageEn'];
+  const evolutionSection = useSectionContent('evolution') as ProblemSectionProps['problemPageEn'];
+  const governanceSection = useSectionContent(
+    'governance',
+  ) as ReflectionsProps['reflectionsPageEn'];
+  const motionPhrase = useSectionContent('motionPhrase') as { text: string };
+  const gettingStartedSection = useSectionContent('gettingStarted') as GettingStarterData;
 
   useEffect(() => {
     localStorage.setItem('landing_lang', lang);
@@ -124,6 +134,36 @@ const LandingPage: React.FC = () => {
         <meta name="twitter:site" content="@cosmofusiondao" />
         <meta name="twitter:creator" content="@cosmofusiondao" />
       </Helmet>
+      {/* Language Switcher */}
+      <div style={{ position: 'fixed', top: 16, right: 24, zIndex: 1000 }}>
+        <button
+          onClick={() => setLocale('ru')}
+          style={{
+            fontWeight: locale === 'ru' ? 'bold' : 'normal',
+            background: locale === 'ru' ? '#e0e7ef' : 'transparent',
+            border: '1px solid #b6c2d1',
+            borderRadius: 6,
+            marginRight: 4,
+            padding: '4px 12px',
+            cursor: 'pointer',
+          }}
+        >
+          RU
+        </button>
+        <button
+          onClick={() => setLocale('en')}
+          style={{
+            fontWeight: locale === 'en' ? 'bold' : 'normal',
+            background: locale === 'en' ? '#e0e7ef' : 'transparent',
+            border: '1px solid #b6c2d1',
+            borderRadius: 6,
+            padding: '4px 12px',
+            cursor: 'pointer',
+          }}
+        >
+          EN
+        </button>
+      </div>
       <div className="min-h-screen bg-white">
         {/*
           [en] Hero section:
@@ -147,12 +187,12 @@ const LandingPage: React.FC = () => {
         */}
         <SectionWithAnchor id={sectionAnchors[0]}>
           <HeroSection heroPageEn={heroSection} />
-          <div className="min-h-1/4 mt-16 flex flex-col items-center justify-center bg-gray-200 px-4 py-14">
-            <span className="font-share-tech-mono text-center text-[1.1rem]  font-bold text-gray-900 md:w-[42rem]">
-              {heroSection.subtitle}
-            </span>
-          </div>
         </SectionWithAnchor>
+        <div className="min-h-1/4 mt-16 flex flex-col items-center justify-center bg-gray-200 px-4 py-14">
+          <span className="font-share-tech-mono text-center text-[1.1rem]  font-bold text-gray-900 md:w-[42rem]">
+            {heroSection.subtitle}
+          </span>
+        </div>
         {/*
           [en] Problem section:
           - Purpose: To clearly articulate the pain points and limitations of

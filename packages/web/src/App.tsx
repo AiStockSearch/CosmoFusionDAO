@@ -2,7 +2,7 @@ import React from 'react';
 import LandingPage from './LandingPage';
 import { HelmetProvider } from 'react-helmet-async';
 
-function App() {
+function App(): React.JSX.Element {
   return (
     <HelmetProvider>
       <LandingPage />

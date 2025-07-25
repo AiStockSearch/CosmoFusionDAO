@@ -9,4 +9,4 @@
 [2024-06-19] docs: README.md обновлён под новую структуру
 
 Формат:
-[YYYY-MM-DD] [feat|fix|docs|refactor|test]: Краткое описание (задача) 
+[YYYY-MM-DD] [feat|fix|docs|refactor|test]: Краткое описание (задача)

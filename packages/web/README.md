@@ -43,17 +43,17 @@
 
 ```tsx
 <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-200">
-  <h2 className="text-3xl font-bold text-primary-600">
-    Заголовок
-  </h2>
+  <h2 className="text-3xl font-bold text-primary-600">Заголовок</h2>
 </div>
 ```
 
 ### Кастомные цвета:
+
 - `primary-600` — основной синий цвет
 - `secondary-600` — дополнительный фиолетовый цвет
 
 ### Анимации:
+
 - `animate-fade-in` — плавное появление
 - `animate-slide-up` — появление снизу
 
@@ -75,11 +75,13 @@ yarn deploy
 ```
 
 ## SEO и OpenGraph
+
 - Title, description, og/tw теги выставляются динамически через Helmet
 - SEO-данные секций — в `src/content/sectionSeo.json`
 - og:image/twitter:image — абсолютный путь (https://cosmofusion.app/logo192.png)
 
 ## Адаптивность, accessibility и анимации
+
 - Лендинг адаптивен для мобильных и десктопов
 - Секции плавно появляются при прокрутке
 - Используются Tailwind responsive классы (md:, lg:)
@@ -87,25 +89,30 @@ yarn deploy
 - Поддержка навигации с клавиатуры
 
 ## Локализация
+
 - Автоопределение языка (браузер/гео)
 - Переключатель RU/EN
 - Все секции и alt-тексты локализованы
 - Для новых языков — добавьте ключи в JSON
 
 ## Memory Bank
+
 - Используется только для AI/агента (Cursor)
 - Не хранит пользовательские данные
 - src/shared/memory-bank/
 
 ## Централизованные ссылки
+
 - Все внешние/внутренние ссылки — в `src/content/links.json`
 - Для добавления/редактирования — обновите JSON
 
 ## PWA
+
 - manifest.json, service-worker.js, offline.html
 - offline-режим, favicon, robots.txt, sitemap.xml
 
 ## Тестирование
+
 - Unit-тесты для компонентов (Jest + RTL)
 - Покрытие критических путей
 - Для новых компонентов — автогенерация тестов
@@ -113,6 +120,7 @@ yarn deploy
 ---
 
 **Вопросы и доработки:**
+
 - Для расширения секций — добавьте ключи в JSON
 - Для новых SVG/иконок — положите в assets/svg/
 - Для accessibility — проверяйте aria-label и фокус

@@ -55,32 +55,28 @@ const purchaseTitleRu = 'Покупка и получение';
 
 const footerContent = `
 title: CosmoFusion DAO
-description: CosmoFusion DAO — это сообщество, где каждый может предложить идею, обсудить её с единомышленниками и вместе превратить замыслы в реальные решения. Мы объединяем опыт, сохраняем лучшие практики и строим открытую платформу для честного и прозрачного управления.
+description: CosmoFusion DAO - is a next-generation decentralized community and platform for collective intelligence, open innovation, and transparent governance. Here, every member can propose ideas, discuss them with like-minded people, and together turn concepts into real solutions that benefit the whole ecosystem. We unite people from diverse backgrounds—engineers, visionaries, creators, critics, ambassadors, and explorers—who believe that truth is not a static point, but a continuous journey. In CosmoFusion DAO, ideas evolve through open dialogue, constructive criticism, and collective decision-making. Our mission is to preserve knowledge, share best practices, and build a resilient, adaptive organization where every voice matters. All key processes—proposals, discussions, voting, and results—are recorded on-chain, ensuring full transparency and trust. By joining CosmoFusion DAO, you become part of a global movement to shape the future of decentralized collaboration, support breakthrough projects, and create a space where innovation, fairness, and collective wisdom drive progress. Together, we are building an open platform for honest governance, sustainable growth, and the evolution of ideas.
 buttonText: Work with us
-buttonLink: https://t.me/zkcloud_io
+buttonLink: https://t.me/cosmofusiondao
 buttonText2: Contact us
-buttonLink2: https://t.me/zkcloud_io
+buttonLink2: https://t.me/cosmofusiondao
 linksTitle: Explore
 moreTitle: More
 socialLinks:
   - text: Telegram
-    link: https://t.me/zkcloud_io
+    link: https://t.me/cosmofusiondao
   - text: X
-    link: https://x.com/zkcloud_io
+    link: https://x.com/cosmofusiondao
   - text: Discord
-    link: https://discord.gg/zkcloud
+    link: https://discord.gg/cosmofusion
   - text: Galxe
-    link: https://galxe.com/zkcloud
+    link: https://galxe.com/cosmofusion
 subscribeText: Subscribe to our newsletter
 subscribePlaceholder: Enter your email
 subscribeButton: →
 subscribePrivacyPolicy: We care about your data. Read our privacy policy.
-subscribePrivacyPolicyLink: https://galxe.com/zkcloud
-copyright: ©2025 ZkCloud. All rights reserved.
+subscribePrivacyPolicyLink: https://galxe.com/cosmofusion
 privacyPolicy: Privacy Policy
-backToTop: Back to the top
-backToTopLink: https://galxe.com/zkcloud
-backToTopLinkText: ↑
 `;
 
 const parsed = yaml.parse(footerContent);

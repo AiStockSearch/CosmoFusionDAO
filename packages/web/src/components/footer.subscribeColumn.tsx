@@ -1,11 +1,15 @@
 import type React from 'react';
 
-export const SubscribeColumn = () => {
+export const SubscribeColumn = ({
+  links,
+  title,
+}: {
+  links: Array<{ text: string; link: string }>;
+  title: string;
+}): React.JSX.Element => {
   return (
     <div className="mb-6 flex flex-col gap-2 pt-2 md:w-[22rem]">
-      <span className="font-space-mono mb-4 text-lg font-bold text-cyan-700">
-        Subscribe to our newsletter
-      </span>
+      <span className="font-space-mono mb-4 text-lg font-bold text-cyan-700">{title}</span>
       <div className="relative mb-2 flex space-x-2 rounded-xl bg-gray-100">
         <input
           type="email"

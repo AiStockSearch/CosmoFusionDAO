@@ -9,4 +9,30 @@ Our mission is to preserve knowledge, share best practices, and build a resilien
 
 By joining CosmoFusion DAO, you become part of a global movement to shape the future of decentralized collaboration, support breakthrough projects, and create a space where innovation, fairness, and collective wisdom drive progress. Together, we are building an open platform for honest governance, sustainable growth, and the evolution of ideas.
 `,
+  buttonText: 'Join DAO',
+  buttonLink: '/join',
+  buttonText2: 'Learn More',
+  buttonLink2: '/about',
+  links: [
+    { text: 'Home', link: '/' },
+    { text: 'About', link: '/about' },
+    { text: 'Docs', link: '/docs' },
+    { text: 'Contact', link: '/contact' },
+  ],
+  linksTitle: 'Links',
+  purchase: [
+    { text: 'Buy Token', link: '/buy' },
+    { text: 'Marketplace', link: '/market' },
+  ],
+  purchaseTitle: 'Purchase & Rewards',
+  more: [
+    { text: 'FAQ', link: '/faq' },
+    { text: 'Blog', link: '/blog' },
+  ],
+  moreTitle: 'More',
+  socialLinks: [
+    { text: 'Twitter', link: 'https://twitter.com/cosmofusiondao' },
+    { text: 'Discord', link: 'https://discord.com/invite/cosmofusion' },
+    { text: 'GitHub', link: 'https://github.com/cosmofusion' },
+  ],
 };
