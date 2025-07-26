@@ -6,3 +6,4 @@ Dockerfile
 pattern-labs/*
 fractal-styleguide/*
 .env
+.git
