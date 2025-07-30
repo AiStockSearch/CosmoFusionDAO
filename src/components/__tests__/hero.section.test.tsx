@@ -17,7 +17,7 @@ describe('HeroSection', () => {
   it('рендерит заголовок, описание, список', () => {
     render(
       <SectionAnchorProvider>
-        <HeroSection heroPageEn={heroPageEn} />
+        <HeroSection type="hero" />
       </SectionAnchorProvider>,
     );
     expect(screen.getByText(heroPageEn.idea.title)).toBeInTheDocument();

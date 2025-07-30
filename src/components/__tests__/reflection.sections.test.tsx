@@ -14,7 +14,7 @@ describe('Reflections', () => {
     image: 'test.jpg',
   };
   it('рендерит заголовок, описание, список', () => {
-    render(<Reflections reflectionsPageEn={reflectionsPageEn} />);
+    render(<Reflections type="reflection" />);
     expect(screen.getByText(reflectionsPageEn.title)).toBeInTheDocument();
     expect(screen.getByText(reflectionsPageEn.intro)).toBeInTheDocument();
     expect(screen.getByText('Bias1')).toBeInTheDocument();

@@ -38,6 +38,17 @@ REACT_APP_DISCLAIMER_LINK=
 REACT_APP_SUBSTACK_LINK=https://substack.com/@cosmofusiondao
 REACT_APP_MINT_SCAN_LINK=https://www.mintscan.io/cosmos
 
+# Analytics
+REACT_APP_AMPLITUDE_API_KEY=your_amplitude_api_key_here
+REACT_APP_FIREBASE_API_KEY=your_firebase_api_key_here
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=123456789
+REACT_APP_FIREBASE_APP_ID=1:123456789:web:abcdef
+REACT_APP_FIREBASE_MEASUREMENT_ID=G-XXXXXXXXXX
+REACT_APP_SENTRY_DSN=https://your_sentry_dsn_here
+
 # Инструкции по настройке:
 
 ## 1. Telegram Bot
@@ -45,18 +56,24 @@ REACT_APP_MINT_SCAN_LINK=https://www.mintscan.io/cosmos
 2. Получите токен и добавьте в REACT_APP_TELEGRAM_HTTP_API
 3. Получите Chat ID и добавьте в REACT_APP_TELEGRAM_CHAT_ID
 
-## 2. Ссылки
+## 2. Analytics
+1. **Amplitude**: Зарегистрируйтесь на https://amplitude.com и получите API Key
+2. **Firebase**: Создайте проект на https://console.firebase.google.com и получите конфигурацию
+3. **Sentry**: Зарегистрируйтесь на https://sentry.io и получите DSN
+
+## 3. Ссылки
 - Все ссылки поддерживают fallback значения
 - Если переменная не установлена, используется значение по умолчанию
 - Для кастомных ссылок установите соответствующую переменную
 
-## 3. Безопасность
+## 4. Безопасность
 - НЕ коммитьте .env файл в git
 - Добавьте .env в .gitignore
 - Используйте .env.example для документации
 
-## 4. Проверка
+## 5. Проверка
 После настройки переменных:
 1. Перезапустите dev сервер
 2. Проверьте, что все ссылки работают
-3. Проверьте форму подписки 
+3. Проверьте форму подписки
+4. Проверьте аналитику в консоли браузера (development режим) 
