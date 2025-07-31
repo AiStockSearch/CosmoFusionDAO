@@ -1,0 +1,86 @@
+{
+  "articles": {
+    "mills-trident-substack": {
+      "id": "mills-trident-substack",
+      "title": {
+        "en": "Mill's Trident and CosmoFusion DAO: How Free Speech Shapes the Future of Decentralized Governance",
+        "ru": "Трезубец Милля и CosmoFusion DAO: Как свобода слова формирует будущее децентрализованного управления"
+      },
+      "description": {
+        "en": "In an era where digital transformation reshapes every aspect of human interaction, John Stuart Mill's 19th-century philosophical framework emerges as a beacon of wisdom for our decentralized future.",
+        "ru": "В эпоху, когда цифровая трансформация перестраивает каждый аспект человеческого взаимодействия, философская система Джона Стюарта Милля XIX века становится маяком мудрости для нашего децентрализованного будущего."
+      },
+      "author": "CosmoFusionDAO",
+      "date": "2025-01-27",
+      "platform": "substack",
+      "url": "https://cosmofusiondao.substack.com/p/mills-trident-and-cosmofusion-dao",
+      "tags": ["philosophy", "governance", "free-speech", "mill", "dao"],
+      "readTime": {
+        "en": "15 min read",
+        "ru": "15 мин чтения"
+      },
+      "status": "published",
+      "featured": true
+    },
+    "mills-principles-medium": {
+      "id": "mills-principles-medium",
+      "title": {
+        "en": "John Stuart Mill's Principles and Decentralized Autonomous Organizations: Shaping Fair and Transparent Governance",
+        "ru": "Принципы Джона Стюарта Милля и децентрализованные автономные организации: Формирование справедливого и прозрачного управления"
+      },
+      "description": {
+        "en": "Exploring how Mill's philosophical principles can be applied to modern DAO governance, creating systems that balance individual liberty with collective decision-making.",
+        "ru": "Исследование того, как философские принципы Милля могут быть применены к современному управлению DAO, создавая системы, которые уравновешивают индивидуальную свободу с коллективным принятием решений."
+      },
+      "author": "CosmoFusionDAO",
+      "date": "2025-01-27",
+      "platform": "medium",
+      "url": "https://medium.com/@cosmofusiondao/john-stuart-mills-principles-and-decentralized-autonomous-organizations-shaping-fair-and-9a94ffe92c2c",
+      "tags": ["philosophy", "dao", "governance", "transparency", "liberty"],
+      "readTime": {
+        "en": "12 min read",
+        "ru": "12 мин чтения"
+      },
+      "status": "published",
+      "featured": true
+    }
+  },
+  "categories": {
+    "philosophy": {
+      "en": "Philosophy",
+      "ru": "Философия"
+    },
+    "governance": {
+      "en": "Governance", 
+      "ru": "Управление"
+    },
+    "dao": {
+      "en": "DAO",
+      "ru": "DAO"
+    },
+    "free-speech": {
+      "en": "Free Speech",
+      "ru": "Свобода слова"
+    },
+    "transparency": {
+      "en": "Transparency",
+      "ru": "Прозрачность"
+    },
+    "liberty": {
+      "en": "Liberty",
+      "ru": "Свобода"
+    }
+  },
+  "platforms": {
+    "substack": {
+      "name": "Substack",
+      "url": "https://cosmofusiondao.substack.com",
+      "icon": "📧"
+    },
+    "medium": {
+      "name": "Medium", 
+      "url": "https://medium.com/@cosmofusiondao",
+      "icon": "📝"
+    }
+  }
+} 

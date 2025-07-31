@@ -12,12 +12,32 @@ export const ImmutableJournalSection: React.FC = () => {
         title: string;
         subtitle: string;
         text: string;
+        url?: string;
+        platform?: string;
       },
       idx: number,
     ) => (
       <div
         key={idx}
-        className="flex-shrink-0 min-w-[18rem] max-w-[18rem] bg-[#f5f8fe] rounded-[32px] shadow-lg p-1 h-[20rem] relative mb-3 border-[0.14rem] border-cyan-900"
+        className={`flex-shrink-0 min-w-[18rem] max-w-[18rem] bg-[#f5f8fe] rounded-[32px] shadow-lg p-1 h-[20rem] relative mb-3 border-[0.14rem] border-cyan-900 ${ entry.url ? 'cursor-pointer hover:shadow-xl transition-shadow duration-300' : ''
+          }`}
+        onClick={() =>
+        {
+          if ( entry.url )
+          {
+            window.open( entry.url, '_blank', 'noopener,noreferrer' );
+          }
+        }}
+        onKeyDown={( e ) =>
+        {
+          if ( entry.url && ( e.key === 'Enter' || e.key === ' ' ) )
+          {
+            e.preventDefault();
+            window.open( entry.url, '_blank', 'noopener,noreferrer' );
+          }
+        }}
+        role={entry.url ? 'button' : undefined}
+        tabIndex={entry.url ? 0 : undefined}
       >
         <div className="px-3 pt-3 h-[5rem]">
           <div className="text-[0.72rem] font-bold text-gray-400 mb-1">{entry.date}</div>
@@ -52,6 +72,16 @@ export const ImmutableJournalSection: React.FC = () => {
           >
             {entry.text}
           </span>
+          {entry.url && entry.platform && (
+            <div className="mt-2 flex items-center">
+              <span className="text-xs text-cyan-600 font-medium">
+                <span className="mr-1">
+                  {entry.platform === 'Substack' ? '📧' : entry.platform === 'Medium' ? '📝' : '🔗'}
+                </span>
+                {entry.platform}
+              </span>
+            </div>
+          )}
         </div>
       </div>
     ),

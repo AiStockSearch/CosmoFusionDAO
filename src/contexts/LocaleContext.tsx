@@ -1,6 +1,8 @@
 import React, { createContext } from 'react';
 import enTranslations from '../content/translations-en.json';
 import ruTranslations from '../content/translations-ru.json';
+import enJournalEntries from '../content/journalEntriesEn.json';
+import ruJournalEntries from '../content/journalEntriesRu.json';
 // Импорт картинок для секций (en/ru)
 import problemImageEnJpg from '../assets/images/problem-alone.jpg';
 import problemImageEnWebp from '../assets/images/problem-alone.webp';
@@ -41,6 +43,8 @@ interface JournalEntry {
   title: string;
   subtitle: string;
   text: string;
+  url?: string;
+  platform?: string;
 }
 
 interface FooterData {
@@ -152,7 +156,7 @@ export const LocaleProvider = ({ children }: { children: React.ReactNode }) => {
     setGovernanceSection(withImages('governance', locale === 'ru' ? (ruTranslations as any).governance : (enTranslations as any).governance, locale));
     setCardBuilder( withJobBuilderImages( locale === 'ru' ? ( ruTranslations as any ).jobBuilder.roles : ( enTranslations as any ).jobBuilder.roles, locale ) );
     setJournalSection(withImages('journal', locale === 'ru' ? (ruTranslations as any).journal : (enTranslations as any).journal, locale));
-    setJournalEntries(locale === 'ru' ? (ruTranslations as any).journalEntries : (enTranslations as any).journalEntries);
+    setJournalEntries( locale === 'ru' ? ruJournalEntries : enJournalEntries );
     if (typeof window !== 'undefined') {
       localStorage.setItem(LOCALE_KEY, locale);
     }
