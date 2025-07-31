@@ -41,6 +41,12 @@ src/
 ├── telegram-bot/        # Telegram integration
 ├── types/               # TypeScript types
 └── utils/               # Utility functions
+
+docs/                    # 📚 Project Documentation
+├── setup/               # 🔧 Configuration & Setup
+├── audit/               # 🔍 Audit Reports
+├── optimization/        # 🚀 Performance & Optimization
+└── accessibility/       # ♿ Accessibility & WCAG
 ```
 
 ## Technologies
@@ -185,6 +191,28 @@ yarn build
 
 # The build folder contains deployable files
 ```
+
+## 📚 Documentation
+
+**📁 [docs/](./docs/README.md)** - Complete project documentation organized by categories:
+
+### 🔧 **Setup & Configuration** [`docs/setup/`](./docs/setup/)
+- Environment variables, security setup, Telegram bot configuration
+
+### 🔍 **Audit & Reports** [`docs/audit/`](./docs/audit/)
+- Analytics integration, file audit, cleanup reports
+
+### 🚀 **Optimization & Performance** [`docs/optimization/`](./docs/optimization/)
+- Lighthouse optimizations, security fixes, performance metrics
+
+### ♿ **Accessibility & WCAG** [`docs/accessibility/`](./docs/accessibility/)
+- WCAG compliance, accessibility fixes, testing reports
+
+**📋 Quick Links:**
+- [CHANGELOG.md](./CHANGELOG.md) - Project changelog and updates
+- [docs/setup/ENV_EXAMPLE.md](./docs/setup/ENV_EXAMPLE.md) - Environment variables
+- [docs/setup/SECURITY_SETUP.md](./docs/setup/SECURITY_SETUP.md) - Security configuration
+- [docs/setup/TELEGRAM_SETUP.md](./docs/setup/TELEGRAM_SETUP.md) - Telegram bot setup
 
 ## Analytics
 
